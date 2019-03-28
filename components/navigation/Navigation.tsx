@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Dropdown from './Dropdown';
 import List from '@material-ui/core/List';
 import Typography from '@material-ui/core/Typography';
 import { NavigationTypes, NavigationClothes } from '../../features/lang/pl';
@@ -123,33 +124,6 @@ class Navigation extends Component<Props> {
       </>
     )
   }
-}
-
-const Dropdown = (props: any) => {
-  const { list, mouseIn, mouseOut } = props;
-  return (
-    <>
-      <ul
-        className="nav__dropdown"
-        onMouseEnter={mouseIn}
-        onMouseLeave={mouseOut}
-      >
-        {
-          list.map((item: any, index: number) => {
-            return (
-              <Typography
-                key={index}
-                component="li"
-                variant="caption"
-              >
-                {item.product}
-              </Typography>
-            )
-          })
-        }
-      </ul>
-    </>
-  )
 }
 
 export default withStyles(styles)(Navigation);

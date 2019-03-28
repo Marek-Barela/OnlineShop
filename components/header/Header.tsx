@@ -2,6 +2,7 @@ import React from 'react';
 import Gender from './Gender';
 import Logo from './Logo';
 import ShopCard from './ShopCard';
+import '../header/header.css';
 import { HeaderTypes } from '../../features/lang/pl';
 import { NextFunctionComponent } from 'next';
 import { createStyles, withStyles, WithStyles } from '@material-ui/core/styles';
