@@ -2,6 +2,7 @@ import React from 'react';
 import Gender from './Gender';
 import Logo from './Logo';
 import ShopCard from './ShopCard';
+import { HeaderTypes } from '../../features/lang/pl';
 import { NextFunctionComponent } from 'next';
 import { createStyles, withStyles, WithStyles } from '@material-ui/core/styles';
 
@@ -18,13 +19,17 @@ const styles = () => createStyles({
   }
 });
 
-type Props = WithStyles<typeof styles>;
+interface StateProps {
+  gender: HeaderTypes;
+}
+
+type Props = StateProps & WithStyles<typeof styles>;
 
 const Header: NextFunctionComponent<Props> = props => {
-  const { classes } = props;
+  const { classes, gender } = props;
   return (
     <header className={classes.root}>
-      <Gender />
+      <Gender gender={gender} />
       <Logo />
       <ShopCard />
     </header>

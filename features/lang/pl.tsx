@@ -5,6 +5,11 @@ export interface NavigationTypes {
   accesories: string
 }
 
+export interface HeaderTypes {
+  woman: string,
+  man: string,
+}
+
 export interface NavigationClothes {
   navClothes: {}[];
   navBoots: {}[];
@@ -12,8 +17,9 @@ export interface NavigationClothes {
   navAccesories: {}[];
 }
 
-export const header = {
-
+export const header: HeaderTypes = {
+  woman: "KOBIETA",
+  man: "MĘŻCZYZNA"
 }
 
 export const navigation: NavigationTypes = {
