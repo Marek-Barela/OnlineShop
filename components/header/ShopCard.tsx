@@ -14,7 +14,7 @@ const styles = () => createStyles({
   icon: {
     margin: '0 8px',
     color: "grey",
-    fontSize: '.95em',
+    fontSize: '1.1em',
   }
 });
 

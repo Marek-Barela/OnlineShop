@@ -1,23 +1,23 @@
 import React from 'react';
 import Home from '../components/home/Home';
-import * as Language from '../features/lang/pl';
+import * as Language from '../features/lang/eng';
 import getStore from '../features/redux/selectors';
 import { RootAction } from '../features/redux/root-actions';
 import { RootState } from '../features/redux/root-reducer';
 import { NextFunctionComponent } from 'next';
 import { Store } from 'redux';
 
-const PL: NextFunctionComponent<{}, {}, Store<RootState, RootAction>> = () => {
+const ENG: NextFunctionComponent<{}, {}, Store<RootState, RootAction>> = () => {
   return (
     <div>
       <Home {...Language} />
     </div>);
 };
 
-PL.getInitialProps = async (store) => {
+ENG.getInitialProps = async (store) => {
   const action = getStore(store)
   //action.dispatch(fetchCounter());
   return {};
 };
 
-export default PL;
+export default ENG;
