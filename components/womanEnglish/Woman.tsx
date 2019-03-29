@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Layout from '../layout/Layout';
-import { withRouter } from 'next/router'
-import { NavigationTypes, NavigationClothes, HeaderTypes } from '../../features/lang/pl';
+import { withRouter } from 'next/router';
+import { NavigationTypes, NavigationClothes, HeaderTypes } from '../../features/lang/eng';
 
 interface Props {
   navigation: NavigationTypes;
@@ -10,14 +10,22 @@ interface Props {
   router: any;
 }
 
-class AppContentPl extends Component<Props> {
+export interface Gender {
+  woman: string;
+  man: string;
+  defaultGender: string;
+}
+
+class Woman extends Component<Props> {
   render() {
     const { header, navigation, navigationList, router } = this.props;
+    const genderURL: Gender = { woman: '/eng/woman', man: '/eng/man', defaultGender: 'woman' }
     return (
       <Layout
         header={header}
         navigation={navigation}
         navigationList={navigationList}
+        URL={genderURL}
       >
         <div>
           {router.query.title}
@@ -27,4 +35,4 @@ class AppContentPl extends Component<Props> {
   }
 }
 
-export default withRouter(AppContentPl);
+export default withRouter(Woman);

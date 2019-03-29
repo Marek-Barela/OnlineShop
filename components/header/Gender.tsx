@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
+import Link from 'next/link';
+import { Gender as GenderDefinition } from '../manPolish/Man';
 import { getGender } from '../../features/gender/selectors';
 import { HeaderTypes } from '../../features/lang/pl';
 import { changeGender } from '../../features/gender/actions';
-import { NextFunctionComponent } from 'next';
 import { Theme } from '@material-ui/core/styles/createMuiTheme';
 import { createStyles, withStyles, WithStyles } from '@material-ui/core/styles';
 import { RootState } from '../../features/redux/root-reducer';
@@ -13,17 +14,21 @@ import { connect } from 'react-redux';
 const styles = (theme: Theme) => createStyles({
   text__default: {
     color: theme.palette.secondary.main,
-    fontSize: "13px"
+    fontSize: '13px'
   },
   span__element: {
-    margin: "0 15px",
+    margin: '0 15px',
     cursor: 'pointer',
     userSelect: 'none'
+  },
+  anchor: {
+    textDecoration: 'none'
   }
 });
 
 interface ParentProps {
   gender: HeaderTypes;
+  URL: GenderDefinition;
 }
 
 interface StateProps {
@@ -36,29 +41,42 @@ interface DispatchProps {
 
 type Props = ParentProps & StateProps & DispatchProps & WithStyles<typeof styles>;
 
-const Gender: NextFunctionComponent<Props> = props => {
-  const { classes, gender, genderType, onGenderChange } = props;
-  const female = genderType === "woman" && "active-gender";
-  const male = genderType === "man" && "active-gender";
-  return (
-    <Grid item xs={4}>
-      <Typography className={classes.text__default} variant="caption">
-        <span
-          onClick={() => onGenderChange("woman")}
-          className={`${classes.span__element} ${female}`}
-        >
-          {gender.woman}
-        </span>
-        |
-        <span
-          onClick={() => onGenderChange("man")}
-          className={`${classes.span__element} ${male}`}
-        >
-          {gender.man}
-        </span>
-      </Typography>
-    </Grid>
-  )
+class Gender extends Component<Props> {
+  componentDidMount() {
+    //Set default gender styling
+    const { URL, onGenderChange } = this.props;
+    onGenderChange(URL.defaultGender)
+  }
+  render() {
+    const { classes, gender, genderType, URL } = this.props;
+    const female = genderType === "woman" && "active-gender";
+    const male = genderType === "man" && "active-gender";
+    return (
+      <Grid item xs={4}>
+        <Typography className={classes.text__default} variant="caption">
+          <Link href={URL.woman}>
+            <a className={classes.anchor}>
+              <span
+                className={`${classes.span__element} ${female}`}
+              >
+                {gender.woman}
+              </span>
+            </a>
+          </Link>
+          |
+        <Link href={URL.man}>
+            <a className={classes.anchor}>
+              <span
+                className={`${classes.span__element} ${male}`}
+              >
+                {gender.man}
+              </span>
+            </a>
+          </Link>
+        </Typography>
+      </Grid>
+    )
+  }
 }
 
 const mapStateToProps = (state: RootState) => {

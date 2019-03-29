@@ -7,7 +7,7 @@ export type CounterState = {
 };
 
 export const initialState: CounterState = {
-  gender: "woman"
+  gender: ""
 }
 
 export default function (state: CounterState = initialState, action: RootAction): CounterState {

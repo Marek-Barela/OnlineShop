@@ -3,7 +3,7 @@
   padding: 10px 30px;
   font-size: 11px !important;
   font-weight: lighter !important;
-  border-bottom: 1px solid transparent;
+  border-bottom: 2px solid transparent;
 }
 
 .nav__dropdown {
@@ -40,5 +40,5 @@ nav:hover~.nav__dropdown,
 }
 
 .item__active {
-  border-bottom: 1px solid black;
+  border-bottom: 2px solid black;
 }
