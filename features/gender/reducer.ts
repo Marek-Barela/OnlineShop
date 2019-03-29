@@ -2,15 +2,15 @@ import { RootAction } from '../redux/root-actions';
 import { changeGender } from './actions';
 import { getType } from 'typesafe-actions';
 
-export type CounterState = {
+export type GenderState = {
   gender: string
 };
 
-export const initialState: CounterState = {
+export const initialState: GenderState = {
   gender: ""
 }
 
-export default function (state: CounterState = initialState, action: RootAction): CounterState {
+export default function (state: GenderState = initialState, action: RootAction): GenderState {
   switch (action.type) {
     case (getType(changeGender)):
       return {
