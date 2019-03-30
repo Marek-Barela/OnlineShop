@@ -1,14 +1,12 @@
 import React from 'react';
-import { RootAction } from '../features/redux/root-actions';
-import { RootState } from '../features/redux/root-reducer';
+import Home from '../components/home/Home';
 import { NextFunctionComponent } from 'next';
-import { Store } from 'redux';
 
-const App: NextFunctionComponent<{}, {}, Store<RootState, RootAction>> = () => {
+const App: NextFunctionComponent<{}> = () => {
   return (
-    <div>
-      index
-    </div>
+    <>
+      <Home />
+    </>
   );
 };
 
