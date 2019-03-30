@@ -9,7 +9,7 @@ interface Props {
   navigation: NavigationTypes;
   navigationList: NavigationClothes;
   header: HeaderTypes;
-  children: JSX.Element;
+  children: JSX.Element | JSX.Element[];
   URL: Gender;
 }
 

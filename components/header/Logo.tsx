@@ -6,7 +6,7 @@ import Grid from '@material-ui/core/Grid';
 const Logo: NextFunctionComponent<{}> = () => {
   return (
     <Grid item xs={4}>
-      <Typography component="h1" variant="subtitle1" align="center">Valentina</Typography>
+      <Typography component="h1" variant="subtitle1" align="center">Vitalina</Typography>
     </Grid>
   )
 }

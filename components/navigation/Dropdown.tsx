@@ -1,16 +1,18 @@
 import React, { MouseEventHandler } from 'react';
 import Link from 'next/link';
 import Typography from '@material-ui/core/Typography';
+import { withRouter } from 'next/router';
 import { NextFunctionComponent } from 'next';
 
 interface Props {
   list: never[];
   mouseIn: MouseEventHandler;
   mouseOut: MouseEventHandler;
+  router: any;
 }
 
 const Dropdown: NextFunctionComponent<Props> = props => {
-  const { list, mouseIn, mouseOut } = props;
+  const { list, mouseIn, mouseOut, router } = props;
   return (
     <>
       <ul
@@ -21,7 +23,7 @@ const Dropdown: NextFunctionComponent<Props> = props => {
         {
           list.map((item: any, index: number) => {
             return (
-              <Link key={index} href={`/?title=${item.product}`}>
+              <Link key={index} href={`${router.route}?title=${item.product}`}>
                 <a>
                   <Typography
                     component="li"
@@ -39,4 +41,4 @@ const Dropdown: NextFunctionComponent<Props> = props => {
   )
 }
 
-export default Dropdown;
+export default withRouter(Dropdown);

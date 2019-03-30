@@ -22,6 +22,7 @@ const styles = (theme: Theme) => createStyles({
     userSelect: 'none'
   },
   anchor: {
+    color: 'inherit',
     textDecoration: 'none'
   }
 });

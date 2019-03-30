@@ -2,7 +2,6 @@
   cursor: pointer;
   padding: 10px 30px;
   font-size: 11px !important;
-  font-weight: lighter !important;
   border-bottom: 2px solid transparent;
 }
 
@@ -14,7 +13,6 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  border-bottom: 1px solid #e9e9e9;
   opacity: 0;
   height: 0;
   background-color: #ffffff;
@@ -41,4 +39,5 @@ nav:hover~.nav__dropdown,
 
 .item__active {
   border-bottom: 2px solid black;
+  font-weight: bold !important;
 }

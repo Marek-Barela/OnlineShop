@@ -1,14 +1,36 @@
 import React, { Component } from 'react';
 import Layout from '../layout/Layout';
+import Typography from '@material-ui/core/Typography';
 import { withRouter } from 'next/router';
 import { NavigationTypes, NavigationClothes, HeaderTypes } from '../../features/lang/pl';
+import { createStyles, withStyles, WithStyles } from '@material-ui/core/styles';
 
-interface Props {
+const styles = () => createStyles({
+  banner: {
+    height: '240px',
+    display: 'flex',
+    alignItems: 'center',
+    backgroundImage: 'url(https://mosaic03.ztat.net/crt/creative-content/3a516d0f-f53c-4091-8790-30d7daead691.jpg)',
+    backgroundSize: 'cover'
+  },
+  text: {
+    color: 'white',
+    textTransform: 'uppercase',
+    fontWeight: 'bold',
+    width: '40%',
+    marginLeft: '12%',
+    userSelect: 'none'
+  }
+});
+
+interface StateProps {
   navigation: NavigationTypes;
   navigationList: NavigationClothes;
   header: HeaderTypes;
   router: any;
 }
+
+type Props = StateProps & WithStyles<typeof styles>;
 
 export interface Gender {
   woman: string;
@@ -18,7 +40,7 @@ export interface Gender {
 
 class Man extends Component<Props> {
   render() {
-    const { header, navigation, navigationList, router } = this.props;
+    const { header, navigation, navigationList, router, classes } = this.props;
     const genderURL: Gender = { woman: '/pl/kobieta', man: '/pl/mezczyzna', defaultGender: 'man' };
     return (
       <Layout
@@ -27,6 +49,11 @@ class Man extends Component<Props> {
         navigationList={navigationList}
         URL={genderURL}
       >
+        <div className={classes.banner}>
+          <Typography className={classes.text} component="h3" variant="h4">
+            Już wkrótce najnowsze trendy...
+          </Typography>
+        </div>
         <div>
           {router.query.title}
         </div>
@@ -35,4 +62,4 @@ class Man extends Component<Props> {
   }
 }
 
-export default withRouter(Man);
+export default withStyles(styles)(withRouter(Man));
