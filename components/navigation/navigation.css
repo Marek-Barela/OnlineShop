@@ -1,8 +1,7 @@
 .nav-list__element {
   cursor: pointer;
-  padding: 10px 30px;
-  font-size: 11px !important;
-  border-bottom: 2px solid transparent;
+  padding: 10px 40px 30px 40px;
+  font-size: 14px !important;
 }
 
 .nav__dropdown {
@@ -15,7 +14,7 @@
   width: 100%;
   opacity: 0;
   height: 0;
-  background-color: #ffffff;
+  background-color: #F2F2F2;
   padding: 0;
   margin: 0;
   list-style-type: none;
@@ -38,6 +37,5 @@ nav:hover~.nav__dropdown,
 }
 
 .item__active {
-  border-bottom: 2px solid black;
   font-weight: bold !important;
 }

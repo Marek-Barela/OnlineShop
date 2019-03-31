@@ -14,6 +14,12 @@ const styles = () => createStyles({
     height: '16vh',
     backgroundColor: '#ffffff',
   },
+  logo: {
+    textAlign: 'center',
+    fontFamily: 'Tangerine, cursive',
+    userSelect: 'none',
+    fontWeight: 700
+  },
   hero: {
     height: '84vh',
     backgroundImage: 'url(https://images.pexels.com/photos/135620/pexels-photo-135620.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940)',
@@ -85,11 +91,11 @@ class Home extends Component<Props> {
     return (
       <>
         <header className={classes.root}>
-          <Typography component="h1" variant="h5">
+          <Typography component="h1" variant="h2" className={classes.logo}>
             Vitalina
           </Typography>
         </header>
-        <div className={classes.hero}>
+        <main className={classes.hero}>
           <FormControl className={classes.form}>
             <Typography component="h3" variant="caption">
               SELECT LANGUAGE
@@ -119,7 +125,7 @@ class Home extends Component<Props> {
               </a>
             </Link>
           </FormControl>
-        </div>
+        </main>
       </>
     );
   }

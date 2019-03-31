@@ -9,10 +9,11 @@ import './navigation.css';
 const styles = () => createStyles({
   root: {
     width: '100%',
+    maxWidth: 700,
+    margin: '0 auto',
     background: '#ffffff',
-    borderBottom: "1px solid #e9e9e9",
     display: 'flex',
-    padding: '0',
+    padding: 0,
     zIndex: 100
   },
   list: {
@@ -39,7 +40,7 @@ type Props = StateProps & WithStyles<typeof styles>;
 class Navigation extends Component<Props> {
   state = {
     linksList: [],
-    activeNavElement: 'clothes',
+    activeNavElement: '',
     isActiveNav: false
   }
 

@@ -50,6 +50,7 @@ class MyApp extends App<Props> {
           <title>Boilerplate</title>
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" />
+          <link href="https://fonts.googleapis.com/css?family=Tangerine:700" rel="stylesheet" />
           <link rel="icon" type="image/x-icon" href="https://reactnativeexample.com/favicon.png" />
         </Head>
         <JssProvider

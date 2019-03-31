@@ -55,10 +55,6 @@ class Woman extends Component<Props> {
           </Typography>
         </div>
         <div>
-          <div></div>
-          <div></div>
-        </div>
-        <div>
           {router.query.title}
         </div>
       </Layout>

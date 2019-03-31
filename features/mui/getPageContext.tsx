@@ -23,6 +23,9 @@ const theme = createMuiTheme({
       main: grey[500],
       dark: grey[700],
     },
+    background: {
+      default: '#ffffff'
+    }
   },
   typography: {
     useNextVariants: true,

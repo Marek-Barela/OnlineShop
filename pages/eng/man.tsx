@@ -17,7 +17,6 @@ const ManPage: NextFunctionComponent<{}, {}, Store<RootState, RootAction>> = () 
 
 ManPage.getInitialProps = async (store) => {
   const action = getStore(store)
-  //action.dispatch(fetchCounter());
   return {};
 };
 

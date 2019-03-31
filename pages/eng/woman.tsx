@@ -17,7 +17,6 @@ const WomanPage: NextFunctionComponent<{}, {}, Store<RootState, RootAction>> = (
 
 WomanPage.getInitialProps = async (store) => {
   const action = getStore(store)
-  //action.dispatch(fetchCounter());
   return {};
 };
 
