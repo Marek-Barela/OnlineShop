@@ -1,5 +1,6 @@
 import React from 'react';
 import Man from '../../components/manPolish/Man';
+import { fetchProducts } from '../../features/maleProducts/actions';
 import * as Language from '../../features/lang/pl';
 import getStore from '../../features/redux/selectors';
 import { RootAction } from '../../features/redux/root-actions';
@@ -17,6 +18,7 @@ const ManPage: NextFunctionComponent<{}, {}, Store<RootState, RootAction>> = () 
 
 ManPage.getInitialProps = async (store) => {
   const action = getStore(store)
+  action.dispatch(fetchProducts())
   return {};
 };
 

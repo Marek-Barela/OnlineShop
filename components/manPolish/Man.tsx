@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import Layout from '../layout/Layout';
 import Typography from '@material-ui/core/Typography';
+import { getProducts} from '../../features/maleProducts/selectors';
+import { JSONCategoriesResponse } from '../../features/maleProducts/model';
+import { connect } from 'react-redux';
+import { RootState } from '../../features/redux/root-reducer';
 import { withRouter } from 'next/router';
 import { NavigationTypes, NavigationClothes, HeaderTypes } from '../../features/lang/pl';
 import { createStyles, withStyles, WithStyles } from '@material-ui/core/styles';
@@ -23,14 +27,18 @@ const styles = () => createStyles({
   }
 });
 
-interface StateProps {
+interface ParentProps {
   navigation: NavigationTypes;
   navigationList: NavigationClothes;
   header: HeaderTypes;
   router: any;
 }
 
-type Props = StateProps & WithStyles<typeof styles>;
+interface StateProps {
+  categories: JSONCategoriesResponse
+}
+
+type Props = StateProps & ParentProps & WithStyles<typeof styles>;
 
 export interface Gender {
   woman: string;
@@ -62,4 +70,12 @@ class Man extends Component<Props> {
   }
 }
 
-export default withStyles(styles)(withRouter(Man));
+const mapStateToProps = (state: RootState) => {
+  const categories = getProducts(state)
+
+  return {
+    categories
+  };
+};
+
+export default connect<StateProps, {}, {}, RootState>(mapStateToProps, {})(withStyles(styles)(withRouter(Man)));

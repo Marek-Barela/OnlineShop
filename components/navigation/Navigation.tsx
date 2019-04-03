@@ -9,7 +9,7 @@ import './navigation.css';
 const styles = () => createStyles({
   root: {
     width: '100%',
-    maxWidth: 700,
+    maxWidth: 500,
     margin: '0 auto',
     background: '#ffffff',
     display: 'flex',
