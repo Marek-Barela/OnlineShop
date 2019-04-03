@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import Layout from '../layout/Layout';
 import Typography from '@material-ui/core/Typography';
-import { getProducts} from '../../features/maleProducts/selectors';
+import { getProducts } from '../../features/maleProducts/selectors';
 import { JSONCategoriesResponse } from '../../features/maleProducts/model';
 import { connect } from 'react-redux';
 import { RootState } from '../../features/redux/root-reducer';
 import { withRouter } from 'next/router';
-import { NavigationTypes, NavigationClothes, HeaderTypes } from '../../features/lang/pl';
 import { createStyles, withStyles, WithStyles } from '@material-ui/core/styles';
 
 const styles = () => createStyles({
@@ -28,9 +27,6 @@ const styles = () => createStyles({
 });
 
 interface ParentProps {
-  navigation: NavigationTypes;
-  navigationList: NavigationClothes;
-  header: HeaderTypes;
   router: any;
 }
 
@@ -48,13 +44,11 @@ export interface Gender {
 
 class Man extends Component<Props> {
   render() {
-    const { header, navigation, navigationList, router, classes } = this.props;
-    const genderURL: Gender = { woman: '/pl/kobieta', man: '/pl/mezczyzna', defaultGender: 'man' };
+    const { categories, router, classes } = this.props;
+    const genderURL: Gender = { woman: '/kobieta', man: '/mezczyzna', defaultGender: 'man' };
     return (
       <Layout
-        header={header}
-        navigation={navigation}
-        navigationList={navigationList}
+        navigationList={categories}
         URL={genderURL}
       >
         <div className={classes.banner}>

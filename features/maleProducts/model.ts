@@ -3,29 +3,10 @@ export interface JSONCategoriesLanguageResponse {
 }
 
 export interface JSONCategoriesResponse {
-  clothes: {
-    shirt: Products[];
-    jeans: Products[];
-    jacket: Products[];
-    trousers: Products[];
-    sweater: Products[];
-  },
-  boots: {
-    elasticsides: Products[];
-    moccasins: Products[];
-    shoes: Products[];
-  },
-  sport: {
-    tracksuit: Products[];
-    sportshirt: Products[];
-    sportjacket: Products[];
-  },
-  accesories: {
-    backpack: Products[];
-    bags: Products[];
-    watches: Products[];
-    jewelry: Products[];
-  }
+  clothes: Products[];
+  boots: Products[];
+  sport: Products[];
+  accesories: Products[];
 }
 
 export interface Products {

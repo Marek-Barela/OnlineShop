@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import Layout from '../layout/Layout';
 import Typography from '@material-ui/core/Typography';
+import { getProducts } from '../../features/maleProducts/selectors';
+import { JSONCategoriesResponse } from '../../features/maleProducts/model';
+import { connect } from 'react-redux';
+import { RootState } from '../../features/redux/root-reducer';
 import { withRouter } from 'next/router';
-import { NavigationTypes, NavigationClothes, HeaderTypes } from '../../features/lang/pl';
 import { createStyles, withStyles, WithStyles } from '@material-ui/core/styles';
 
 const styles = () => createStyles({
@@ -23,14 +26,15 @@ const styles = () => createStyles({
   }
 });
 
-interface StateProps {
-  navigation: NavigationTypes;
-  navigationList: NavigationClothes;
-  header: HeaderTypes;
+interface ParentProps {
   router: any;
 }
 
-type Props = StateProps & WithStyles<typeof styles>;
+interface StateProps {
+  categories: JSONCategoriesResponse
+}
+
+type Props = StateProps & ParentProps & WithStyles<typeof styles>;
 
 export interface Gender {
   woman: string;
@@ -40,13 +44,11 @@ export interface Gender {
 
 class Woman extends Component<Props> {
   render() {
-    const { header, navigation, navigationList, router, classes } = this.props;
-    const genderURL: Gender = { woman: '/pl/kobieta', man: '/pl/mezczyzna', defaultGender: 'woman' };
+    const { categories, router, classes } = this.props;
+    const genderURL: Gender = { woman: '/kobieta', man: '/mezczyzna', defaultGender: 'woman' };
     return (
       <Layout
-        header={header}
-        navigation={navigation}
-        navigationList={navigationList}
+        navigationList={categories}
         URL={genderURL}
       >
         <div className={classes.banner}>
@@ -62,4 +64,12 @@ class Woman extends Component<Props> {
   }
 }
 
-export default withStyles(styles)(withRouter(Woman));
+const mapStateToProps = (state: RootState) => {
+  const categories = getProducts(state)
+
+  return {
+    categories
+  };
+};
+
+export default connect<StateProps, {}, {}, RootState>(mapStateToProps, {})(withStyles(styles)(withRouter(Woman)));

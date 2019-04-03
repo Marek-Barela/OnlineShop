@@ -2,9 +2,8 @@ import React, { Component } from 'react';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Link from 'next/link';
-import { Gender as GenderDefinition } from '../manPolish/Man';
+import { Gender as GenderDefinition } from '../man/Man';
 import { getGender } from '../../features/gender/selectors';
-import { HeaderTypes } from '../../features/lang/pl';
 import { changeGender } from '../../features/gender/actions';
 import { Theme } from '@material-ui/core/styles/createMuiTheme';
 import { createStyles, withStyles, WithStyles } from '@material-ui/core/styles';
@@ -28,7 +27,6 @@ const styles = (theme: Theme) => createStyles({
 });
 
 interface ParentProps {
-  gender: HeaderTypes;
   URL: GenderDefinition;
 }
 
@@ -49,28 +47,28 @@ class Gender extends Component<Props> {
     onGenderChange(URL.defaultGender)
   }
   render() {
-    const { classes, gender, genderType, URL } = this.props;
+    const { classes, genderType } = this.props;
     const female = genderType === "woman" && "active-gender";
     const male = genderType === "man" && "active-gender";
     return (
       <Grid item xs={4}>
         <Typography className={classes.text__default} variant="caption">
-          <Link href={URL.woman}>
+          <Link href="/kobieta">
             <a className={classes.anchor}>
               <span
                 className={`${classes.span__element} ${female}`}
               >
-                {gender.woman}
+                Kobieta
               </span>
             </a>
           </Link>
           |
-        <Link href={URL.man}>
+        <Link href="/mezczyzna">
             <a className={classes.anchor}>
               <span
                 className={`${classes.span__element} ${male}`}
               >
-                {gender.man}
+                Mężczyzna
               </span>
             </a>
           </Link>

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Dropdown from './Dropdown';
 import List from '@material-ui/core/List';
 import Typography from '@material-ui/core/Typography';
-import { NavigationTypes, NavigationClothes } from '../../features/lang/pl';
+import { JSONCategoriesResponse, Products } from '../../features/maleProducts/model';
 import { createStyles, withStyles, WithStyles } from '@material-ui/core/styles';
 import './navigation.css';
 
@@ -31,28 +31,28 @@ const styles = () => createStyles({
 });
 
 interface StateProps {
-  menu: NavigationTypes;
-  dropdownList: NavigationClothes;
+  dropdownList: JSONCategoriesResponse;
 }
 
 type Props = StateProps & WithStyles<typeof styles>;
 
 class Navigation extends Component<Props> {
   state = {
-    linksList: [],
+    linksCategories: [],
     activeNavElement: '',
     isActiveNav: false
   }
 
   // Set default state
   componentDidMount() {
-    const { navClothes } = this.props.dropdownList;
-    this.setDropdownList(navClothes, "clothes")
+    const { clothes } = this.props.dropdownList;
+    this.setDropdownList(clothes, "clothes")
   }
 
-  setDropdownList = (list: {}[], element: string) => {
+  setDropdownList = (categories: Products[], element: string) => {
+    const filterCategories = categories.map(item => { return item.label })
     this.setState({
-      linksList: list,
+      linksCategories: filterCategories,
       activeNavElement: element
     })
   }
@@ -70,10 +70,9 @@ class Navigation extends Component<Props> {
   }
 
   render() {
-    const { classes, menu, dropdownList } = this.props;
-    const { clothes, boots, sport, accesories } = menu;
-    const { navClothes, navBoots, navSport, navAccesories } = dropdownList;
-    const { linksList, activeNavElement, isActiveNav } = this.state;
+    const { classes, dropdownList } = this.props;
+    const { clothes, boots, sport, accesories } = dropdownList;
+    const { linksCategories, activeNavElement, isActiveNav } = this.state;
     const itemActive = 'item__active';
     return (
       <>
@@ -87,38 +86,38 @@ class Navigation extends Component<Props> {
               className={`nav-list__element ${isActiveNav && activeNavElement === 'clothes' && itemActive}`}
               component="li"
               variant="caption"
-              onMouseEnter={() => this.setDropdownList(navClothes, "clothes")}
+              onMouseEnter={() => this.setDropdownList(clothes, "clothes")}
             >
-              {clothes}
+              Odzież
             </Typography>
             <Typography
               className={`nav-list__element ${isActiveNav && activeNavElement === "boots" && itemActive}`}
               component="li"
               variant="caption"
-              onMouseEnter={() => this.setDropdownList(navBoots, "boots")}
+              onMouseEnter={() => this.setDropdownList(boots, "boots")}
             >
-              {boots}
+              Buty
             </Typography>
             <Typography
               className={`nav-list__element ${isActiveNav && activeNavElement === "sport" && itemActive}`}
               component="li"
               variant="caption"
-              onMouseEnter={() => this.setDropdownList(navSport, "sport")}
+              onMouseEnter={() => this.setDropdownList(sport, "sport")}
             >
-              {sport}
+              Sport
             </Typography>
             <Typography
               className={`nav-list__element ${isActiveNav && activeNavElement === "accesories" && itemActive}`}
               component="li"
               variant="caption"
-              onMouseEnter={() => this.setDropdownList(navAccesories, "accesories")}
+              onMouseEnter={() => this.setDropdownList(accesories, "accesories")}
             >
-              {accesories}
+              Akcesoria
             </Typography>
           </ul>
         </List>
         <Dropdown
-          list={linksList}
+          list={linksCategories}
           mouseIn={() => this.activeNavigation()}
           mouseOut={() => this.disactiveNavigation()}
         />

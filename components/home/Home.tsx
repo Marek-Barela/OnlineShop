@@ -72,22 +72,9 @@ class Home extends Component<Props> {
     });
   };
 
-  getURL = () => {
-    const { language } = this.state;
-    if (language === "PL") {
-      return "pl/kobieta"
-    }
-    if (language === "ENG") {
-      return "eng/woman"
-    }
-    else {
-      return "pl/kobieta"
-    }
-  }
-
   render() {
     const { classes } = this.props;
-    const URL = this.getURL();
+    const URL = "/kobieta";
     return (
       <>
         <header className={classes.root}>
@@ -117,7 +104,6 @@ class Home extends Component<Props> {
               variant="outlined"
             >
               <option value="PL">Polish</option>
-              <option value="ENG">English</option>
             </TextField>
             <Link href={URL}>
               <a className={classes.anchor} >
