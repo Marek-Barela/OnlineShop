@@ -1,8 +1,8 @@
 import React from 'react';
 import Header from '../header/Header';
 import Navigation from '../navigation/Navigation';
-import { Gender } from '../man/Man';
 import { JSONCategoriesResponse } from '../../features/maleProducts/model';
+import { Gender } from '../../features/utils/gender';
 import { NextFunctionComponent } from 'next';
 
 interface Props {

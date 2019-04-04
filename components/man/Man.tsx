@@ -45,7 +45,7 @@ export interface Gender {
 class Man extends Component<Props> {
   render() {
     const { categories, router, classes } = this.props;
-    const genderURL: Gender = { woman: '/kobieta', man: '/mezczyzna', defaultGender: 'man' };
+    const genderURL: Gender = { woman: '/kobieta', man: '/mezczyzna', defaultGender: 'mezczyzna' };
     return (
       <Layout
         navigationList={categories}
