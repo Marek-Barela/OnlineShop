@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Layout from '../layout/Layout';
+import Products from '../products/Products';
 import { getProducts } from '../../features/maleProducts/selectors';
 import { genderManDefault } from '../../features/utils/gender';
 import { JSONCategoriesResponse } from '../../features/maleProducts/model';
@@ -25,12 +26,14 @@ type Props = StateProps & ParentProps & WithStyles<typeof styles>;
 class Shirt extends Component<Props> {
   render() {
     const { categories } = this.props;
+    console.log(categories)
+    const products = categories.clothes.filter(category => category.label === "Koszule Męskie");
     return (
       <Layout
         navigationList={categories}
         URL={genderManDefault}
       >
-
+        <Products productsList={products} />
       </Layout>
     )
   }

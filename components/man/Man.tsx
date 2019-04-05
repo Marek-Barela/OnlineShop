@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Layout from '../layout/Layout';
 import Typography from '@material-ui/core/Typography';
 import { getProducts } from '../../features/maleProducts/selectors';
+import { genderManDefault } from '../../features/utils/gender';
 import { JSONCategoriesResponse } from '../../features/maleProducts/model';
 import { connect } from 'react-redux';
 import { RootState } from '../../features/redux/root-reducer';
@@ -36,20 +37,13 @@ interface StateProps {
 
 type Props = StateProps & ParentProps & WithStyles<typeof styles>;
 
-export interface Gender {
-  woman: string;
-  man: string;
-  defaultGender: string;
-}
-
 class Man extends Component<Props> {
   render() {
     const { categories, router, classes } = this.props;
-    const genderURL: Gender = { woman: '/kobieta', man: '/mezczyzna', defaultGender: 'mezczyzna' };
     return (
       <Layout
         navigationList={categories}
-        URL={genderURL}
+        URL={genderManDefault}
       >
         <div className={classes.banner}>
           <Typography className={classes.text} component="h3" variant="h4">

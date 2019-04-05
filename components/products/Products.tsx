@@ -1,53 +1,87 @@
 import React, { Component } from 'react';
-import Layout from '../layout/Layout';
-import { getProducts } from '../../features/maleProducts/selectors';
-import { JSONCategoriesResponse } from '../../features/maleProducts/model';
-import { connect } from 'react-redux';
-import { RootState } from '../../features/redux/root-reducer';
-import { withRouter } from 'next/router';
+import Grid from '@material-ui/core/Grid';
+import Typography from '@material-ui/core/Typography';
+import Divider from '@material-ui/core/Divider';
+import { Products as ProductItem } from '../../features/maleProducts/model';
 import { createStyles, withStyles, WithStyles } from '@material-ui/core/styles';
 
 const styles = () => createStyles({
-
+  root: {
+    maxWidth: 1200,
+    margin: '0 auto',
+    flexDirection: 'column'
+  },
+  label: {
+    width: '100%',
+    fontSize: '1.6em',
+    textAlign: 'center',
+    margin: '40px 0',
+    textTransform: 'uppercase'
+  },
+  productsContainer: {
+    margin: '40px 0',
+  },
+  product: {
+    border: '1px solid #dedede',
+    padding: '40px 40px 10px',
+    cursor: 'pointer',
+    transition: '0.3s all',
+    "&:hover": {
+      boxShadow: '0 5px 15px 0 rgba(17,22,32,.1)'
+    }
+  },
+  productImg: {
+    width: '100%',
+    border: '1px solid #dedede',
+  },
+  description: {
+    textAlign: 'center',
+    textTransform: 'uppercase',
+    margin: 10
+  }
 });
 
 interface ParentProps {
-  router: any;
+  productsList: ProductItem[];
 }
 
-interface StateProps {
-  categories: JSONCategoriesResponse
-}
-
-type Props = StateProps & ParentProps & WithStyles<typeof styles>;
-
-export interface Gender {
-  woman: string;
-  man: string;
-  defaultGender: string;
-}
+type Props = ParentProps & WithStyles<typeof styles>;
 
 class Products extends Component<Props> {
   render() {
-    const { categories } = this.props;
-    const genderURL: Gender = { woman: '/kobieta', man: '/mezczyzna', defaultGender: 'man' };
+    const { productsList, classes } = this.props;
+    const products = productsList[0].products;
+    const label = productsList[0].label;
     return (
-      <Layout
-        navigationList={categories}
-        URL={genderURL}
-      >
-
-      </Layout>
+      <>
+        <Grid spacing={16} className={classes.root} container>
+          <Typography className={classes.label} component="h2">{label}</Typography>
+          <Divider light={false} />
+          <Grid container className={classes.productsContainer}>
+            {
+              products.map(product => {
+                return (
+                  <Grid  className={classes.product} item xs={4} key={product.id}>
+                    <img className={classes.productImg} src={product.images[0]} />
+                    <Typography
+                      className={classes.description}
+                      component="h5">
+                      {product.name}
+                    </Typography>
+                    <Typography
+                      className={classes.description}
+                      component="h5" variant="caption">
+                      {`${product.price}zł`}
+                    </Typography>
+                  </Grid>
+                )
+              })
+            }
+          </Grid>
+        </Grid>
+      </>
     )
   }
 }
 
-const mapStateToProps = (state: RootState) => {
-  const categories = getProducts(state)
-
-  return {
-    categories
-  };
-};
-
-export default connect<StateProps, {}, {}, RootState>(mapStateToProps, {})(withStyles(styles)(withRouter(Products)));
+export default withStyles(styles)(Products);

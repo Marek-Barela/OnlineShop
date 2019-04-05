@@ -20,10 +20,6 @@ export interface ProductItem {
   price: string;
   color: string;
   description: string;
-  fabric: [{
-    material: string;
-  }]
-  images: [{
-    image: string;
-  }]
+  fabric: string[];
+  images: string[];
 }

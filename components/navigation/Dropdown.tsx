@@ -1,6 +1,7 @@
 import React, { MouseEventHandler } from 'react';
 import Link from 'next/link';
 import Typography from '@material-ui/core/Typography';
+import { replaceNativeLetter } from '../../features/utils/replaceNativeLetter';
 import { getGender } from '../../features/gender/selectors';
 import { NextFunctionComponent } from 'next';
 import { RootState } from '../../features/redux/root-reducer';
@@ -28,16 +29,22 @@ const Dropdown: NextFunctionComponent<Props> = props => {
 				onMouseLeave={mouseOut}
 			>
 				{
-					list.map((item: any, index: number) => {
-						const routeName = item.split(" ").join("-").toLowerCase();
+					list.map((label: any, index: number) => {
+						// Change label to URL friendly string
+						const splitString = label.toLowerCase().split("");
+						const changeString = replaceNativeLetter(splitString);
+						const joinString = changeString.join("");
+						const renameRoute = joinString.split(" ").join("-")
+						const routeName = renameRoute;
+						let URL = `/${genderType}/produkty/${routeName}`;
 						return (
-							<Link key={index} as={routeName} href={`${genderType}/produkty/${routeName}`}>
+							<Link key={index} href={URL}>
 								<a>
 									<Typography
 										component="li"
 										variant="caption"
 									>
-										{item}
+										{label}
 									</Typography>
 								</a>
 							</Link>
