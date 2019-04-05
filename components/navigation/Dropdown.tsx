@@ -36,7 +36,7 @@ const Dropdown: NextFunctionComponent<Props> = props => {
 						const joinString = changeString.join("");
 						const renameRoute = joinString.split(" ").join("-")
 						const routeName = renameRoute;
-						let URL = `/${genderType}/produkty/${routeName}`;
+						const URL = `/${genderType}/produkty/${routeName}`;
 						return (
 							<Link key={index} href={URL}>
 								<a>
