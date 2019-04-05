@@ -1,11 +1,9 @@
 import { combineReducers } from 'redux';
 import { RootAction } from './root-actions';
-import counter from '../counter/reducer';
 import gender from '../gender/reducer';
 import maleProducts from '../maleProducts/reducer';
 
 const reducerMap = {
-  counter,
   gender,
   maleProducts
 };
