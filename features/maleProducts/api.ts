@@ -1,7 +1,7 @@
 import { JSONCategoriesResponse } from './model';
 
 export const getProductsFromJSON = (): Promise<JSONCategoriesResponse> => {
-  return fetch('https://api.myjson.com/bins/xpcos')
+  return fetch('https://api.myjson.com/bins/skw98')
     .then(res => {
       if (!res.ok) {
         throw new Error("Error getting the stuff");

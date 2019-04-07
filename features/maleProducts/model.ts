@@ -11,6 +11,7 @@ export interface JSONCategoriesResponse {
 
 export interface Products {
   label: string;
+  endpoint: string;
   products: ProductItem[];
 }
 

@@ -48,7 +48,7 @@ class Product extends Component<Props> {
     const { classes, product, genderType } = this.props;
     return (
       <>
-        <Grid key={product.id} className={classes.product} item xs={3}>
+        <Grid className={classes.product} item xs={3}>
           <Paper>
             <Link href={{ pathname: `/${genderType}/produkty/opis-produktu`, query: product }}>
               <a className={classes.anchor}>

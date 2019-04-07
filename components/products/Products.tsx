@@ -61,7 +61,7 @@ const Products: NextFunctionComponent<Props> = (props) => {
         <Typography className={classes.label} component="h2">{label}</Typography>
         <Divider />
         <Grid container className={classes.productsContainer}>
-          {products.map(product => <Product product={product} />)}
+          {products.map(product => <Product key={product.id} product={product} />)}
         </Grid>
       </Grid>
     </>

@@ -50,7 +50,13 @@ class Navigation extends Component<Props> {
   }
 
   setDropdownList = (categories: Products[], element: string) => {
-    const filterCategories = categories.map(item => { return item.label })
+    const filterCategories = categories.map(item => {
+      const categories = {
+        label: item.label,
+        endpoint: item.endpoint
+      }
+      return categories
+    })
     this.setState({
       linksCategories: filterCategories,
       activeNavElement: element
