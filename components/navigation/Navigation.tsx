@@ -25,6 +25,12 @@ const styles = () => createStyles({
     listStyleType: 'none',
     padding: '0',
   },
+  navListElemenet: {
+    cursor: 'pointer',
+    padding: '15px 40px',
+    textTransform: 'uppercase',
+    fontSize: '16px',
+  },
   hiddenList: {
     display: 'none'
   }
@@ -89,7 +95,7 @@ class Navigation extends Component<Props> {
             onMouseLeave={() => this.disactiveNavigation()}
           >
             <Typography
-              className={`nav-list__element ${isActiveNav && activeNavElement === 'clothes' && itemActive}`}
+              className={`${classes.navListElemenet} ${isActiveNav && activeNavElement === "clothes" && itemActive}`}
               component="li"
               variant="caption"
               onMouseEnter={() => this.setDropdownList(clothes, "clothes")}
@@ -97,7 +103,7 @@ class Navigation extends Component<Props> {
               Odzież
             </Typography>
             <Typography
-              className={`nav-list__element ${isActiveNav && activeNavElement === "boots" && itemActive}`}
+              className={`${classes.navListElemenet} ${isActiveNav && activeNavElement === "boots" && itemActive}`}
               component="li"
               variant="caption"
               onMouseEnter={() => this.setDropdownList(boots, "boots")}
@@ -105,7 +111,7 @@ class Navigation extends Component<Props> {
               Buty
             </Typography>
             <Typography
-              className={`nav-list__element ${isActiveNav && activeNavElement === "sport" && itemActive}`}
+              className={`${classes.navListElemenet} ${isActiveNav && activeNavElement === "sport" && itemActive}`}
               component="li"
               variant="caption"
               onMouseEnter={() => this.setDropdownList(sport, "sport")}
@@ -113,7 +119,7 @@ class Navigation extends Component<Props> {
               Sport
             </Typography>
             <Typography
-              className={`nav-list__element ${isActiveNav && activeNavElement === "accesories" && itemActive}`}
+              className={`${classes.navListElemenet} ${isActiveNav && activeNavElement === "accesories" && itemActive}`}
               component="li"
               variant="caption"
               onMouseEnter={() => this.setDropdownList(accesories, "accesories")}
@@ -124,6 +130,7 @@ class Navigation extends Component<Props> {
         </List>
         <Dropdown
           list={linksCategories}
+          isActiveNav={isActiveNav}
           mouseIn={() => this.activeNavigation()}
           mouseOut={() => this.disactiveNavigation()}
         />

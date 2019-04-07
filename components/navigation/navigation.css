@@ -36,13 +36,12 @@
   font-weight: bold;
 }
 
-nav:hover~.nav__dropdown,
-.nav__dropdown:hover {
+.item__active {
+  font-weight: bold !important;
+}
+
+.active__dropdown {
   visibility: visible;
   opacity: 1;
   min-height: 180px;
-}
-
-.item__active {
-  font-weight: bold !important;
 }

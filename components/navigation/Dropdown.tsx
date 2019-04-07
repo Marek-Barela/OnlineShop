@@ -14,15 +14,16 @@ interface ParentProps {
 	list: string[];
 	mouseIn: MouseEventHandler;
 	mouseOut: MouseEventHandler;
+	isActiveNav: boolean;
 }
 
 type Props = StateProps & ParentProps;
 
 const Dropdown: NextFunctionComponent<Props> = props => {
-	const { list, mouseIn, mouseOut, genderType } = props;
+	const { list, mouseIn, mouseOut, genderType, isActiveNav } = props;
 	return (
 		<ul
-			className="nav__dropdown"
+			className={`${"nav__dropdown"} ${isActiveNav && "active__dropdown"}`}
 			onMouseEnter={mouseIn}
 			onMouseLeave={mouseOut}
 		>
