@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
+import Product from './Product';
 import Grid from '@material-ui/core/Grid';
-import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
-import Link from 'next/link';
 import { Products as ProductItem } from '../../features/maleProducts/model';
 import { createStyles, withStyles, WithStyles } from '@material-ui/core/styles';
+import { NextFunctionComponent } from 'next';
 
 const styles = () => createStyles({
   root: {
@@ -51,48 +51,21 @@ interface ParentProps {
 
 type Props = ParentProps & WithStyles<typeof styles>;
 
-class Products extends Component<Props> {
-  render() {
-    const { productsList, classes } = this.props;
-    const products = productsList[0].products;
-    const label = productsList[0].label;
-    return (
-      <>
-        <Grid className={classes.root} container>
-          <Typography className={classes.label} component="h2">{label}</Typography>
-          <Divider />
-          <Grid container className={classes.productsContainer}>
-            {
-              products.map(product => {
-                return (
-                  <Grid key={product.id} className={classes.product} item xs={3}>
-                    <Paper>
-                      <Link href="/mezczyzna" >
-                        <a className={classes.anchor}>
-                          <img className={classes.productImg} src={product.images[0]} />
-                          <Typography
-                            className={classes.description}
-                            component="h5">
-                            {product.name}
-                          </Typography>
-                        </a>
-                      </Link>
-                      <Typography
-                        className={classes.price}
-                        component="span"
-                        variant="caption">
-                        {`${product.price} zł`}
-                      </Typography>
-                    </Paper>
-                  </Grid>
-                )
-              })
-            }
-          </Grid>
+const Products: NextFunctionComponent<Props> = (props) => {
+  const { productsList, classes } = props;
+  const products = productsList[0].products;
+  const label = productsList[0].label;
+  return (
+    <>
+      <Grid className={classes.root} container>
+        <Typography className={classes.label} component="h2">{label}</Typography>
+        <Divider />
+        <Grid container className={classes.productsContainer}>
+          {products.map(product => <Product product={product} />)}
         </Grid>
-      </>
-    )
-  }
+      </Grid>
+    </>
+  )
 }
 
 export default withStyles(styles)(Products);

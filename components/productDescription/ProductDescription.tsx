@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import Layout from '../layout/Layout';
-import Products from '../products/Products';
-import { routeShirt } from '../../features/utils/routesLabels';
 import { getProducts } from '../../features/maleProducts/selectors';
 import { genderManDefault } from '../../features/utils/gender';
 import { JSONCategoriesResponse } from '../../features/maleProducts/model';
@@ -19,16 +17,19 @@ interface StateProps {
 
 type Props = StateProps & ParentProps;
 
-class Shirt extends Component<Props> {
+class ProductDescription extends Component<Props> {
   render() {
-    const { categories } = this.props;
-    const products = categories.clothes.filter(category => category.label === routeShirt);
+    const { categories, router } = this.props;
+    const { name, description } = router.query;
     return (
       <Layout
         navigationList={categories}
         URL={genderManDefault}
       >
-        <Products productsList={products} />
+
+        <h3>{name}</h3>
+        <p>{description}</p>
+
       </Layout>
     )
   }
@@ -42,4 +43,4 @@ const mapStateToProps = (state: RootState) => {
   };
 };
 
-export default connect<StateProps, {}, {}, RootState>(mapStateToProps, {})(withRouter(Shirt));
+export default connect<StateProps, {}, {}, RootState>(mapStateToProps, {})(withRouter(ProductDescription));
