@@ -9,8 +9,7 @@ import './navigation.css';
 const styles = () => createStyles({
   root: {
     width: '100%',
-    maxWidth: 500,
-    margin: '0 auto',
+    boxShadow: '0 5px 15px 0 rgba(17,22,32,.05)',
     background: '#ffffff',
     display: 'flex',
     padding: 0,
@@ -19,10 +18,11 @@ const styles = () => createStyles({
   list: {
     position: 'relative',
     display: 'flex',
+    maxWidth: 500,
+    margin: '0 auto',
     justifyContent: 'center',
     width: '100%',
     listStyleType: 'none',
-    margin: '0',
     padding: '0',
   },
   hiddenList: {

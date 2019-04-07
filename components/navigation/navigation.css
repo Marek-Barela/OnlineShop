@@ -1,7 +1,8 @@
 .nav-list__element {
   cursor: pointer;
-  padding: 10px 40px 30px 40px;
-  font-size: 14px !important;
+  padding: 20px 40px 20px 40px;
+  text-transform: uppercase;
+  font-size: 16px !important;
 }
 
 .nav__dropdown {
