@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Dropdown from './Dropdown';
 import List from '@material-ui/core/List';
 import Typography from '@material-ui/core/Typography';
+import Hidden from '@material-ui/core/Hidden';
 import { JSONCategoriesResponse, Products } from '../../features/maleProducts/model';
 import { createStyles, withStyles, WithStyles } from '@material-ui/core/styles';
 import './navigation.css';
@@ -88,52 +89,58 @@ class Navigation extends Component<Props> {
     const itemActive = 'item__active';
     return (
       <>
-        <List className={classes.root} component="nav">
-          <ul
-            className={classes.list}
-            onMouseEnter={() => this.activeNavigation()}
-            onMouseLeave={() => this.disactiveNavigation()}
+
+        <Hidden smDown>
+          <List
+            className={classes.root}
+            component="nav"
           >
-            <Typography
-              className={`${classes.navListElemenet} ${isActiveNav && activeNavElement === "clothes" && itemActive}`}
-              component="li"
-              variant="caption"
-              onMouseEnter={() => this.setDropdownList(clothes, "clothes")}
+            <ul
+              className={classes.list}
+              onMouseEnter={() => this.activeNavigation()}
+              onMouseLeave={() => this.disactiveNavigation()}
             >
-              Odzież
+              <Typography
+                className={`${classes.navListElemenet} ${isActiveNav && activeNavElement === "clothes" && itemActive}`}
+                component="li"
+                variant="caption"
+                onMouseEnter={() => this.setDropdownList(clothes, "clothes")}
+              >
+                Odzież
             </Typography>
-            <Typography
-              className={`${classes.navListElemenet} ${isActiveNav && activeNavElement === "boots" && itemActive}`}
-              component="li"
-              variant="caption"
-              onMouseEnter={() => this.setDropdownList(boots, "boots")}
-            >
-              Buty
+              <Typography
+                className={`${classes.navListElemenet} ${isActiveNav && activeNavElement === "boots" && itemActive}`}
+                component="li"
+                variant="caption"
+                onMouseEnter={() => this.setDropdownList(boots, "boots")}
+              >
+                Buty
             </Typography>
-            <Typography
-              className={`${classes.navListElemenet} ${isActiveNav && activeNavElement === "sport" && itemActive}`}
-              component="li"
-              variant="caption"
-              onMouseEnter={() => this.setDropdownList(sport, "sport")}
-            >
-              Sport
+              <Typography
+                className={`${classes.navListElemenet} ${isActiveNav && activeNavElement === "sport" && itemActive}`}
+                component="li"
+                variant="caption"
+                onMouseEnter={() => this.setDropdownList(sport, "sport")}
+              >
+                Sport
             </Typography>
-            <Typography
-              className={`${classes.navListElemenet} ${isActiveNav && activeNavElement === "accesories" && itemActive}`}
-              component="li"
-              variant="caption"
-              onMouseEnter={() => this.setDropdownList(accesories, "accesories")}
-            >
-              Akcesoria
+              <Typography
+                className={`${classes.navListElemenet} ${isActiveNav && activeNavElement === "accesories" && itemActive}`}
+                component="li"
+                variant="caption"
+                onMouseEnter={() => this.setDropdownList(accesories, "accesories")}
+              >
+                Akcesoria
             </Typography>
-          </ul>
-        </List>
-        <Dropdown
-          list={linksCategories}
-          isActiveNav={isActiveNav}
-          mouseIn={() => this.activeNavigation()}
-          mouseOut={() => this.disactiveNavigation()}
-        />
+            </ul>
+          </List>
+          <Dropdown
+            list={linksCategories}
+            isActiveNav={isActiveNav}
+            mouseIn={() => this.activeNavigation()}
+            mouseOut={() => this.disactiveNavigation()}
+          />
+        </Hidden>
       </>
     )
   }

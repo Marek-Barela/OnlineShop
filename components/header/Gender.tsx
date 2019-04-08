@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Link from 'next/link';
+import Hidden from '@material-ui/core/Hidden';
 import { Gender as GenderDefinition } from '../../features/utils/gender';
 import { getGender } from '../../features/gender/selectors';
 import { changeGender } from '../../features/gender/actions';
@@ -51,29 +52,31 @@ class Gender extends Component<Props> {
     const female = genderType === "kobieta" && "active-gender";
     const male = genderType === "mezczyzna" && "active-gender";
     return (
-      <Grid item xs={4}>
-        <Typography className={classes.text__default} variant="caption">
-          <Link href="/kobieta">
-            <a className={classes.anchor}>
-              <span
-                className={`${classes.span__element} ${female}`}
-              >
-                KOBIETA
+      <Hidden smDown>
+        <Grid item xs={4}>
+          <Typography className={classes.text__default} variant="caption">
+            <Link href="/kobieta">
+              <a className={classes.anchor}>
+                <span
+                  className={`${classes.span__element} ${female}`}
+                >
+                  KOBIETA
               </span>
-            </a>
-          </Link>
-          |
+              </a>
+            </Link>
+            |
           <Link href="/mezczyzna">
-            <a className={classes.anchor}>
-              <span
-                className={`${classes.span__element} ${male}`}
-              >
-                MĘŻCZYZNA
+              <a className={classes.anchor}>
+                <span
+                  className={`${classes.span__element} ${male}`}
+                >
+                  MĘŻCZYZNA
               </span>
-            </a>
-          </Link>
-        </Typography>
-      </Grid>
+              </a>
+            </Link>
+          </Typography>
+        </Grid>
+      </Hidden>
     )
   }
 }

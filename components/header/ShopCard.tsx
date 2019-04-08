@@ -23,7 +23,7 @@ type Props = WithStyles<typeof styles>;
 const Gender: NextFunctionComponent<Props> = props => {
   const { classes } = props;
   return (
-    <Grid item xs={4} className={classes.card__container}>
+    <Grid item xs={6} sm={4} className={classes.card__container}>
       <FavoriteBorder className={classes.icon} />
       <PersonOutline className={classes.icon} />
       <AddShoppingCart className={classes.icon} />

@@ -70,10 +70,10 @@ const ProductDetails: NextFunctionComponent<Props> = props => {
   return (
     <>
       <Grid container>
-        <Grid item xs={5} className={classes.imageContainer}>
+        <Grid item xs={12} md={5} className={classes.imageContainer}>
           <img className={classes.image} src={images} />
         </Grid>
-        <Grid item xs={7} className={classes.descriptionContainer}>
+        <Grid item xs={12} md={7} className={classes.descriptionContainer}>
           <Typography className={classes.productName} component="h4" variant="h6">{name}</Typography>
           <Typography className={classes.fabric} component="span" variant="caption">{fabric}</Typography>
           <Typography className={classes.price} component="span" variant="subtitle1">{price} ZŁ</Typography>

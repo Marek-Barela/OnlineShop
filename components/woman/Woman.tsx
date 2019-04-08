@@ -15,7 +15,8 @@ const styles = () => createStyles({
     display: 'flex',
     alignItems: 'center',
     backgroundImage: 'url(https://mosaic03.ztat.net/crt/creative-content/3fb37226-5995-4ee7-b922-e4f23e30c5c5.jpg)',
-    backgroundSize: 'cover'
+    backgroundSize: 'cover',
+    backgroundPosition: 'center'
   },
   text: {
     color: 'white',
