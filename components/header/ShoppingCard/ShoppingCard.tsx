@@ -4,6 +4,7 @@ import ShoppingBasketOutlined from '@material-ui/icons/ShoppingBasketOutlined';
 import ShoppingBasketDropdown from './ShoppingBasketDropdown';
 import Grid from '@material-ui/core/Grid';
 import Hidden from '@material-ui/core/Hidden';
+import Link from 'next/link';
 import { createStyles, withStyles, WithStyles } from '@material-ui/core/styles';
 
 const styles = () => createStyles({
@@ -14,7 +15,7 @@ const styles = () => createStyles({
     zIndex: 100
   },
   icon: {
-    color: "grey",
+    color: '#9e9e9e',
     fontSize: '1.1em',
   },
   basketContainer: {
@@ -27,8 +28,9 @@ const styles = () => createStyles({
   basketText: {
     fontSize: '0.55em',
     textTransform: 'uppercase',
-    margin: '0 6px',
+    margin: '0 10px',
     letterSpacing: '2px',
+    color: '#9e9e9e'
   }
 });
 
@@ -57,16 +59,18 @@ class ShoppingCard extends Component<Props> {
     return (
       <Hidden smDown>
         <Grid item xs={4} className={classes.card__container}>
-          <div
-            className={classes.basketContainer}
-            onMouseEnter={() => this.displayBasket()}
-            onMouseLeave={() => this.hideBasket()}
-          >
-            <ShoppingBasketOutlined className={classes.icon} />
-            <Typography component="h6" variant="h6" className={classes.basketText}>
-              Koszyk [0]
+          <Link href="/koszyk">
+            <div
+              className={classes.basketContainer}
+              onMouseEnter={() => this.displayBasket()}
+              onMouseLeave={() => this.hideBasket()}
+            >
+              <ShoppingBasketOutlined className={classes.icon} />
+              <Typography component="h6" variant="h6" className={classes.basketText}>
+                Koszyk [0]
             </Typography>
-          </div>
+            </div>
+          </Link>
           {
             basketDisplayed && <ShoppingBasketDropdown
               mouseIn={() => this.displayBasket()}

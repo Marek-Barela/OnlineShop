@@ -135,13 +135,13 @@ class Navigation extends Component<Props> {
                 Akcesoria
             </Typography>
             </ul>
+            <Dropdown
+              list={linksCategories}
+              isActiveNav={isActiveNav}
+              mouseIn={() => this.activeNavigation()}
+              mouseOut={() => this.disactiveNavigation()}
+            />
           </List>
-          <Dropdown
-            list={linksCategories}
-            isActiveNav={isActiveNav}
-            mouseIn={() => this.activeNavigation()}
-            mouseOut={() => this.disactiveNavigation()}
-          />
         </Hidden>
       </>
     )

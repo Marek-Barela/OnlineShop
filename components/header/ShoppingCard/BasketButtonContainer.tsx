@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
+import Link from 'next/link';
 import { createStyles, withStyles, WithStyles } from '@material-ui/core/styles';
 
 const styles = () => createStyles({
@@ -9,7 +10,7 @@ const styles = () => createStyles({
     flexDirection: 'column',
     justifyContent: 'center',
     minHeight: 50,
-    borderTop: '1px solid rgba(0,0,0,0.16)',
+    borderTop: '1px solid rgb(0,0,0)',
     padding: '0 20px'
   },
   priceContainer: {
@@ -59,9 +60,11 @@ class ButtonContainer extends Component<Props> {
             0 ZŁ
           </Typography>
         </div>
-        <Button className={classes.basketButton}>
-          Przejdź do koszyka
+        <Link href="/koszyk">
+          <Button className={classes.basketButton}>
+            Przejdź do koszyka
         </Button>
+        </Link>
       </div>
     )
   }
