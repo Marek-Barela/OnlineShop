@@ -24,7 +24,7 @@ const styles = () => createStyles({
 
 type Props = WithStyles<typeof styles>;
 
-class Gender extends Component<Props> {
+class ShoppingCard extends Component<Props> {
   state = {
     basketDisplayed: false,
   }
@@ -62,7 +62,6 @@ class Gender extends Component<Props> {
             />
           }
         </Grid>
-
       </Hidden>
     )
   }
@@ -70,4 +69,4 @@ class Gender extends Component<Props> {
 
 
 
-export default withStyles(styles)(Gender);
+export default withStyles(styles)(ShoppingCard);
