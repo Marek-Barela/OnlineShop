@@ -63,7 +63,7 @@ class ButtonContainer extends Component<Props> {
         <Link href="/koszyk">
           <Button className={classes.basketButton}>
             Przejdź do koszyka
-        </Button>
+          </Button>
         </Link>
       </div>
     )

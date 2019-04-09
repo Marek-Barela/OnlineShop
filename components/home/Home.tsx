@@ -51,10 +51,6 @@ const styles = () => createStyles({
   },
   field: {
     borderColor: '#000000'
-  },
-  anchor: {
-    textDecoration: 'none',
-    color: 'inherit'
   }
 });
 
@@ -106,9 +102,7 @@ class Home extends Component<Props> {
               <option value="PL">Polish</option>
             </TextField>
             <Link href={URL}>
-              <a className={classes.anchor} >
-                <Button variant="outlined" className={classes.button}>Enter</Button>
-              </a>
+              <Button variant="outlined" className={classes.button}>Enter</Button>
             </Link>
           </FormControl>
         </main>
