@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Dropdown from './Dropdown';
+import MobileMenu from './MobileMenu';
 import List from '@material-ui/core/List';
 import Typography from '@material-ui/core/Typography';
 import Hidden from '@material-ui/core/Hidden';
@@ -10,7 +11,8 @@ import './navigation.css';
 const styles = () => createStyles({
   root: {
     width: '100%',
-    boxShadow: '0 5px 15px 0 rgba(17,22,32,.05)',
+    //borderTop: '1px solid rgba(0, 0, 0, 0.12)',
+    borderBottom: '1px solid rgba(0, 0, 0, 0.12)',
     background: '#ffffff',
     display: 'flex',
     padding: 0,
@@ -30,7 +32,8 @@ const styles = () => createStyles({
     cursor: 'pointer',
     padding: '15px 40px',
     textTransform: 'uppercase',
-    fontSize: '16px',
+    fontSize: '14px',
+    color: '#777777'
   },
   hiddenList: {
     display: 'none'
@@ -89,7 +92,7 @@ class Navigation extends Component<Props> {
     const itemActive = 'item__active';
     return (
       <>
-
+        <MobileMenu />
         <Hidden smDown>
           <List
             className={classes.root}
@@ -107,7 +110,7 @@ class Navigation extends Component<Props> {
                 onMouseEnter={() => this.setDropdownList(clothes, "clothes")}
               >
                 Odzież
-            </Typography>
+              </Typography>
               <Typography
                 className={`${classes.navListElemenet} ${isActiveNav && activeNavElement === "boots" && itemActive}`}
                 component="li"
@@ -115,7 +118,7 @@ class Navigation extends Component<Props> {
                 onMouseEnter={() => this.setDropdownList(boots, "boots")}
               >
                 Buty
-            </Typography>
+              </Typography>
               <Typography
                 className={`${classes.navListElemenet} ${isActiveNav && activeNavElement === "sport" && itemActive}`}
                 component="li"
@@ -123,7 +126,7 @@ class Navigation extends Component<Props> {
                 onMouseEnter={() => this.setDropdownList(sport, "sport")}
               >
                 Sport
-            </Typography>
+              </Typography>
               <Typography
                 className={`${classes.navListElemenet} ${isActiveNav && activeNavElement === "accesories" && itemActive}`}
                 component="li"

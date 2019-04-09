@@ -18,7 +18,7 @@ type Props = WithStyles<typeof styles>
 const Logo: NextFunctionComponent<Props> = props => {
   const { classes } = props;
   return (
-    <Grid item xs={4} sm={6}>
+    <Grid item xs={12} md={4}>
       <Typography component="h1" variant="h3" className={classes.logo}>Vitalina</Typography>
     </Grid>
   )
