@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import FavoriteBorder from '@material-ui/icons/FavoriteBorder';
-import PersonOutline from '@material-ui/icons/PersonOutline';
+import Typography from '@material-ui/core/Typography';
+//import FavoriteBorder from '@material-ui/icons/FavoriteBorder';
+//import PersonOutline from '@material-ui/icons/PersonOutline';
 import ShoppingBasketOutlined from '@material-ui/icons/ShoppingBasketOutlined';
 import ShoppingBasketDropdown from './ShoppingBasketDropdown';
 import Grid from '@material-ui/core/Grid';
@@ -16,9 +17,20 @@ const styles = () => createStyles({
   },
   icon: {
     color: "grey",
-    fontSize: '2.1em',
+    fontSize: '1.1em',
+  },
+  basketContainer: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
     cursor: 'pointer',
-    padding: 10
+    padding: '10px 15px 10px 15px'
+  },
+  basketText: {
+    fontSize: '0.55em',
+    textTransform: 'uppercase',
+    margin: '0 6px',
+    letterSpacing: '2px',
   }
 });
 
@@ -47,13 +59,21 @@ class ShoppingCard extends Component<Props> {
     return (
       <Hidden smDown>
         <Grid item xs={4} className={classes.card__container}>
-          <FavoriteBorder className={classes.icon} />
-          <PersonOutline className={classes.icon} />
-          <ShoppingBasketOutlined
+          <div
+            className={classes.basketContainer}
             onMouseEnter={() => this.displayBasket()}
             onMouseLeave={() => this.hideBasket()}
-            className={classes.icon}
-          />
+          >
+            <ShoppingBasketOutlined
+              className={classes.icon}
+            />
+            <Typography
+              component="h6" variant="h6"
+              className={classes.basketText}
+            >
+              Koszyk [0]
+            </Typography>
+          </div>
           {
             basketDisplayed &&
             <ShoppingBasketDropdown

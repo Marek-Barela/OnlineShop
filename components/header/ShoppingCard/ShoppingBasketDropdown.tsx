@@ -8,7 +8,7 @@ const styles = () => createStyles({
     position: 'absolute',
     width: 350,
     backgroundColor: '#ffffff',
-    border: '1px solid rgba(0,0,0,0.16)',
+    border: '1px solid rgb(0,0,0)',
     top: 40,
     right: 0,
     zIndex: 1000

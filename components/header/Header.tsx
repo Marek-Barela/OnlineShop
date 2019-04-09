@@ -1,7 +1,7 @@
 import React from 'react';
 import Gender from './Gender';
 import Logo from './Logo';
-import ShopCard from './ShoppingCard/ShoppingCard';
+import ShoppingCard from './ShoppingCard/ShoppingCard';
 import Grid from '@material-ui/core/Grid';
 import '../header/header.css';
 import { Gender as GenderType } from '../../features/utils/gender';
@@ -36,7 +36,7 @@ const Header: NextFunctionComponent<Props> = props => {
       <Grid container className={classes.grid}>
         <Gender URL={URL} />
         <Logo />
-        <ShopCard />
+        <ShoppingCard />
       </Grid>
     </header>
   )
