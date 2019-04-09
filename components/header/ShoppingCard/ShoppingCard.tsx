@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import Typography from '@material-ui/core/Typography';
-//import FavoriteBorder from '@material-ui/icons/FavoriteBorder';
-//import PersonOutline from '@material-ui/icons/PersonOutline';
 import ShoppingBasketOutlined from '@material-ui/icons/ShoppingBasketOutlined';
 import ShoppingBasketDropdown from './ShoppingBasketDropdown';
 import Grid from '@material-ui/core/Grid';
@@ -64,19 +62,13 @@ class ShoppingCard extends Component<Props> {
             onMouseEnter={() => this.displayBasket()}
             onMouseLeave={() => this.hideBasket()}
           >
-            <ShoppingBasketOutlined
-              className={classes.icon}
-            />
-            <Typography
-              component="h6" variant="h6"
-              className={classes.basketText}
-            >
+            <ShoppingBasketOutlined className={classes.icon} />
+            <Typography component="h6" variant="h6" className={classes.basketText}>
               Koszyk [0]
             </Typography>
           </div>
           {
-            basketDisplayed &&
-            <ShoppingBasketDropdown
+            basketDisplayed && <ShoppingBasketDropdown
               mouseIn={() => this.displayBasket()}
               mouseOut={() => this.hideBasket()}
             />
