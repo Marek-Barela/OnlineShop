@@ -65,7 +65,7 @@ class Gender extends Component<Props> {
               </a>
             </Link>
             |
-          <Link href="/mezczyzna">
+            <Link href="/mezczyzna">
               <a className={classes.anchor}>
                 <span
                   className={`${classes.span__element} ${male}`}

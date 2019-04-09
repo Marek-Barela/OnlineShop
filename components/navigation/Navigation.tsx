@@ -11,12 +11,11 @@ import './navigation.css';
 const styles = () => createStyles({
   root: {
     width: '100%',
-    //borderTop: '1px solid rgba(0, 0, 0, 0.12)',
     borderBottom: '1px solid rgba(0, 0, 0, 0.12)',
     background: '#ffffff',
     display: 'flex',
     padding: 0,
-    zIndex: 100
+    zIndex: 1
   },
   list: {
     position: 'relative',

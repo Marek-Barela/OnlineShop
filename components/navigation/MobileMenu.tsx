@@ -10,7 +10,7 @@ const styles = () => createStyles({
 
 type Props = WithStyles<typeof styles>;
 
-const MobileMenu: NextFunctionComponent<Props> = props => {
+const MobileMenu: NextFunctionComponent<Props> = () => {
   return (
     <Hidden mdUp>
       <List

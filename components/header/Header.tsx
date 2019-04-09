@@ -13,9 +13,9 @@ const styles = () => createStyles({
     position: 'relative',
     width: '100%',
     background: '#ffffff',
-    boxShadow: '0 5px 5px 0 rgba(17,22,32,.05)',
+    borderBottom: '1px solid rgba(0, 0, 0, 0.12)',
     padding: '10px 20px',
-    zIndex: 100
+    zIndex: 2
   },
   grid: {
     display: 'flex',

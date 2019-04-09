@@ -1,7 +1,7 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
+import AddProductButton from './AddProductButton';
 import { createStyles, withStyles, WithStyles } from '@material-ui/core/styles';
 import { ProductItem } from '../../features/maleProducts/model';
 import { NextFunctionComponent } from 'next';
@@ -40,22 +40,7 @@ const styles = () => createStyles({
     fontSize: '0.75em',
     letterSpacing: '2px'
   },
-  button: {
-    fontSize: '0.6em',
-    textTransform: 'uppercase',
-    backgroundColor: '#000000',
-    color: '#ffffff',
-    border: '1px solid #ffffff',
-    margin: '25px 0',
-    width: 300,
-    height: 40,
-    transition: 'all 0.3s',
-    '&:hover': {
-      backgroundColor: "#ffffff",
-      color: "#000000",
-      border: '1px solid #000000',
-    }
-  }
+
 });
 
 interface ParentProps {
@@ -79,7 +64,7 @@ const ProductDetails: NextFunctionComponent<Props> = props => {
           <Typography className={classes.price} component="span" variant="subtitle1">{price} ZŁ</Typography>
           <Typography className={classes.productDescription} component="h6" variant="h6">Opis Produktu:</Typography>
           <Typography className={classes.description} component="p" variant="subtitle1">{description}</Typography>
-          <Button className={classes.button}>Dodaj Do Koszyka</Button>
+          <AddProductButton />
         </Grid>
       </Grid>
     </>

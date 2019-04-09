@@ -46,17 +46,18 @@ type Props = ParentProps & StateProps & WithStyles<typeof styles>;
 class Product extends Component<Props> {
   render() {
     const { classes, product, genderType } = this.props;
+    const { images, name, price } = product;
     return (
       <>
-        <Grid className={classes.product} item xs={12} sm={6} md={6} lg={3}>
+        <Grid className={classes.product} item xs={12} sm={6} lg={3}>
           <Paper>
             <Link href={{ pathname: `/${genderType}/produkty/opis-produktu`, query: product }}>
               <a className={classes.anchor}>
-                <img className={classes.productImg} src={product.images[0]} />
+                <img className={classes.productImg} src={images[0]} />
                 <Typography
                   className={classes.description}
                   component="h5">
-                  {product.name}
+                  {name}
                 </Typography>
               </a>
             </Link>
@@ -65,7 +66,7 @@ class Product extends Component<Props> {
               component="span"
               variant="caption"
             >
-              {`${product.price} zł`}
+              {`${price} zł`}
             </Typography>
           </Paper>
         </Grid>
