@@ -9,7 +9,7 @@ const styles = () => createStyles({
     width: 350,
     backgroundColor: '#ffffff',
     border: '1px solid rgb(0,0,0)',
-    top: 40,
+    top: 45,
     right: 0,
     zIndex: 1000
   }

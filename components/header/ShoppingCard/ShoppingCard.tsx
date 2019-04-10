@@ -27,7 +27,7 @@ const styles = () => createStyles({
     alignItems: 'center',
     justifyContent: 'center',
     cursor: 'pointer',
-    padding: '10px 15px 10px 15px'
+    padding: '20px 15px'
   },
   basketText: {
     fontSize: '0.55em',

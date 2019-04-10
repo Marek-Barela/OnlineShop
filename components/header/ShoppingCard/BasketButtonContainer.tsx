@@ -58,10 +58,11 @@ type Props = StateProps & WithStyles<typeof styles>;
 class ButtonContainer extends Component<Props> {
   calculateProductsPrice() {
     const { cartProducts } = this.props;
-    return cartProducts.reduce((acc, product) => {
+    const calculeteProducts = cartProducts.reduce((acc, product) => {
       const stringToNumber = Number(product.price)
       return product.quantity * stringToNumber + acc
-    }, 0)
+    }, 0);
+    return calculeteProducts.toFixed(2);
   }
 
   render() {
