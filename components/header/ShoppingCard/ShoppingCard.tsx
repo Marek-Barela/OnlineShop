@@ -76,7 +76,7 @@ class ShoppingCard extends Component<Props> {
       <Hidden smDown>
         <Grid item xs={4} className={classes.card__container}>
           <Link href="/koszyk">
-            <div
+            <Grid
               className={classes.basketContainer}
               onMouseEnter={() => this.displayBasket()}
               onMouseLeave={() => this.hideBasket()}
@@ -85,7 +85,7 @@ class ShoppingCard extends Component<Props> {
               <Typography component="h6" variant="h6" className={classes.basketText}>
                 Koszyk [{fullProductsQuantity}]
               </Typography>
-            </div>
+            </Grid>
           </Link>
           {
             basketDisplayed && <ShoppingBasketDropdown

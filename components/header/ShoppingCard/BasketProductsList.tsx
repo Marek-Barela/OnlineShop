@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Typography from '@material-ui/core/Typography';
 import List from '@material-ui/core/List';
 import BasketListItem from './BasketListItem';
+import Grid from '@material-ui/core/Grid';
 import { getCartProducts } from '../../../features/cart/selectors';
 import { ProductItem } from '../../../features/cart/model';
 import { createStyles, withStyles, WithStyles } from '@material-ui/core/styles';
@@ -34,13 +35,13 @@ class BasketProductsList extends Component<Props> {
       >Twój koszyk jest pusty.
       </Typography>)
     return (
-      <div>
+      <Grid>
         {cartProducts.length === 0 ? <EmptyBasket /> :
           <List>
             {cartProducts.map((product, index) => <BasketListItem key={index} product={product} />)}
           </List>
         }
-      </div>
+      </Grid>
     )
   }
 }

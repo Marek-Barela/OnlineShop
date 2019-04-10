@@ -16,11 +16,11 @@ export default function (state: CardState = initialState, action: RootAction): C
     case (getType(addProductToCart)): {
       const newItem = action.payload;
       newItem.quantity = 1;
-      const newCardState = [...state.cart, newItem];
+      const newCartState = [...state.cart, newItem];
 
       return {
         ...state,
-        cart: newCardState
+        cart: newCartState
       };
     }
     case (getType(updateAmountOfProductsInCart)): {

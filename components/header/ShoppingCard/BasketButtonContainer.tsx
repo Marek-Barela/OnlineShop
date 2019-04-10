@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import Link from 'next/link';
+import Grid from '@material-ui/core/Grid';
 import { createStyles, withStyles, WithStyles } from '@material-ui/core/styles';
 import { getCartProducts } from '../../../features/cart/selectors';
 import { ProductItem } from '../../../features/cart/model';
@@ -69,21 +70,21 @@ class ButtonContainer extends Component<Props> {
     const { classes } = this.props;
     const fullProductsPrice = this.calculateProductsPrice();
     return (
-      <div className={classes.basketButtonContainer}>
-        <div className={classes.priceContainer}>
+      <Grid className={classes.basketButtonContainer}>
+        <Grid className={classes.priceContainer}>
           <Typography component="h6" variant="h6" className={classes.priceLabel}>
             Łączna Wartość:
           </Typography>
           <Typography component="h6" variant="h6" className={classes.price} >
             {fullProductsPrice} ZŁ
           </Typography>
-        </div>
+        </Grid>
         <Link href="/koszyk">
           <Button className={classes.basketButton}>
             Przejdź do koszyka
           </Button>
         </Link>
-      </div>
+      </Grid>
     )
   }
 }

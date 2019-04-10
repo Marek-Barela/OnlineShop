@@ -71,7 +71,7 @@ class Gender extends Component<Props> {
                   className={`${classes.span__element} ${male}`}
                 >
                   MĘŻCZYZNA
-              </span>
+                </span>
               </a>
             </Link>
           </Typography>

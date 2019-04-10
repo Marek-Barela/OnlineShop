@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Layout from '../layout/Layout';
 import Typography from '@material-ui/core/Typography';
+import Grid from '@material-ui/core/Grid';
 import { getProducts } from '../../features/maleProducts/selectors';
 import { genderManDefault } from '../../features/utils/gender';
 import { JSONCategoriesResponse } from '../../features/maleProducts/model';
@@ -46,14 +47,14 @@ class Man extends Component<Props> {
         navigationList={categories}
         URL={genderManDefault}
       >
-        <div className={classes.banner}>
+        <Grid className={classes.banner}>
           <Typography className={classes.text} component="h3" variant="h4">
             Już wkrótce najnowsze trendy...
           </Typography>
-        </div>
-        <div>
+        </Grid>
+        <Grid>
           {router.query.title}
-        </div>
+        </Grid>
       </Layout>
     )
   }
