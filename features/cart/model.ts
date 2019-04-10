@@ -4,6 +4,6 @@ export interface ProductItem {
   price: string;
   color: string;
   description: string;
-  fabric: string[];
-  images: string[];
+  fabric: string;
+  images: string;
 }

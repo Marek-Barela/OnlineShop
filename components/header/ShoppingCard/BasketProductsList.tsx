@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import Typography from '@material-ui/core/Typography';
+import List from '@material-ui/core/List';
+import BasketListItem from './BasketListItem';
 import { getCartProducts } from '../../../features/cart/selectors';
 import { ProductItem } from '../../../features/cart/model';
 import { createStyles, withStyles, WithStyles } from '@material-ui/core/styles';
@@ -24,20 +26,19 @@ type Props = StateProps & WithStyles<typeof styles>;
 class BasketProductsList extends Component<Props> {
   render() {
     const { classes, cartProducts } = this.props;
-
     const EmptyBasket = () => (
-      <Typography component="h6" variant="h6" className={classes.emptyBasket}>
-        Twój koszyk jest pusty.
-      </Typography>
-    )
+      <Typography
+        component="h6"
+        variant="h6"
+        className={classes.emptyBasket}
+      >Twój koszyk jest pusty.
+      </Typography>)
     return (
       <div>
         {cartProducts.length === 0 ? <EmptyBasket /> :
-          <div>
-            {cartProducts.map(item => {
-              return (<p>{item.name}</p>)
-            })}
-          </div>
+          <List>
+            {cartProducts.map((product, index) => <BasketListItem key={index} product={product} />)}
+          </List>
         }
       </div>
     )
