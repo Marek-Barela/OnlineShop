@@ -61,9 +61,17 @@ class ShoppingCard extends Component<Props> {
     })
   }
 
+  calculateProductsQuantity() {
+    const { cartProducts } = this.props;
+    return cartProducts.reduce((acc, product) => {
+      return product.quantity + acc;
+    }, 0)
+  }
+
   render() {
     const { classes } = this.props;
     const { basketDisplayed } = this.state;
+    const fullProductsQuantity = this.calculateProductsQuantity();
     return (
       <Hidden smDown>
         <Grid item xs={4} className={classes.card__container}>
@@ -75,7 +83,7 @@ class ShoppingCard extends Component<Props> {
             >
               <ShoppingBasketOutlined className={classes.icon} />
               <Typography component="h6" variant="h6" className={classes.basketText}>
-                Koszyk []
+                Koszyk [{fullProductsQuantity}]
               </Typography>
             </div>
           </Link>
