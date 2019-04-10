@@ -16,14 +16,14 @@ const styles = () => createStyles({
 });
 
 interface StateProps {
-  cardProducts: ProductItem[];
+  cartProducts: ProductItem[];
 }
 
 type Props = StateProps & WithStyles<typeof styles>;
 
 class BasketProductsList extends Component<Props> {
   render() {
-    const { classes, cardProducts } = this.props;
+    const { classes, cartProducts } = this.props;
 
     const EmptyBasket = () => (
       <Typography component="h6" variant="h6" className={classes.emptyBasket}>
@@ -32,9 +32,9 @@ class BasketProductsList extends Component<Props> {
     )
     return (
       <div>
-        {cardProducts.length === 0 ? <EmptyBasket /> :
+        {cartProducts.length === 0 ? <EmptyBasket /> :
           <div>
-            {cardProducts.map(item => {
+            {cartProducts.map(item => {
               return (<p>{item.name}</p>)
             })}
           </div>
@@ -45,10 +45,10 @@ class BasketProductsList extends Component<Props> {
 }
 
 const mapStateToProps = (state: RootState) => {
-  const cardProducts = getCartProducts(state);
+  const cartProducts = getCartProducts(state);
 
   return {
-    cardProducts,
+    cartProducts,
   };
 };
 
