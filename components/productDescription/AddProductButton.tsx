@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import Button from '@material-ui/core/Button';
+import { addProductToCard } from '../../features/card/actions';
 import { createStyles, withStyles, WithStyles } from '@material-ui/core/styles';
+import { connect } from 'react-redux';
+import { RootState } from '../../features/redux/root-reducer';
+import { ProductItem } from '../../features/card/model';
 
 const styles = () => createStyles({
   button: {
@@ -21,20 +25,29 @@ const styles = () => createStyles({
   }
 });
 
-type Props = WithStyles<typeof styles>;
+interface ParentProps {
+  product: ProductItem
+}
+
+interface DispatchProps {
+  addProductToCard: (payload: ProductItem) => void;
+}
+
+type Props = ParentProps & DispatchProps & WithStyles<typeof styles>;
 
 class AddProductButton extends Component<Props> {
 
-  addProductToBasket() {
-
+  addProductToBasket(product: ProductItem) {
+    const { addProductToCard } = this.props;
+    addProductToCard(product)
   }
 
   render() {
-    const { classes } = this.props;
+    const { classes, product } = this.props;
     return (
       <Button
         className={classes.button}
-        onClick={() => this.addProductToBasket()}
+        onClick={() => this.addProductToBasket(product)}
       >
         Dodaj Do Koszyka
       </Button>
@@ -42,4 +55,8 @@ class AddProductButton extends Component<Props> {
   }
 }
 
-export default withStyles(styles)(AddProductButton);
+const mapDispatchToProps = {
+  addProductToCard
+};
+
+export default connect<{}, DispatchProps, {}, RootState>(null, mapDispatchToProps)(withStyles(styles)(AddProductButton));

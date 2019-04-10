@@ -59,12 +59,37 @@ const ProductDetails: NextFunctionComponent<Props> = props => {
           <img className={classes.image} src={images} />
         </Grid>
         <Grid item xs={12} md={7} className={classes.descriptionContainer}>
-          <Typography className={classes.productName} component="h4" variant="h6">{name}</Typography>
-          <Typography className={classes.fabric} component="span" variant="caption">{fabric}</Typography>
-          <Typography className={classes.price} component="span" variant="subtitle1">{price} ZŁ</Typography>
-          <Typography className={classes.productDescription} component="h6" variant="h6">Opis Produktu:</Typography>
-          <Typography className={classes.description} component="p" variant="subtitle1">{description}</Typography>
-          <AddProductButton />
+          <Typography
+            className={classes.productName}
+            component="h4"
+            variant="h6"
+          >{name}
+          </Typography>
+          <Typography
+            className={classes.fabric}
+            component="span"
+            variant="caption"
+          >{fabric}
+          </Typography>
+          <Typography
+            className={classes.price}
+            component="span"
+            variant="subtitle1"
+          >{price} ZŁ
+          </Typography>
+          <Typography
+            className={classes.productDescription}
+            component="h6"
+            variant="h6"
+          >Opis Produktu:
+          </Typography>
+          <Typography
+            className={classes.description}
+            component="p"
+            variant="subtitle1"
+          >{description}
+          </Typography>
+          <AddProductButton product={product} />
         </Grid>
       </Grid>
     </>

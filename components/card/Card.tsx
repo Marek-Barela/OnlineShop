@@ -41,9 +41,11 @@ const Card: NextFunctionComponent<Props> = props => {
           </Typography>
         </Link>
       </header>
-      <Grid container className={classes.cardContainer}>
-        <EmptyCard />
-      </Grid>
+      <main>
+        <Grid container className={classes.cardContainer}>
+          <EmptyCard />
+        </Grid>
+      </main>
     </>
   )
 }
