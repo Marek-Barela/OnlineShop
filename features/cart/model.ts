@@ -6,4 +6,5 @@ export interface ProductItem {
   description: string;
   fabric: string;
   images: string;
+  quantity: number;
 }

@@ -25,13 +25,14 @@ const BasketListItem: NextFunctionComponent<Props> = props => {
   const { classes, product } = props;
   return (
     <ListItem className={classes.productItem}>
-      <Grid xs={3}>
+      <Grid item xs={3}>
         <img className={classes.productImg} src={product.images} />
       </Grid>
-      <Grid xs={6}>
+      <Grid item xs={6}>
         <Typography>{product.name}</Typography>
+        <Typography>{product.quantity}</Typography>
       </Grid>
-      <Grid xs={3}>
+      <Grid item xs={3}>
         <Typography>{product.price}ZŁ</Typography>
       </Grid>
     </ListItem>

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Button from '@material-ui/core/Button';
-import { addProductToCart } from '../../features/cart/actions';
+import { addProductToCart, updateAmountOfProductsInCart } from '../../features/cart/actions';
+import { getCartProducts } from '../../features/cart/selectors';
 import { createStyles, withStyles, WithStyles } from '@material-ui/core/styles';
 import { connect } from 'react-redux';
 import { RootState } from '../../features/redux/root-reducer';
@@ -29,17 +30,30 @@ interface ParentProps {
   product: ProductItem
 }
 
-interface DispatchProps {
-  addProductToCart: (payload: ProductItem) => void;
+interface StateProps {
+  cartProducts: ProductItem[];
 }
 
-type Props = ParentProps & DispatchProps & WithStyles<typeof styles>;
+interface DispatchProps {
+  addProductToCart: (payload: ProductItem) => void;
+  updateAmountOfProductsInCart: (payload: ProductItem) => void;
+}
+
+type Props = StateProps & ParentProps & DispatchProps & WithStyles<typeof styles>;
 
 class AddProductButton extends Component<Props> {
 
-  addProductToBasket(product: ProductItem) {
-    const { addProductToCart } = this.props;
-    addProductToCart(product)
+  handleAddProductButton(product: ProductItem) {
+    const { addProductToCart, updateAmountOfProductsInCart, cartProducts } = this.props;
+    const filterTheSameProductsInCart = cartProducts.filter(item => {
+      return item.id === product.id
+    })
+    if (!filterTheSameProductsInCart.length) {
+      addProductToCart(product)
+    }
+    else {
+      updateAmountOfProductsInCart(product)
+    }
   }
 
   render() {
@@ -47,7 +61,7 @@ class AddProductButton extends Component<Props> {
     return (
       <Button
         className={classes.button}
-        onClick={() => this.addProductToBasket(product)}
+        onClick={() => this.handleAddProductButton(product)}
       >
         Dodaj Do Koszyka
       </Button>
@@ -55,8 +69,17 @@ class AddProductButton extends Component<Props> {
   }
 }
 
-const mapDispatchToProps = {
-  addProductToCart
+const mapStateToProps = (state: RootState) => {
+  const cartProducts = getCartProducts(state);
+
+  return {
+    cartProducts,
+  };
 };
 
-export default connect<{}, DispatchProps, {}, RootState>(null, mapDispatchToProps)(withStyles(styles)(AddProductButton));
+const mapDispatchToProps = {
+  addProductToCart,
+  updateAmountOfProductsInCart
+};
+
+export default connect<StateProps, DispatchProps, {}, RootState>(mapStateToProps, mapDispatchToProps)(withStyles(styles)(AddProductButton));
