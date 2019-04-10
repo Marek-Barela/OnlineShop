@@ -3,6 +3,10 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import Link from 'next/link';
 import { createStyles, withStyles, WithStyles } from '@material-ui/core/styles';
+import { getCartProducts } from '../../../features/cart/selectors';
+import { ProductItem } from '../../../features/cart/model';
+import { connect } from 'react-redux';
+import { RootState } from '../../../features/redux/root-reducer';
 
 const styles = () => createStyles({
   basketButtonContainer: {
@@ -45,11 +49,24 @@ const styles = () => createStyles({
   }
 });
 
-type Props = WithStyles<typeof styles>;
+interface StateProps {
+  cartProducts: ProductItem[];
+}
+
+type Props = StateProps & WithStyles<typeof styles>;
 
 class ButtonContainer extends Component<Props> {
+  calculateProductsPrice() {
+    const { cartProducts } = this.props;
+    return cartProducts.reduce((acc, product) => {
+      const stringToNumber = Number(product.price)
+      return product.quantity * stringToNumber + acc
+    }, 0)
+  }
+
   render() {
     const { classes } = this.props;
+    const fullProductsPrice = this.calculateProductsPrice();
     return (
       <div className={classes.basketButtonContainer}>
         <div className={classes.priceContainer}>
@@ -57,7 +74,7 @@ class ButtonContainer extends Component<Props> {
             Łączna Wartość:
           </Typography>
           <Typography component="h6" variant="h6" className={classes.price} >
-            0 ZŁ
+            {fullProductsPrice} ZŁ
           </Typography>
         </div>
         <Link href="/koszyk">
@@ -70,4 +87,12 @@ class ButtonContainer extends Component<Props> {
   }
 }
 
-export default withStyles(styles)(ButtonContainer);
+const mapStateToProps = (state: RootState) => {
+  const cartProducts = getCartProducts(state);
+
+  return {
+    cartProducts,
+  };
+};
+
+export default connect<StateProps, {}, {}, RootState>(mapStateToProps, {})(withStyles(styles)(ButtonContainer));

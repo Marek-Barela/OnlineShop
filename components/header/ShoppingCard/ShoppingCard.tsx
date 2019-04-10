@@ -5,7 +5,11 @@ import ShoppingBasketDropdown from './ShoppingBasketDropdown';
 import Grid from '@material-ui/core/Grid';
 import Hidden from '@material-ui/core/Hidden';
 import Link from 'next/link';
+import { getCartProducts } from '../../../features/cart/selectors';
+import { ProductItem } from '../../../features/cart/model';
 import { createStyles, withStyles, WithStyles } from '@material-ui/core/styles';
+import { connect } from 'react-redux';
+import { RootState } from '../../../features/redux/root-reducer';
 
 const styles = () => createStyles({
   card__container: {
@@ -34,7 +38,11 @@ const styles = () => createStyles({
   }
 });
 
-type Props = WithStyles<typeof styles>;
+interface StateProps {
+  cartProducts: ProductItem[];
+}
+
+type Props = StateProps & WithStyles<typeof styles>;
 
 class ShoppingCard extends Component<Props> {
   state = {
@@ -67,8 +75,8 @@ class ShoppingCard extends Component<Props> {
             >
               <ShoppingBasketOutlined className={classes.icon} />
               <Typography component="h6" variant="h6" className={classes.basketText}>
-                Koszyk [0]
-            </Typography>
+                Koszyk []
+              </Typography>
             </div>
           </Link>
           {
@@ -83,6 +91,12 @@ class ShoppingCard extends Component<Props> {
   }
 }
 
+const mapStateToProps = (state: RootState) => {
+  const cartProducts = getCartProducts(state);
 
+  return {
+    cartProducts,
+  };
+};
 
-export default withStyles(styles)(ShoppingCard);
+export default connect<StateProps, {}, {}, RootState>(mapStateToProps, {})(withStyles(styles)(ShoppingCard));
