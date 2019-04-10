@@ -8,5 +8,5 @@ export const addProductToCart = createAction(
 
 export const updateAmountOfProductsInCart = createAction(
   'cart/UPDATE_AMOUNT_OF_PRODUCTS_IN_CART',
-  addProduct => { return (product: ProductItem) => addProduct(product) }
+  updateAmountOfProducts => { return (product: ProductItem) => updateAmountOfProducts(product) }
 );
