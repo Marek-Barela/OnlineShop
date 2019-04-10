@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Typography from '@material-ui/core/Typography';
-import { getCardProducts } from '../../../features/card/selectors';
-import { ProductItem } from '../../../features/card/model';
+import { getCartProducts } from '../../../features/cart/selectors';
+import { ProductItem } from '../../../features/cart/model';
 import { createStyles, withStyles, WithStyles } from '@material-ui/core/styles';
 import { connect } from 'react-redux';
 import { RootState } from '../../../features/redux/root-reducer';
@@ -45,7 +45,7 @@ class BasketProductsList extends Component<Props> {
 }
 
 const mapStateToProps = (state: RootState) => {
-  const cardProducts = getCardProducts(state);
+  const cardProducts = getCartProducts(state);
 
   return {
     cardProducts,
