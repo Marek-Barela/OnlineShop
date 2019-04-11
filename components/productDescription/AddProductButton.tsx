@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Button from '@material-ui/core/Button';
+import { Theme } from '@material-ui/core/styles/createMuiTheme';
 import { addProductToCart, updateAmountOfProductsInCart } from '../../features/cart/actions';
 import { getCartProducts } from '../../features/cart/selectors';
 import { createStyles, withStyles, WithStyles } from '@material-ui/core/styles';
@@ -7,14 +8,14 @@ import { connect } from 'react-redux';
 import { RootState } from '../../features/redux/root-reducer';
 import { ProductItem } from '../../features/cart/model';
 
-const styles = () => createStyles({
+const styles = (theme: Theme) => createStyles({
   button: {
     fontSize: '0.6em',
     textTransform: 'uppercase',
     backgroundColor: '#000000',
     color: '#ffffff',
     border: '1px solid #ffffff',
-    margin: '25px 0',
+    margin: '15px 0',
     width: 300,
     height: 40,
     transition: 'all 0.3s',
@@ -22,8 +23,12 @@ const styles = () => createStyles({
       backgroundColor: "#ffffff",
       color: "#000000",
       border: '1px solid #000000',
-    }
-  }
+    },
+    [theme.breakpoints.down('xs')]: {
+      width: 270,
+    },
+  },
+
 });
 
 interface ParentProps {

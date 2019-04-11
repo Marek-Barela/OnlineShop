@@ -7,9 +7,6 @@ import { NextFunctionComponent } from 'next';
 import { createStyles, withStyles, WithStyles } from '@material-ui/core/styles';
 
 const styles = () => createStyles({
-  productItem: {
-
-  },
   productImg: {
     maxWidth: '100%',
   }
@@ -23,17 +20,18 @@ type Props = ParentProps & WithStyles<typeof styles>;
 
 const BasketListItem: NextFunctionComponent<Props> = props => {
   const { classes, product } = props;
+  const { images, name, quantity, price } = product;
   return (
-    <ListItem className={classes.productItem}>
+    <ListItem>
       <Grid item xs={3}>
-        <img className={classes.productImg} src={product.images} />
+        <img className={classes.productImg} src={images[0]} />
       </Grid>
       <Grid item xs={6}>
-        <Typography>{product.name}</Typography>
-        <Typography>{product.quantity}</Typography>
+        <Typography>{name}</Typography>
+        <Typography>{quantity}</Typography>
       </Grid>
       <Grid item xs={3}>
-        <Typography>{product.price}ZŁ</Typography>
+        <Typography>{price}ZŁ</Typography>
       </Grid>
     </ListItem>
   )

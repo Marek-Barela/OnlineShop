@@ -1,5 +1,5 @@
 import React from 'react';
-import EmptyCard from './EmptyCard';
+import EmptyCard from './EmptyCart';
 import Typography from '@material-ui/core/Typography';
 import Link from 'next/link';
 import Grid from '@material-ui/core/Grid';

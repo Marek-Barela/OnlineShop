@@ -1,5 +1,5 @@
 import React from 'react';
-import Card from '../components/card/Card';
+import Card from '../components/cart/Cart';
 import { NextFunctionComponent } from 'next';
 
 const CardPage: NextFunctionComponent<{}> = () => {
