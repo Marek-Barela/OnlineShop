@@ -1,13 +1,13 @@
 import React from 'react';
-import Card from '../components/cart/Cart';
+import Cart from '../components/cart/Cart';
 import { NextFunctionComponent } from 'next';
 
-const CardPage: NextFunctionComponent<{}> = () => {
+const CartPage: NextFunctionComponent<{}> = () => {
   return (
     <div>
-      <Card />
+      <Cart />
     </div>
   );
 };
 
-export default CardPage;
+export default CartPage;
