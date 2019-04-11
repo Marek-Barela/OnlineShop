@@ -9,11 +9,6 @@ import { ProductItem } from '../../features/maleProducts/model';
 import { NextFunctionComponent } from 'next';
 
 const styles = (theme: Theme) => createStyles({
-  image: {
-    maxWidth: '100%',
-    margin: '0 auto',
-    height: 'auto'
-  },
   imageMiniatureContainer: {
     display: 'flex',
     flexWrap: 'wrap',
@@ -37,6 +32,11 @@ const styles = (theme: Theme) => createStyles({
       order: 2
     },
   },
+  mainImage: {
+    maxWidth: '100%',
+    margin: '0 auto',
+    height: 'auto'
+  },
   descriptionContainer: {
     padding: '0 30px',
     [theme.breakpoints.down('sm')]: {
@@ -48,52 +48,6 @@ const styles = (theme: Theme) => createStyles({
       order: 3,
       margin: '20px 0'
     },
-  },
-  productName: {
-    marginTop: 20,
-    textTransform: 'uppercase',
-    fontSize: '1em',
-    letterSpacing: '2px',
-    [theme.breakpoints.up('sm')]: {
-      fontSize: '1.4em',
-    }
-  },
-  fabric: {
-    color: "#aaaaaa"
-  },
-  price: {
-    fontSize: '1.7em',
-    margin: '10px 0',
-    [theme.breakpoints.down('xs')]: {
-      fontSize: '1.2em',
-      margin: 0,
-    },
-  },
-  productDescription: {
-    textTransform: 'uppercase',
-    fontSize: '0.85em',
-    letterSpacing: '2px',
-    [theme.breakpoints.down('xs')]: {
-      margin: '20px 0 10px 0',
-    },
-  },
-  description: {
-    fontSize: '0.75em',
-    letterSpacing: '2px',
-    [theme.breakpoints.down('xs')]: {
-      fontSize: '12px',
-      width: 280,
-      margin: '15px auto'
-    },
-    [theme.breakpoints.up('sm')]: {
-      fontSize: '14px',
-      width: 500,
-      margin: '15px auto'
-    },
-    [theme.breakpoints.up('md')]: {
-      width: 500,
-      margin: '15px 0',
-    }
   }
 });
 
@@ -115,7 +69,7 @@ const ProductDetails: NextFunctionComponent<Props> = props => {
         </Grid>
         <Grid item xs={12} md={4} className={classes.imageContainer}>
           <Grid>
-            <img className={classes.image} src={images[0]} />
+            <img className={classes.mainImage} src={images[0]} />
           </Grid>
         </Grid>
         <Grid item xs={12} md={7} className={classes.descriptionContainer}>
