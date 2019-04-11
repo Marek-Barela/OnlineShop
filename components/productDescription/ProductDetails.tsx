@@ -1,15 +1,14 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
+import ProductTextDescription from './ProductTextDescription';
 import AddProductButton from './AddProductButton';
+import ImageMiniature from './ImageMiniature';
 import { Theme } from '@material-ui/core/styles/createMuiTheme';
 import { createStyles, withStyles, WithStyles } from '@material-ui/core/styles';
 import { ProductItem } from '../../features/maleProducts/model';
 import { NextFunctionComponent } from 'next';
 
 const styles = (theme: Theme) => createStyles({
-  container: {
-  },
   image: {
     maxWidth: '100%',
     margin: '0 auto',
@@ -22,26 +21,10 @@ const styles = (theme: Theme) => createStyles({
       order: 2,
       justifyContent: 'center'
     },
-    [theme.breakpoints.up('sm')]: {
-
-    },
     [theme.breakpoints.up('md')]: {
       display: 'block',
       flexWrap: 'initial',
       order: 1
-    }
-  },
-  miniature: {
-    padding: 5,
-    [theme.breakpoints.up('sm')]: {
-      padding: '0 5px',
-    },
-  },
-  imageMiniature: {
-    maxWidth: '100%',
-    height: 'auto',
-    [theme.breakpoints.down('xs')]: {
-      maxHeight: 300
     }
   },
   imageContainer: {
@@ -122,57 +105,21 @@ type Props = ParentProps & WithStyles<typeof styles>;
 
 const ProductDetails: NextFunctionComponent<Props> = props => {
   const { product, classes } = props;
-  const { name, description, fabric, price, images, } = product;
+  const { name, description, fabric, price, images } = product;
+  const textDescriptionProps = { name, description, fabric, price }
   return (
     <>
-      <Grid container className={classes.container}>
+      <Grid container>
         <Grid className={classes.imageMiniatureContainer} xs={12} md={1} item>
-          {images.map((img: string, index: number) => {
-            return (
-              <Grid key={index} className={classes.miniature} xs={3} sm={2} md={12} item>
-                <div>
-                  <img className={classes.imageMiniature} src={img} />
-                </div>
-              </Grid>
-            )
-          })}
+          {images.map((img: string, index: number) => <ImageMiniature key={index} img={img} />)}
         </Grid>
         <Grid item xs={12} md={4} className={classes.imageContainer}>
-          <div>
+          <Grid>
             <img className={classes.image} src={images[0]} />
-          </div>
+          </Grid>
         </Grid>
         <Grid item xs={12} md={7} className={classes.descriptionContainer}>
-          <Typography
-            className={classes.productName}
-            component="h4"
-            variant="h6"
-          >{name}
-          </Typography>
-          <Typography
-            className={classes.fabric}
-            component="span"
-            variant="caption"
-          >{fabric}
-          </Typography>
-          <Typography
-            className={classes.price}
-            component="span"
-            variant="subtitle1"
-          >{price} ZŁ
-          </Typography>
-          <Typography
-            className={classes.productDescription}
-            component="h6"
-            variant="h6"
-          >Opis Produktu:
-          </Typography>
-          <Typography
-            className={classes.description}
-            component="p"
-            variant="subtitle1"
-          >{description}
-          </Typography>
+          <ProductTextDescription {...textDescriptionProps} />
           <AddProductButton product={product} />
         </Grid>
       </Grid>

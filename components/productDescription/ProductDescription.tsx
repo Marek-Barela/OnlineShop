@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Layout from '../layout/Layout';
 import ProductDetails from './ProductDetails';
 import Grid from '@material-ui/core/Grid';
+import { Theme } from '@material-ui/core/styles/createMuiTheme';
 import { getProducts } from '../../features/maleProducts/selectors';
 import { genderManDefault } from '../../features/utils/gender';
 import { JSONCategoriesResponse } from '../../features/maleProducts/model';
@@ -10,11 +11,14 @@ import { RootState } from '../../features/redux/root-reducer';
 import { withRouter } from 'next/router';
 import { createStyles, withStyles, WithStyles } from '@material-ui/core/styles';
 
-const styles = () => createStyles({
+const styles = (theme: Theme) => createStyles({
   container: {
     maxWidth: 1200,
     margin: '0 auto',
-    padding: '80px 0'
+    padding: '80px 0',
+    [theme.breakpoints.down('sm')]: {
+      padding: '20px 0'
+    }
   }
 });
 
