@@ -51,12 +51,6 @@ const styles = (theme: Theme) => createStyles({
   }
 });
 
-interface ParentProps {
-  product: ProductItem | any;
-}
-
-type Props = ParentProps & WithStyles<typeof styles>;
-
 const convertStringToArray = (images: [] | string) => {
   if (Array.isArray(images)) {
     return images
@@ -65,6 +59,12 @@ const convertStringToArray = (images: [] | string) => {
     return [images]
   }
 }
+
+interface ParentProps {
+  product: ProductItem | any;
+}
+
+type Props = ParentProps & WithStyles<typeof styles>;
 
 const ProductDetails: NextFunctionComponent<Props> = props => {
   const { product, classes } = props;

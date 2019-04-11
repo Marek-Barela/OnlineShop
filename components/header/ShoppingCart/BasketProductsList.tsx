@@ -15,6 +15,9 @@ const styles = () => createStyles({
     fontSize: '0.6em',
     textAlign: 'center',
     margin: '25px 0'
+  },
+  list: {
+    padding: 0
   }
 });
 
@@ -37,7 +40,7 @@ class BasketProductsList extends Component<Props> {
     return (
       <Grid>
         {cartProducts.length === 0 ? <EmptyBasket /> :
-          <List>
+          <List className={classes.list}>
             {cartProducts.map((product, index) => <BasketListItem key={index} product={product} />)}
           </List>
         }
