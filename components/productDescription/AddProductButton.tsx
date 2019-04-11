@@ -33,6 +33,7 @@ const styles = (theme: Theme) => createStyles({
 
 interface ParentProps {
   product: ProductItem
+  displaySucces: () => void;
 }
 
 interface StateProps {
@@ -49,7 +50,7 @@ type Props = StateProps & ParentProps & DispatchProps & WithStyles<typeof styles
 class AddProductButton extends Component<Props> {
 
   handleAddProductButton(product: ProductItem) {
-    const { addProductToCart, updateAmountOfProductsInCart, cartProducts } = this.props;
+    const { addProductToCart, updateAmountOfProductsInCart, cartProducts, displaySucces } = this.props;
     const filterTheSameProductsInCart = cartProducts.filter(item => {
       return item.id === product.id
     })
@@ -59,6 +60,7 @@ class AddProductButton extends Component<Props> {
     else {
       updateAmountOfProductsInCart(product)
     }
+    displaySucces()
   }
 
   render() {
