@@ -2,12 +2,13 @@ import React from 'react';
 import Typography from '@material-ui/core/Typography';
 import Link from 'next/link';
 import Button from '@material-ui/core/Button';
+import Grid from '@material-ui/core/Grid';
 import ShoppingBasketOutlined from '@material-ui/icons/ShoppingBasketOutlined';
 import { NextFunctionComponent } from 'next';
 import { createStyles, withStyles, WithStyles } from '@material-ui/core/styles';
 
 const styles = () => createStyles({
-  emptyCard: {
+  emptyCart: {
     border: '1px solid rgba(0,0,0,0.17)',
     minHeight: 250,
     width: '100%',
@@ -19,10 +20,10 @@ const styles = () => createStyles({
   icon: {
     fontSize: '5em'
   },
-  emptyCardText: {
+  emptyCartText: {
     fontSize: '0.7em'
   },
-  emptyCardButton: {
+  emptyCartButton: {
     fontSize: '0.6em',
     textTransform: 'uppercase',
     backgroundColor: '#000000',
@@ -42,17 +43,17 @@ const styles = () => createStyles({
 
 type Props = WithStyles<typeof styles>
 
-const EmptyCard: NextFunctionComponent<Props> = props => {
+const EmptyCart: NextFunctionComponent<Props> = props => {
   const { classes } = props;
   return (
-    <div className={classes.emptyCard}>
+    <Grid className={classes.emptyCart}>
       <ShoppingBasketOutlined className={classes.icon} />
-      <Typography className={classes.emptyCardText}>Twój koszyk jest pusty</Typography>
+      <Typography className={classes.emptyCartText}>Twój koszyk jest pusty</Typography>
       <Link href="/mezczyzna">
-        <Button className={classes.emptyCardButton}>Rozpocznij zakupy</Button>
+        <Button className={classes.emptyCartButton}>Rozpocznij zakupy</Button>
       </Link>
-    </div>
+    </Grid>
   )
 }
 
-export default withStyles(styles)(EmptyCard);
+export default withStyles(styles)(EmptyCart);

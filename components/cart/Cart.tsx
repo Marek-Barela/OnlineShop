@@ -1,10 +1,16 @@
 import React from 'react';
-import EmptyCard from './EmptyCart';
+import EmptyCart from './EmptyCart';
+import ListOfCartItems from './ListOfCartItems';
 import Typography from '@material-ui/core/Typography';
 import Link from 'next/link';
 import Grid from '@material-ui/core/Grid';
+import { getCartProducts } from '../../features/cart/selectors';
+import { ProductItem } from '../../features/cart/model';
+import { connect } from 'react-redux';
 import { NextFunctionComponent } from 'next';
 import { createStyles, withStyles, WithStyles } from '@material-ui/core/styles';
+import { RootState } from '../../features/redux/root-reducer';
+
 
 const styles = () => createStyles({
   line: {
@@ -21,20 +27,25 @@ const styles = () => createStyles({
     margin: '0 auto',
     userSelect: 'none'
   },
-  cardContainer: {
+  cartContainer: {
     maxWidth: 1200,
     margin: '0 auto'
   }
 });
 
-type Props = WithStyles<typeof styles>
+interface StateProps {
+  cartProducts: ProductItem[];
+}
 
-const Card: NextFunctionComponent<Props> = props => {
-  const { classes } = props;
+type Props = StateProps & WithStyles<typeof styles>
+
+const Cart: NextFunctionComponent<Props> = props => {
+  const { classes, cartProducts } = props;
+  const emptyCartArray = cartProducts.length === 0;
   return (
     <>
       <header>
-        <div className={classes.line}></div>
+        <Grid className={classes.line}></Grid>
         <Link href="/mezczyzna">
           <Typography component="h1" variant="h2" className={classes.logo}>
             Vitalina
@@ -42,12 +53,20 @@ const Card: NextFunctionComponent<Props> = props => {
         </Link>
       </header>
       <main>
-        <Grid container className={classes.cardContainer}>
-          <EmptyCard />
+        <Grid container className={classes.cartContainer}>
+          {emptyCartArray ? <EmptyCart /> : <ListOfCartItems products={cartProducts} />}
         </Grid>
       </main>
     </>
   )
 }
 
-export default withStyles(styles)(Card);
+const mapStateToProps = (state: RootState) => {
+  const cartProducts = getCartProducts(state);
+
+  return {
+    cartProducts
+  };
+};
+
+export default connect<StateProps, {}, {}, RootState>(mapStateToProps, {})(withStyles(styles)(Cart));
