@@ -5,11 +5,11 @@ import ShoppingBasketDropdown from './ShoppingBasketDropdown';
 import Grid from '@material-ui/core/Grid';
 import Hidden from '@material-ui/core/Hidden';
 import Link from 'next/link';
-import { getCartProducts } from '../../../features/cart/selectors';
-import { ProductItem } from '../../../features/cart/model';
+import { getCartProducts } from '../../features/cart/selectors';
+import { ProductItem } from '../../features/cart/model';
 import { createStyles, withStyles, WithStyles } from '@material-ui/core/styles';
 import { connect } from 'react-redux';
-import { RootState } from '../../../features/redux/root-reducer';
+import { RootState } from '../../features/redux/root-reducer';
 
 const styles = () => createStyles({
   card__container: {

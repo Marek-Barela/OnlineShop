@@ -1,7 +1,7 @@
 import React from 'react';
 import Gender from './Gender';
 import Logo from './Logo';
-import ShoppingCart from './ShoppingCart/ShoppingCart';
+import ShoppingCart from '../headerShoppingCart/ShoppingCart';
 import Grid from '@material-ui/core/Grid';
 import '../header/header.css';
 import { Gender as GenderType } from '../../features/utils/gender';

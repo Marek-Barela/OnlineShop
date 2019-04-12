@@ -3,11 +3,11 @@ import Typography from '@material-ui/core/Typography';
 import List from '@material-ui/core/List';
 import BasketListItem from './BasketListItem';
 import Grid from '@material-ui/core/Grid';
-import { getCartProducts } from '../../../features/cart/selectors';
-import { ProductItem } from '../../../features/cart/model';
+import { getCartProducts } from '../../features/cart/selectors';
+import { ProductItem } from '../../features/cart/model';
 import { createStyles, withStyles, WithStyles } from '@material-ui/core/styles';
 import { connect } from 'react-redux';
-import { RootState } from '../../../features/redux/root-reducer';
+import { RootState } from '../../features/redux/root-reducer';
 
 const styles = () => createStyles({
   emptyBasket: {

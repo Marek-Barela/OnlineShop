@@ -4,10 +4,10 @@ import Button from '@material-ui/core/Button';
 import Link from 'next/link';
 import Grid from '@material-ui/core/Grid';
 import { createStyles, withStyles, WithStyles } from '@material-ui/core/styles';
-import { getCartProducts } from '../../../features/cart/selectors';
-import { ProductItem } from '../../../features/cart/model';
+import { getCartProducts } from '../../features/cart/selectors';
+import { ProductItem } from '../../features/cart/model';
 import { connect } from 'react-redux';
-import { RootState } from '../../../features/redux/root-reducer';
+import { RootState } from '../../features/redux/root-reducer';
 
 const styles = () => createStyles({
   basketButtonContainer: {
