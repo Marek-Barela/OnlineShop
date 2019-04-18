@@ -6,18 +6,21 @@ const dev = process.env.NODE_DEV !== 'production';
 const nextApp = next({ dev });
 const handle = nextApp.getRequestHandler();
 const mongoose = require('mongoose');
-const db = mongoose.connect('');
+const db = require('./config/keys').mongoURI;
 
 nextApp.prepare().then(() => {
-    const app = express()
-    app.use(bodyParser.json());
-    app.use(bodyParser.urlencoded({ extended: true }));
-
-    app.get('*', (req,res) => {
-        return handle(req,res) 
-    })
-    app.listen(PORT, err => {
-        if (err) throw err;
-        console.log(`ready at http://localhost:${PORT}`)
-    })
+  const app = express()
+  app.use(bodyParser.json());
+  app.use(bodyParser.urlencoded({ extended: true }));
+  mongoose
+    .connect(db, { useNewUrlParser: true })
+    .then(() => console.log("MongoDB Connected..."))
+    .catch((err) => console.log("MongoDB error", err));
+  app.get('*', (req, res) => {
+    return handle(req, res)
+  })
+  app.listen(PORT, err => {
+    if (err) throw err;
+    console.log(`ready at http://localhost:${PORT}`)
+  })
 })
