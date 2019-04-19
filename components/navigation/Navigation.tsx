@@ -4,7 +4,7 @@ import MobileMenu from './MobileMenu';
 import List from '@material-ui/core/List';
 import Typography from '@material-ui/core/Typography';
 import Hidden from '@material-ui/core/Hidden';
-import { JSONCategoriesResponse, Products } from '../../features/maleProducts/model';
+import { clothes, boots, sport, accesories } from '../../features/utils/navigation';
 import { createStyles, withStyles, WithStyles } from '@material-ui/core/styles';
 import './navigation.css';
 
@@ -39,11 +39,7 @@ const styles = () => createStyles({
   }
 });
 
-interface StateProps {
-  dropdownList: JSONCategoriesResponse;
-}
-
-type Props = StateProps & WithStyles<typeof styles>;
+type Props = WithStyles<typeof styles>;
 
 class Navigation extends Component<Props> {
   state = {
@@ -54,12 +50,11 @@ class Navigation extends Component<Props> {
 
   // Set default state
   componentDidMount() {
-    const { clothes } = this.props.dropdownList;
     this.setDropdownList(clothes, "clothes")
   }
 
-  setDropdownList = (categories: Products[], element: string) => {
-    const filterCategories = categories.map(item => {
+  setDropdownList = (categories: any, element: string) => {
+    const filterCategories = categories.map((item: any) => {
       const categories = {
         label: item.label,
         endpoint: item.endpoint
@@ -85,8 +80,7 @@ class Navigation extends Component<Props> {
   }
 
   render() {
-    const { classes, dropdownList } = this.props;
-    const { clothes, boots, sport, accesories } = dropdownList;
+    const { classes } = this.props;
     const { linksCategories, activeNavElement, isActiveNav } = this.state;
     const itemActive = 'item__active';
     return (

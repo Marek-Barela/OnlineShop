@@ -24,10 +24,9 @@ type Props = StateProps & ParentProps & WithStyles<typeof styles>;
 
 class Shirt extends Component<Props> {
   render() {
-    const { categories } = this.props;
+    const { } = this.props;
     return (
       <Layout
-        navigationList={categories}
         URL={genderWomanDefault}
       >
 

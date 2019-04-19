@@ -25,7 +25,6 @@ class Shirt extends Component<Props> {
     const products = categories.clothes.filter(category => category.label === routeShirt);
     return (
       <Layout
-        navigationList={categories}
         URL={genderManDefault}
       >
         <Products productsList={products} />

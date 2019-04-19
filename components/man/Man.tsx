@@ -41,12 +41,9 @@ type Props = StateProps & ParentProps & WithStyles<typeof styles>;
 
 class Man extends Component<Props> {
   render() {
-    const { categories, router, classes } = this.props;
+    const { router, classes } = this.props;
     return (
-      <Layout
-        navigationList={categories}
-        URL={genderManDefault}
-      >
+      <Layout URL={genderManDefault}>
         <Grid className={classes.banner}>
           <Typography className={classes.text} component="h3" variant="h4">
             Już wkrótce najnowsze trendy...

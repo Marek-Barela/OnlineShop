@@ -40,10 +40,9 @@ type Props = StateProps & ParentProps & WithStyles<typeof styles>;
 
 class Woman extends Component<Props> {
   render() {
-    const { categories, router, classes } = this.props;
+    const { router, classes } = this.props;
     return (
       <Layout
-        navigationList={categories}
         URL={genderWomanDefault}
       >
         <div className={classes.banner}>
