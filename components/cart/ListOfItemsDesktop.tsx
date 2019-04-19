@@ -1,8 +1,6 @@
 import React from 'react';
 import ListItem from '@material-ui/core/ListItem';
-import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
-import DeleteOutlinedIcon from '@material-ui/icons/DeleteOutlined';
 import { ProductItem } from '../../features/cart/model';
 import { NextFunctionComponent } from 'next';
 import { createStyles, withStyles, WithStyles } from '@material-ui/core/styles';
@@ -27,7 +25,7 @@ const ListOfItemsDesktop: NextFunctionComponent<Props> = props => {
   return (
     <>
       {products.map((product, index) => {
-        const { images, name, color, quantity, price } = product;
+        const { images } = product;
         return (
           <ListItem key={index} className={classes.listItem}>
             <Grid container alignItems="center">
