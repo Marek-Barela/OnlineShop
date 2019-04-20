@@ -1,14 +1,15 @@
 import { RootAction } from '../redux/root-actions';
+import { ProductItem } from '../maleProducts/model';
 import { fetchProductsRequest } from './actions';
 import { getType } from 'typesafe-actions';
 
 export type ProductsState = {
-  products: any;
+  products: ProductItem[];
   isFetching: boolean;
 };
 
 export const initialState: ProductsState = {
-  products: {},
+  products: [],
   isFetching: false
 }
 

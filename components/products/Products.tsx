@@ -3,7 +3,7 @@ import Product from './Product';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
-import { Products as ProductItem } from '../../features/maleProducts/model';
+import { ProductItem } from '../../features/maleProducts/model';
 import { createStyles, withStyles, WithStyles } from '@material-ui/core/styles';
 import { NextFunctionComponent } from 'next';
 
@@ -46,22 +46,20 @@ const styles = () => createStyles({
 });
 
 interface ParentProps {
-  productsList: ProductItem[];
+  products: ProductItem[];
 }
 
 type Props = ParentProps & WithStyles<typeof styles>;
 
 const Products: NextFunctionComponent<Props> = (props) => {
-  const { productsList, classes } = props;
-  const products = productsList[0].products;
-  const label = productsList[0].label;
+  const { products = [], classes } = props;
   return (
     <>
       <Grid className={classes.root} container>
-        <Typography className={classes.label} component="h2">{label}</Typography>
+        <Typography className={classes.label} component="h2"></Typography>
         <Divider />
         <Grid container className={classes.productsContainer}>
-          {products.map(product => <Product key={product.id} product={product} />)}
+          {products.map(product => <Product key={product._id} product={product} />)}
         </Grid>
       </Grid>
     </>

@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import Layout from '../layout/Layout';
-import ProductDetails from './ProductDetails';
+import ProductDetails from '../productDetails/ProductDetails';
 import Grid from '@material-ui/core/Grid';
+import { getSingleProduct } from '../../features/singleMaleProduct/selectors';
 import { Theme } from '@material-ui/core/styles/createMuiTheme';
-import { getProducts } from '../../features/maleProducts/selectors';
 import { genderManDefault } from '../../features/utils/gender';
-import { JSONCategoriesResponse } from '../../features/maleProducts/model';
+import { ProductItem } from '../../features/maleProducts/model';
 import { connect } from 'react-redux';
 import { RootState } from '../../features/redux/root-reducer';
 import { withRouter } from 'next/router';
@@ -27,21 +27,20 @@ interface ParentProps {
 }
 
 interface StateProps {
-  categories: JSONCategoriesResponse
+  product: ProductItem
 }
 
 type Props = StateProps & ParentProps & WithStyles<typeof styles>;
 
 class ProductDescription extends Component<Props> {
   render() {
-    const { categories, router, classes } = this.props;
+    const { classes, product } = this.props;
     return (
       <Layout
-        navigationList={categories}
         URL={genderManDefault}
       >
         <Grid className={classes.container} container>
-          <ProductDetails product={router.query} />
+          <ProductDetails product={product} />
         </Grid>
       </Layout>
     )
@@ -49,10 +48,10 @@ class ProductDescription extends Component<Props> {
 }
 
 const mapStateToProps = (state: RootState) => {
-  const categories = getProducts(state)
+  const product = getSingleProduct(state)
 
   return {
-    categories
+    product
   };
 };
 

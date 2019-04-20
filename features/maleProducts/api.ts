@@ -1,7 +1,7 @@
-import { JSONCategoriesResponse } from './model';
+import { ProductItem } from './model';
 
-export const getProductsFromJSON = (): Promise<JSONCategoriesResponse> => {
-  return fetch('https://api.myjson.com/bins/fakfc')
+export const getProductsFromJSON = (): Promise<ProductItem> => {
+  return fetch('https://vitalina-database.herokuapp.com/api/male/products')
     .then(res => {
       if (!res.ok) {
         throw new Error("Error getting the stuff");
@@ -9,6 +9,5 @@ export const getProductsFromJSON = (): Promise<JSONCategoriesResponse> => {
       return res;
     })
     .then(res => res.json())
-    .then(res => { return res })
     .catch(err => console.log(err))
 }

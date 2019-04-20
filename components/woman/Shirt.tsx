@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Layout from '../layout/Layout';
 import { getProducts } from '../../features/maleProducts/selectors';
 import { genderWomanDefault } from '../../features/utils/gender';
-import { JSONCategoriesResponse } from '../../features/maleProducts/model';
+import { ProductItem } from '../../features/maleProducts/model';
 import { connect } from 'react-redux';
 import { RootState } from '../../features/redux/root-reducer';
 import { withRouter } from 'next/router';
@@ -17,7 +17,7 @@ interface ParentProps {
 }
 
 interface StateProps {
-  categories: JSONCategoriesResponse
+  products: ProductItem[]
 }
 
 type Props = StateProps & ParentProps & WithStyles<typeof styles>;
@@ -36,10 +36,10 @@ class Shirt extends Component<Props> {
 }
 
 const mapStateToProps = (state: RootState) => {
-  const categories = getProducts(state)
+  const products = getProducts(state)
 
   return {
-    categories
+    products
   };
 };
 

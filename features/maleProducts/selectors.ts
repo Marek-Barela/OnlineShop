@@ -1,6 +1,6 @@
 import { RootState } from '../redux/root-reducer';
-import { JSONCategoriesResponse } from './model';
+import { ProductItem } from './model';
 
-export function getProducts(state: RootState): JSONCategoriesResponse {
+export function getProducts(state: RootState): ProductItem[] {
   return state.maleProducts.products;
 }

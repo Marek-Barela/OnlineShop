@@ -3,11 +3,15 @@ import { RootAction } from './root-actions';
 import gender from '../gender/reducer';
 import maleProducts from '../maleProducts/reducer';
 import cart from '../cart/reducer';
+import singleMaleProduct from '../singleMaleProduct/reducer';
+import setSingleID from '../singleID/reducer';
 
 const reducerMap = {
   gender,
   maleProducts,
-  cart
+  cart,
+  singleMaleProduct,
+  setSingleID
 };
 
 export type RootState = { [K in keyof typeof reducerMap]: ReturnType<typeof reducerMap[K]> };

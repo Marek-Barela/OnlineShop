@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import Layout from '../layout/Layout';
 import Products from '../products/Products';
-import { routeJeans } from '../../features/utils/routesLabels';
 import { getProducts } from '../../features/maleProducts/selectors';
 import { genderManDefault } from '../../features/utils/gender';
-import { JSONCategoriesResponse } from '../../features/maleProducts/model';
+import { ProductItem } from '../../features/maleProducts/model';
 import { connect } from 'react-redux';
 import { RootState } from '../../features/redux/root-reducer';
 import { withRouter } from 'next/router';
@@ -14,30 +13,29 @@ interface ParentProps {
 }
 
 interface StateProps {
-  categories: JSONCategoriesResponse
+  products: ProductItem[]
 }
 
 type Props = StateProps & ParentProps
 
 class Jeans extends Component<Props> {
   render() {
-    const { categories } = this.props;
-    const products = categories.clothes.filter(category => category.label === routeJeans);
+    const { products } = this.props;
     return (
       <Layout
         URL={genderManDefault}
       >
-        <Products productsList={products} />
+        <Products products={products} />
       </Layout>
     )
   }
 }
 
 const mapStateToProps = (state: RootState) => {
-  const categories = getProducts(state)
+  const products = getProducts(state)
 
   return {
-    categories
+    products
   };
 };
 

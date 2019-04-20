@@ -1,6 +1,7 @@
 import React from 'react';
-import ProductDescription from '../../../components/productDescription/ProductDescription';
-import { fetchProducts } from '../../../features/maleProducts/actions';
+import ProductDescription from '../../../components/productDescriptionMale/ProductDescription';
+import { fetchSingleProduct } from '../../../features/singleMaleProduct/actions';
+import { setSingleId } from '../../../features/singleID/actions';
 import getStore from '../../../features/redux/selectors';
 import { RootAction } from '../../../features/redux/root-actions';
 import { RootState } from '../../../features/redux/root-reducer';
@@ -15,9 +16,11 @@ const ProductDescriptionPage: NextFunctionComponent<{}, {}, Store<RootState, Roo
   );
 };
 
-ProductDescriptionPage.getInitialProps = async (store) => {
-  const action = getStore(store)
-  action.dispatch(fetchProducts())
+ProductDescriptionPage.getInitialProps = async (store: any) => {
+  const action = getStore(store);
+  const { _id } = store.query;
+  action.dispatch(setSingleId(_id));
+  action.dispatch(fetchSingleProduct());
   return {};
 };
 
