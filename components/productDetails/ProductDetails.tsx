@@ -51,15 +51,6 @@ const styles = (theme: Theme) => createStyles({
   }
 });
 
-const convertStringToArray = (images: [] | string) => {
-  if (Array.isArray(images)) {
-    return images
-  }
-  else {
-    return [images]
-  }
-}
-
 interface ParentProps {
   product: ProductItem | any;
 }
@@ -87,16 +78,15 @@ class ProductDetails extends Component<Props> {
     const { name, description, fabric, price, images } = product;
     const textDescriptionProps = { name, description, fabric, price };
     const snackbarProps = { productInCartSuccess };
-    const imagesToArray = convertStringToArray(images);
     return (
       <>
         <Grid container>
           <Grid className={classes.imageMiniatureContainer} xs={12} md={1} item>
-            {imagesToArray.map((img: string, index: number) => <ImageMiniature key={index} img={img} />)}
+            {images.map((img: string, index: number) => <ImageMiniature key={index} img={img} />)}
           </Grid>
           <Grid item xs={12} md={4} className={classes.imageContainer}>
             <Grid>
-              <img className={classes.mainImage} src={imagesToArray[0]} />
+              <img className={classes.mainImage} src={images[0]} />
             </Grid>
           </Grid>
           <Grid item xs={12} md={7} className={classes.descriptionContainer}>

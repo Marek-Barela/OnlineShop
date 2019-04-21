@@ -52,7 +52,7 @@ class AddProductButton extends Component<Props> {
   handleAddProductButton(product: ProductItem) {
     const { addProductToCart, updateAmountOfProductsInCart, cartProducts, displaySucces } = this.props;
     const filterTheSameProductsInCart = cartProducts.filter(item => {
-      return item.id === product.id
+      return item._id === product._id
     })
     if (!filterTheSameProductsInCart.length) {
       addProductToCart(product)

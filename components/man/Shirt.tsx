@@ -20,7 +20,10 @@ class Shirt extends Component<Props> {
       <Layout
         URL={genderManDefault}
       >
-        <Products products={products} />
+        <Products
+          products={products}
+          label="Koszule Męskie"
+        />
       </Layout>
     )
   }

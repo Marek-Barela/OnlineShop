@@ -47,16 +47,17 @@ const styles = () => createStyles({
 
 interface ParentProps {
   products: ProductItem[];
+  label: String;
 }
 
 type Props = ParentProps & WithStyles<typeof styles>;
 
 const Products: NextFunctionComponent<Props> = (props) => {
-  const { products = [], classes } = props;
+  const { products = [], label, classes } = props;
   return (
     <>
       <Grid className={classes.root} container>
-        <Typography className={classes.label} component="h2"></Typography>
+        <Typography className={classes.label} component="h2">{label}</Typography>
         <Divider />
         <Grid container className={classes.productsContainer}>
           {products.map(product => <Product key={product._id} product={product} />)}
