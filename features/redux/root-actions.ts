@@ -4,6 +4,7 @@ import * as gender from '../gender/actions';
 import * as maleProducts from '../maleProducts/actions';
 import * as cart from '../cart/actions';
 import * as singleMaleProduct from '../singleMaleProduct/actions';
+import * as maleShirts from '../maleProductsShirts/actions';
 import * as setProductID from '../singleID/actions';
 
 export const actions = {
@@ -11,6 +12,7 @@ export const actions = {
   maleProducts,
   cart,
   singleMaleProduct,
+  maleShirts,
   setProductID
 };
 

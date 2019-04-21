@@ -4,6 +4,7 @@ import gender from '../gender/reducer';
 import maleProducts from '../maleProducts/reducer';
 import cart from '../cart/reducer';
 import singleMaleProduct from '../singleMaleProduct/reducer';
+import maleShirts from '../maleProductsShirts/reducer';
 import setSingleID from '../singleID/reducer';
 
 const reducerMap = {
@@ -11,6 +12,7 @@ const reducerMap = {
   maleProducts,
   cart,
   singleMaleProduct,
+  maleShirts,
   setSingleID
 };
 

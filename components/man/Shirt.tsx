@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Layout from '../layout/Layout';
 import Products from '../products/Products';
-import { getProducts } from '../../features/maleProducts/selectors';
+import { getProducts } from '../../features/maleProductsShirts/selectors';
 import { genderManDefault } from '../../features/utils/gender';
 import { ProductItem } from '../../features/maleProducts/model';
 import { connect } from 'react-redux';

@@ -1,5 +1,5 @@
 import { RootAction } from '../redux/root-actions';
-import { ProductItem } from './model';
+import { ProductItem } from '../maleProducts/model';
 import { fetchProductsRequest } from './actions';
 import { getType } from 'typesafe-actions';
 
