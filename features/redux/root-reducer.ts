@@ -5,6 +5,7 @@ import maleProducts from '../maleProducts/reducer';
 import cart from '../cart/reducer';
 import singleMaleProduct from '../singleMaleProduct/reducer';
 import maleShirts from '../maleProductsShirts/reducer';
+import maleJeans from '../maleProductsJeans/reducer';
 import setSingleID from '../singleID/reducer';
 
 const reducerMap = {
@@ -13,6 +14,7 @@ const reducerMap = {
   cart,
   singleMaleProduct,
   maleShirts,
+  maleJeans,
   setSingleID
 };
 

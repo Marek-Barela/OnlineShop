@@ -5,6 +5,7 @@ import * as maleProducts from '../maleProducts/actions';
 import * as cart from '../cart/actions';
 import * as singleMaleProduct from '../singleMaleProduct/actions';
 import * as maleShirts from '../maleProductsShirts/actions';
+import * as maleJeans from '../maleProductsJeans/actions';
 import * as setProductID from '../singleID/actions';
 
 export const actions = {
@@ -13,6 +14,7 @@ export const actions = {
   cart,
   singleMaleProduct,
   maleShirts,
+  maleJeans,
   setProductID
 };
 

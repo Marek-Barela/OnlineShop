@@ -1,6 +1,6 @@
 import React from 'react';
 import Shirt from '../../../components/man/Shirt';
-import { fetchProducts } from '../../../features/maleProducts/actions';
+import { fetchProducts } from '../../../features/maleProductsShirts/actions';
 import getStore from '../../../features/redux/selectors';
 import { RootAction } from '../../../features/redux/root-actions';
 import { RootState } from '../../../features/redux/root-reducer';
