@@ -75,7 +75,7 @@ class ProductDetails extends Component<Props> {
   render() {
     const { product, classes } = this.props;
     const { productInCartSuccess } = this.state;
-    const { name, description, fabric, price, images } = product;
+    const { name, description, fabric, price, images = [] } = product;
     const textDescriptionProps = { name, description, fabric, price };
     const snackbarProps = { productInCartSuccess };
     return (
