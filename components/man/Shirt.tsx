@@ -6,17 +6,12 @@ import { genderManDefault } from '../../features/utils/gender';
 import { ProductItem } from '../../features/maleProducts/model';
 import { connect } from 'react-redux';
 import { RootState } from '../../features/redux/root-reducer';
-import { withRouter } from 'next/router';
-
-interface ParentProps {
-  router: any;
-}
 
 interface StateProps {
   products: ProductItem[]
 }
 
-type Props = StateProps & ParentProps;
+type Props = StateProps;
 
 class Shirt extends Component<Props> {
   render() {
@@ -39,4 +34,4 @@ const mapStateToProps = (state: RootState) => {
   };
 };
 
-export default connect<StateProps, {}, {}, RootState>(mapStateToProps, {})(withRouter(Shirt));
+export default connect<StateProps, {}, {}, RootState>(mapStateToProps, {})(Shirt);
