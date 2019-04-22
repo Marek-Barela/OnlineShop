@@ -3,15 +3,15 @@ import { addProductToCart, updateAmountOfProductsInCart } from './actions';
 import { getType } from 'typesafe-actions';
 import { ProductItem } from './model';
 
-export type CardState = {
+export type CartState = {
   cart: ProductItem[];
 };
 
-export const initialState: CardState = {
+export const initialState: CartState = {
   cart: []
 }
 
-export default function (state: CardState = initialState, action: RootAction): CardState {
+export default function (state: CartState = initialState, action: RootAction): CartState {
   switch (action.type) {
     case (getType(addProductToCart)): {
       const newItem = action.payload;
@@ -26,7 +26,7 @@ export default function (state: CardState = initialState, action: RootAction): C
     case (getType(updateAmountOfProductsInCart)): {
       const newState = [...state.cart]
       newState
-        .filter(item => item.id === action.payload.id)
+        .filter(item => item._id === action.payload._id)
         .map(item => item.quantity = item.quantity + 1);
       return {
         ...state,
