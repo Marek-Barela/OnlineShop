@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Layout from '../layout/Layout';
 import ProductDetails from '../productDetails/ProductDetails';
 import Grid from '@material-ui/core/Grid';
+import { clothes, boots, sport, accesories } from '../../features/utils/maleNavigation';
 import { getSingleProduct } from '../../features/singleMaleProduct/selectors';
 import { Theme } from '@material-ui/core/styles/createMuiTheme';
 import { genderManDefault } from '../../features/utils/gender';
@@ -35,9 +36,11 @@ type Props = StateProps & ParentProps & WithStyles<typeof styles>;
 class ProductDescription extends Component<Props> {
   render() {
     const { classes, product } = this.props;
+    const maleNavMenu = { clothes, boots, sport, accesories };
     return (
       <Layout
         URL={genderManDefault}
+        nav={maleNavMenu}
       >
         <Grid className={classes.container} container>
           <ProductDetails product={product} />
