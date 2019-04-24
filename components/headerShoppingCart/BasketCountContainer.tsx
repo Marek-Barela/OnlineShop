@@ -56,7 +56,7 @@ interface StateProps {
 
 type Props = StateProps & WithStyles<typeof styles>;
 
-class ButtonContainer extends Component<Props> {
+class CountContainer extends Component<Props> {
   calculateProductsPrice() {
     const { cartProducts } = this.props;
     const calculeteProducts = cartProducts.reduce((acc, product) => {
@@ -97,4 +97,4 @@ const mapStateToProps = (state: RootState) => {
   };
 };
 
-export default connect<StateProps, {}, {}, RootState>(mapStateToProps, {})(withStyles(styles)(ButtonContainer));
+export default connect<StateProps, {}, {}, RootState>(mapStateToProps, {})(withStyles(styles)(CountContainer));

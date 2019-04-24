@@ -1,6 +1,6 @@
 import React, { Component, MouseEventHandler } from 'react';
 import BasketProductsList from './BasketProductsList';
-import BasketButtonContainer from './BasketButtonContainer';
+import BasketCountContainer from './BasketCountContainer';
 import Grid from '@material-ui/core/Grid';
 import { createStyles, withStyles, WithStyles } from '@material-ui/core/styles';
 
@@ -32,7 +32,7 @@ class ShoppingBasketDropdown extends Component<Props> {
         onMouseLeave={mouseOut}
       >
         <BasketProductsList />
-        <BasketButtonContainer />
+        <BasketCountContainer />
       </Grid>
     )
   }
