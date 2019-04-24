@@ -19,7 +19,7 @@ const styles = () => createStyles({
     zIndex: 100
   },
   icon: {
-    color: '#9e9e9e',
+    color: '#0e0e0e',
     fontSize: '1.1em',
   },
   basketContainer: {
@@ -34,7 +34,7 @@ const styles = () => createStyles({
     textTransform: 'uppercase',
     margin: '0 10px',
     letterSpacing: '2px',
-    color: '#9e9e9e'
+    color: '#0e0e0e'
   }
 });
 

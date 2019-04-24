@@ -29,7 +29,7 @@ const ListOfItemsDesktop: NextFunctionComponent<Props> = props => {
         return (
           <ListItem key={index} className={classes.listItem}>
             <Grid container alignItems="center">
-              <Grid xs={3}>
+              <Grid item xs={3}>
                 <img className={classes.cartImage} src={images[0]} />
               </Grid>
             </Grid>

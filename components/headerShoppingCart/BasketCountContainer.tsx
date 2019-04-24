@@ -15,7 +15,7 @@ const styles = () => createStyles({
     flexDirection: 'column',
     justifyContent: 'center',
     minHeight: 50,
-    borderTop: '1px solid rgb(0,0,0)',
+    borderTop: '2px solid rgb(0,0,0)',
     padding: '0 20px'
   },
   priceContainer: {
@@ -27,17 +27,19 @@ const styles = () => createStyles({
   priceLabel: {
     textTransform: 'uppercase',
     letterSpacing: '2px',
-    fontSize: '0.7em'
+    fontSize: '0.7em',
+    fontWeight: 'bold'
   },
   price: {
-    fontSize: '0.7em'
+    fontSize: '0.7em',
+    fontWeight: 'bold'
   },
   basketButton: {
     fontSize: '0.6em',
     textTransform: 'uppercase',
     backgroundColor: '#000000',
     color: '#ffffff',
-    border: '1px solid #ffffff',
+    border: '2px solid #ffffff',
     margin: '15px 0',
     width: "100%",
     height: 40,
@@ -45,7 +47,7 @@ const styles = () => createStyles({
     '&:hover': {
       backgroundColor: "#ffffff",
       color: "#000000",
-      border: '1px solid #000000',
+      border: '2px solid #000000',
     }
   }
 });

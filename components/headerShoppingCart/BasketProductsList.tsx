@@ -35,7 +35,8 @@ class BasketProductsList extends Component<Props> {
         component="h6"
         variant="h6"
         className={classes.emptyBasket}
-      >Twój koszyk jest pusty.
+      >
+        Twój koszyk jest pusty.
       </Typography>)
     return (
       <Grid>

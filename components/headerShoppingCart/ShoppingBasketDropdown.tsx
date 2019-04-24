@@ -7,11 +7,12 @@ import { createStyles, withStyles, WithStyles } from '@material-ui/core/styles';
 const styles = () => createStyles({
   basket: {
     position: 'absolute',
-    width: 350,
+    width: 400,
     backgroundColor: '#ffffff',
-    border: '1px solid rgb(0,0,0)',
-    top: 45,
+    border: '2px solid rgb(0,0,0)',
+    bottom: 0,
     right: 0,
+    transform: 'translateY(100%)',
     zIndex: 1000
   }
 });

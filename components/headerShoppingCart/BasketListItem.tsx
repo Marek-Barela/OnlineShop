@@ -8,7 +8,7 @@ import { createStyles, withStyles, WithStyles } from '@material-ui/core/styles';
 
 const styles = () => createStyles({
   product: {
-    borderTop: '1px solid rgb(0,0,0)',
+    borderTop: '2px solid rgb(0,0,0)',
     padding: 10,
     '&:first-child': {
       border: 'none'
@@ -21,24 +21,15 @@ const styles = () => createStyles({
     margin: '0 10px'
   },
   description: {
-    textTransform: 'uppercase',
-    fontSize: '0.50em',
+    fontSize: '0.65em',
     fontWeight: 'bold',
-    letterSpacing: '2px',
+    letterSpacing: '1px',
   },
   price: {
-    fontSize: '0.7em',
+    fontSize: '0.65em',
+    fontWeight: 'bold',
   }
 });
-
-const convertStringToArray = (images: [] | string) => {
-  if (Array.isArray(images)) {
-    return images
-  }
-  else {
-    return [images]
-  }
-}
 
 interface ParentProps {
   product: ProductItem;
@@ -49,18 +40,17 @@ type Props = ParentProps & WithStyles<typeof styles>;
 const BasketListItem: NextFunctionComponent<Props> = props => {
   const { classes, product } = props;
   const { images, name, quantity, price, color } = product;
-  const imagesToArray = convertStringToArray(images)
   return (
     <ListItem className={classes.product}>
       <Grid item xs={3}>
-        <img className={classes.productImg} src={imagesToArray[0]} />
+        <img className={classes.productImg} src={images[0]} />
       </Grid>
-      <Grid item xs={6} className={classes.textContainer}>
+      <Grid item xs={7} className={classes.textContainer}>
         <Typography className={classes.description}>{name}</Typography>
         <Typography className={classes.description}>Ilość {quantity}</Typography>
         <Typography className={classes.description}>{color}</Typography>
       </Grid>
-      <Grid item xs={3}>
+      <Grid item xs={2}>
         <Typography className={classes.price}>{price}ZŁ</Typography>
       </Grid>
     </ListItem>
