@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Layout from '../layout/Layout';
 import Products from '../products/Products';
+import { clothes, boots, sport, accesories } from '../../features/utils/maleNavigation';
 import { getProducts } from '../../features/maleProductsJeans/selectors';
 import { genderManDefault } from '../../features/utils/gender';
 import { ProductItem } from '../../features/maleProducts/model';
@@ -16,9 +17,11 @@ type Props = StateProps;
 class Jeans extends Component<Props> {
   render() {
     const { products } = this.props;
+    const maleNavMenu = { clothes, boots, sport, accesories }
     return (
       <Layout
         URL={genderManDefault}
+        nav={maleNavMenu}
       >
         <Products
           products={products}

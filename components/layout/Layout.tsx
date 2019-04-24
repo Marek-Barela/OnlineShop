@@ -8,14 +8,15 @@ import { NextFunctionComponent } from 'next';
 interface Props {
   children: JSX.Element | JSX.Element[];
   URL: Gender;
+  nav: any;
 }
 
 const Layout: NextFunctionComponent<Props> = props => {
-  const { children, URL } = props;
+  const { children, URL, nav } = props;
   return (
     <Grid>
       <Header URL={URL} />
-      <Navigation />
+      <Navigation nav={nav} />
       <main>
         {children}
       </main>

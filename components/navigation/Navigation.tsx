@@ -4,7 +4,6 @@ import MobileMenu from './MobileMenu';
 import List from '@material-ui/core/List';
 import Typography from '@material-ui/core/Typography';
 import Hidden from '@material-ui/core/Hidden';
-import { clothes, boots, sport, accesories } from '../../features/utils/navigation';
 import { createStyles, withStyles, WithStyles } from '@material-ui/core/styles';
 import './navigation.css';
 
@@ -39,7 +38,11 @@ const styles = () => createStyles({
   }
 });
 
-type Props = WithStyles<typeof styles>;
+interface ParentProps {
+  nav: any;
+}
+
+type Props = ParentProps & WithStyles<typeof styles>;
 
 class Navigation extends Component<Props> {
   state = {
@@ -50,6 +53,7 @@ class Navigation extends Component<Props> {
 
   // Set default state
   componentDidMount() {
+    const { clothes } = this.props.nav;
     this.setDropdownList(clothes, "clothes")
   }
 
@@ -80,7 +84,8 @@ class Navigation extends Component<Props> {
   }
 
   render() {
-    const { classes } = this.props;
+    const { classes, nav } = this.props;
+    const { clothes, boots, sport, accesories } = nav;
     const { linksCategories, activeNavElement, isActiveNav } = this.state;
     const itemActive = 'item__active';
     return (

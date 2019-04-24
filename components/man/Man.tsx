@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Layout from '../layout/Layout';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
+import { clothes, boots, sport, accesories } from '../../features/utils/maleNavigation';
 import { getProducts } from '../../features/maleProducts/selectors';
 import { genderManDefault } from '../../features/utils/gender';
 import { ProductItem } from '../../features/maleProducts/model';
@@ -37,8 +38,12 @@ type Props = StateProps & WithStyles<typeof styles>;
 class Man extends Component<Props> {
   render() {
     const { classes } = this.props;
+    const maleNavMenu = { clothes, boots, sport, accesories }
     return (
-      <Layout URL={genderManDefault}>
+      <Layout
+        URL={genderManDefault}
+        nav={maleNavMenu}
+      >
         <Grid className={classes.banner}>
           <Typography className={classes.text} component="h3" variant="h4">
             Już wkrótce najnowsze trendy...
