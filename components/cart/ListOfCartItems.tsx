@@ -1,6 +1,6 @@
 import React from 'react';
 import ListOfItemsMobile from './ListOfItemsMobile';
-import ListOfItemsDesktop from './ListOfItemsDesktop';
+import TableOfItemsDesktop from './TableOfItemsDesktop';
 import Hidden from '@material-ui/core/Hidden';
 import List from '@material-ui/core/List';
 import Typography from '@material-ui/core/Typography';
@@ -12,7 +12,7 @@ const styles = () => createStyles({
   textHeader: {
     width: '100%',
     textTransform: 'uppercase',
-    fontSize: '0.8em',
+    fontSize: '1.1em',
     textAlign: 'center',
   },
   productsList: {
@@ -32,14 +32,14 @@ const ListOfCartItems: NextFunctionComponent<Props> = props => {
   return (
     <>
       <Typography className={classes.textHeader} component="h2" variant="h6">Twój Koszyk</Typography>
-      <List className={classes.productsList}>
-        <Hidden smUp>
+      <Hidden smUp>
+        <List className={classes.productsList}>
           <ListOfItemsMobile products={products} />
-        </Hidden>
-        <Hidden xsDown>
-          <ListOfItemsDesktop products={products} />
-        </Hidden>
-      </List>
+        </List>
+      </Hidden>
+      <Hidden xsDown>
+        <TableOfItemsDesktop products={products} />
+      </Hidden>
     </>
   )
 }
