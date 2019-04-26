@@ -55,7 +55,7 @@ const Cart: NextFunctionComponent<Props> = props => {
           <Link href="/mezczyzna">
             <img
               className={classes.logo}
-              src="https://live.staticflickr.com/65535/40737311553_701a81a888_b.jpg"
+              src="https://live.staticflickr.com/65535/47650887562_2727f95351_b.jpg"
               alt="Vitalina"
             />
           </Link>
