@@ -39,7 +39,6 @@ const ImageMiniature: NextFunctionComponent<Props> = props => {
   const { classes, img, defaultImg, switchImage } = props;
   const { miniature, imgMiniature, imgMiniatureActive } = classes;
   const imgClassName = (img !== defaultImg) ? imgMiniature : `${imgMiniature} ${imgMiniatureActive}`;
-  console.log(img, defaultImg)
   function handleSwitchImage(imgSrc: string) {
     switchImage(imgSrc)
   }

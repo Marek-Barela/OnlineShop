@@ -9,7 +9,6 @@ import { switchSingleProductImage } from '../../features/singleMaleProduct/actio
 import { connect } from 'react-redux';
 import { Theme } from '@material-ui/core/styles/createMuiTheme';
 import { createStyles, withStyles, WithStyles } from '@material-ui/core/styles';
-import { ProductItem } from '../../features/maleProducts/model';
 import { RootState } from '../../features/redux/root-reducer';
 
 const styles = (theme: Theme) => createStyles({
@@ -56,7 +55,7 @@ const styles = (theme: Theme) => createStyles({
 });
 
 interface ParentProps {
-  product: ProductItem | any;
+  product: any;
 }
 
 interface StateProps {
@@ -136,5 +135,5 @@ const mapDispatchToProps = {
   onImageChange: switchSingleProductImage
 };
 
-export default connect<StateProps, {}, {}, RootState>(mapStateToProps, mapDispatchToProps)(withStyles(styles)(ProductDetails));
+export default connect<StateProps, DispatchProps, {}, RootState>(mapStateToProps, mapDispatchToProps)(withStyles(styles)(ProductDetails));
 

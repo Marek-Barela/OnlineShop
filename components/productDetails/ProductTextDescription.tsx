@@ -56,7 +56,7 @@ const styles = (theme: Theme) => createStyles({
 
 interface ParentProps {
   name: string;
-  fabric: string;
+  fabric: string[];
   price: string;
   description: string;
 }
