@@ -14,7 +14,7 @@ const styles = () => createStyles({
     height: '240px',
     display: 'flex',
     alignItems: 'center',
-    backgroundImage: 'url(https://mosaic03.ztat.net/crt/creative-content/3fb37226-5995-4ee7-b922-e4f23e30c5c5.jpg)',
+    backgroundImage: 'url(https://live.staticflickr.com/65535/40737697443_11d27f1a5a_b.jpg)',
     backgroundSize: 'cover',
     backgroundPosition: 'center'
   },
