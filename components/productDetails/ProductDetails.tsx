@@ -86,7 +86,7 @@ class ProductDetails extends Component<Props> {
           </Grid>
           <Grid item xs={12} md={4} className={classes.imageContainer}>
             <Grid>
-              <img className={classes.mainImage} src={images[0]} />
+              <img className={classes.mainImage} src={images[0]} alt="produkt" />
             </Grid>
           </Grid>
           <Grid item xs={12} md={7} className={classes.descriptionContainer}>

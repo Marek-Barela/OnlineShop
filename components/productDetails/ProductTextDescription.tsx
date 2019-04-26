@@ -15,7 +15,8 @@ const styles = (theme: Theme) => createStyles({
     }
   },
   fabric: {
-    color: "#aaaaaa"
+    color: "#888888",
+    fontWeight: 'bold'
   },
   price: {
     fontSize: '1.7em',

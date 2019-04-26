@@ -30,7 +30,7 @@ const ImageMiniature: NextFunctionComponent<Props> = props => {
   return (
     <Grid className={classes.miniature} xs={3} sm={2} md={12} item>
       <Grid>
-        <img className={classes.imageMiniature} src={img} />
+        <img className={classes.imageMiniature} src={img} alt="produkt" />
       </Grid>
     </Grid>
   )
