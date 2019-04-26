@@ -14,23 +14,36 @@ const styles = (theme: Theme) => createStyles({
   imageMiniature: {
     maxWidth: '100%',
     height: 'auto',
+    cursor: 'pointer',
     [theme.breakpoints.down('xs')]: {
       maxHeight: 300
     }
   },
 })
 interface ParentProps {
-  img: string
+  img: string,
+  switchImage: (imgSrc: string) => void;
 }
 
 type Props = ParentProps & WithStyles<typeof styles>
 
 const ImageMiniature: NextFunctionComponent<Props> = props => {
-  const { classes, img } = props;
+
+  const { classes, img, switchImage } = props;
+
+  function handleSwitchImage(imgSrc: string) {
+    switchImage(imgSrc)
+  }
+
   return (
     <Grid className={classes.miniature} xs={3} sm={2} md={12} item>
       <Grid>
-        <img className={classes.imageMiniature} src={img} alt="produkt" />
+        <img
+          className={classes.imageMiniature}
+          src={img}
+          alt="produkt"
+          onClick={() => handleSwitchImage(img)}
+        />
       </Grid>
     </Grid>
   )

@@ -4,9 +4,13 @@ import ProductTextDescription from './ProductTextDescription';
 import AddProductButton from './AddProductButton';
 import ImageMiniature from './ImageMiniature';
 import SnackbarWrapper from './SnackbarWrapper';
+import { getDefaultProductImage } from '../../features/singleMaleProduct/selectors';
+import { switchSingleProductImage } from '../../features/singleMaleProduct/actions';
+import { connect } from 'react-redux';
 import { Theme } from '@material-ui/core/styles/createMuiTheme';
 import { createStyles, withStyles, WithStyles } from '@material-ui/core/styles';
 import { ProductItem } from '../../features/maleProducts/model';
+import { RootState } from '../../features/redux/root-reducer';
 
 const styles = (theme: Theme) => createStyles({
   imageMiniatureContainer: {
@@ -55,11 +59,19 @@ interface ParentProps {
   product: ProductItem | any;
 }
 
-type Props = ParentProps & WithStyles<typeof styles>;
+interface StateProps {
+  defaultProductImage: string;
+}
+
+interface DispatchProps {
+  onImageChange: (src: string) => void;
+}
+
+type Props = ParentProps & StateProps & DispatchProps & WithStyles<typeof styles>;
 
 class ProductDetails extends Component<Props> {
   state = {
-    productInCartSuccess: false
+    productInCartSuccess: false,
   }
 
   displaySuccessSnackbar() {
@@ -72,8 +84,13 @@ class ProductDetails extends Component<Props> {
     this.setState({ productInCartSuccess: false });
   };
 
+  switchImage = (imgSrc: string) => {
+    const { onImageChange } = this.props;
+    onImageChange(imgSrc)
+  }
+
   render() {
-    const { product, classes } = this.props;
+    const { product, classes, defaultProductImage } = this.props;
     const { productInCartSuccess } = this.state;
     const { name, description, fabric, price, images = [] } = product;
     const textDescriptionProps = { name, description, fabric, price };
@@ -82,11 +99,17 @@ class ProductDetails extends Component<Props> {
       <>
         <Grid container>
           <Grid className={classes.imageMiniatureContainer} xs={12} md={1} item>
-            {images.map((img: string, index: number) => <ImageMiniature key={index} img={img} />)}
+            {images.map((img: string, index: number) => {
+              return <ImageMiniature
+                key={index}
+                img={img}
+                switchImage={this.switchImage}
+              />
+            })}
           </Grid>
           <Grid item xs={12} md={4} className={classes.imageContainer}>
             <Grid>
-              <img className={classes.mainImage} src={images[0]} alt="produkt" />
+              <img className={classes.mainImage} src={defaultProductImage} alt="produkt" />
             </Grid>
           </Grid>
           <Grid item xs={12} md={7} className={classes.descriptionContainer}>
@@ -100,5 +123,17 @@ class ProductDetails extends Component<Props> {
   }
 }
 
-export default withStyles(styles)(ProductDetails);
+const mapStateToProps = (state: RootState) => {
+  const defaultProductImage = getDefaultProductImage(state)
+
+  return {
+    defaultProductImage
+  };
+};
+
+const mapDispatchToProps = {
+  onImageChange: switchSingleProductImage
+};
+
+export default connect<StateProps, {}, {}, RootState>(mapStateToProps, mapDispatchToProps)(withStyles(styles)(ProductDetails));
 

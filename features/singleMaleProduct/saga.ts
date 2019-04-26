@@ -1,14 +1,13 @@
-import { fetchSingleProduct, fetchSingleProductRequest } from './actions';
+import { fetchSingleProduct, fetchSingleProductRequest, switchSingleProductImage } from './actions';
 import { all, call, put, takeEvery, select } from 'redux-saga/effects';
 import { getType } from 'typesafe-actions';
-import { ProductItem } from './model';
 
 export function* handleFetchProduct() {
   const state = yield select();
   const getProductID = state.setSingleID.id;
   try {
     yield put(fetchSingleProductRequest.request());
-    const DatabaseResponse: ProductItem[] = yield call(() => {
+    const DatabaseResponse: any = yield call(() => {
       return fetch(`https://vitalina-database.herokuapp.com/api/male/products/${getProductID}`)
         .then(res => {
           if (!res.ok) {
@@ -16,9 +15,12 @@ export function* handleFetchProduct() {
           }
           return res;
         })
-        .then(res => res.json())
+        .then(res => {
+          return res.json()
+        })
         .catch(err => console.log(err));
     });
+    yield put(switchSingleProductImage(DatabaseResponse.images[0]));
     yield put(fetchSingleProductRequest.success((DatabaseResponse)));
   } catch (err) {
     console.log(err);
