@@ -31,7 +31,8 @@ interface ParentProps {
 
 type Props = ParentProps & WithStyles<typeof styles>;
 
-const ListOfItemsMobile:NextFunctionComponent<Props> = props => {
+const ListOfItemsMobile: NextFunctionComponent<Props> = props => {
+  
   const fullPriceOfSingleItem = (price: string, quantity: number) => {
     const priceStringToNumber = Number(price);
     return (priceStringToNumber * quantity).toFixed(2);
@@ -47,7 +48,7 @@ const ListOfItemsMobile:NextFunctionComponent<Props> = props => {
           <ListItem key={index} className={classes.listItem}>
             <Grid container alignItems="center">
               <Grid item xs={3}>
-                <img className={classes.cartImage} src={images[0]} />
+                <img className={classes.cartImage} src={images[0]} alt="produkt" />
               </Grid>
               <Grid item xs={8} className={classes.textContainer}>
                 <Typography className={classes.textDescription}>{name}</Typography>

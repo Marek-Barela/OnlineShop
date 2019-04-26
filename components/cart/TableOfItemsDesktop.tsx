@@ -72,12 +72,14 @@ type Props = ParentProps & WithStyles<typeof styles>;
 
 const ListOfItemsDesktop: NextFunctionComponent<Props> = props => {
   const { classes, products } = props;
+
   const totalPriceOfItems = products.reduce((acc, product) => {
     const { price, quantity } = product;
     const priceStringToNumber = Number(price);
     const totalPriceOfSameItems = priceStringToNumber * quantity;
     return totalPriceOfSameItems + acc;
   }, 0).toFixed(2);
+
   return (
     <div className={classes.tableWrapper}>
       <Table className={classes.table}>
@@ -95,7 +97,7 @@ const ListOfItemsDesktop: NextFunctionComponent<Props> = props => {
           {products.map((product, index) => {
             const { images, name, color, price, quantity } = product;
             const priceStringToNumber = Number(price) as any;
-            const priceToFixed = priceStringToNumber.toFixed(2);
+            const fullSingleItemPrice = (priceStringToNumber * quantity).toFixed(2);
             return (
               <TableRow key={index} className={classes.productRow}>
                 <TableCell className={classes.productImageCell}>
@@ -112,7 +114,7 @@ const ListOfItemsDesktop: NextFunctionComponent<Props> = props => {
                   <Typography className={classes.textDescription}>{quantity}</Typography>
                 </TableCell>
                 <TableCell>
-                  <Typography className={classes.textDescription}>{quantity * priceToFixed} ZŁ</Typography>
+                  <Typography className={classes.textDescription}>{fullSingleItemPrice} ZŁ</Typography>
                 </TableCell>
                 <TableCell className={classes.deleteButton}>
                   <DeleteSharpIcon />
