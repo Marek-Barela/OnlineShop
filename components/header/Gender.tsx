@@ -57,21 +57,23 @@ class Gender extends Component<Props> {
           <Typography className={classes.text__default} variant="caption">
             <Link href="/kobieta">
               <a className={classes.anchor}>
-                <span
+                <Grid
+                  component="span"
                   className={`${classes.span__element} ${female}`}
                 >
                   KOBIETA
-              </span>
+              </Grid>
               </a>
             </Link>
             |
             <Link href="/mezczyzna">
               <a className={classes.anchor}>
-                <span
+                <Grid
+                  component="span"
                   className={`${classes.span__element} ${male}`}
                 >
                   MĘŻCZYZNA
-                </span>
+                </Grid>
               </a>
             </Link>
           </Typography>

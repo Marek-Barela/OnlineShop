@@ -16,7 +16,6 @@ import { Store } from 'redux';
 
 type Props = { store: Store<RootState, RootAction> };
 
-
 class MyApp extends App<Props> {
   pageContext: MUIPageContext;
   constructor(props: any) {
@@ -47,11 +46,12 @@ class MyApp extends App<Props> {
     return (
       <Container>
         <Head>
-          <title>Boilerplate</title>
+          <title>Vitalina</title>
           <meta name="viewport" content="width=device-width, initial-scale=1" />
-          <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" />
-          <link href="https://fonts.googleapis.com/css?family=Tangerine:700" rel="stylesheet" />
-          <link rel="icon" type="image/x-icon" href="https://reactnativeexample.com/favicon.png" />
+          <meta name="description" content="Best online shop ever!" />
+          <meta name="keywords" content="Odzież, Buty, Sport, Akcesoria" />
+          <meta name="author" content="Marek Bareła" />
+          <link rel="icon" type="image/x-icon" href="https://cdn.dribbble.com/users/1097/screenshots/168079/newv2.png" />
         </Head>
         <JssProvider
           registry={this.pageContext.sheetsRegistry}

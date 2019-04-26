@@ -12,11 +12,14 @@ class MyDocument extends Document<Props> {
     const { pageContext } = this.props;
 
     return (
-      <html lang="en" dir="ltr">
+      <html lang="pl" dir="ltr">
         <Head>
           <meta charSet="utf-8" />
+          <meta name="description" content="Best online shop ever!" />
+          <meta name="keywords" content="Odzież, Buty, Sport, Akcesoria" />
+          <meta name="author" content="Marek Bareła" />
           <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
-          <link rel="shortcut icon" type="image/x-icon" href={"https://reactnativeexample.com/favicon.png"} />
+          <link rel="shortcut icon" type="image/x-icon" href={"https://cdn.dribbble.com/users/1097/screenshots/168079/newv2.png"} />
           {/* Use minimum-scale=1 to enable GPU rasterization */}
           <meta
             name="viewport"
@@ -24,8 +27,6 @@ class MyDocument extends Document<Props> {
           />
           {/* PWA primary color */}
           <meta name="theme-color" content={pageContext.theme.palette.primary.main} />
-          <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" />
-          <link href="https://fonts.googleapis.com/css?family=Tangerine:700" rel="stylesheet" />
         </Head>
         <body>
           <Main />

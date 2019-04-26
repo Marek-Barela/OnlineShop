@@ -1,7 +1,6 @@
 import React from 'react';
 import EmptyCart from './EmptyCart';
 import ListOfCartItems from './ListOfCartItems';
-import Typography from '@material-ui/core/Typography';
 import Link from 'next/link';
 import Grid from '@material-ui/core/Grid';
 import { getCartProducts } from '../../features/cart/selectors';
@@ -16,6 +15,12 @@ const styles = () => createStyles({
   line: {
     height: 40,
     backgroundColor: '#333333'
+  },
+  logoWrapper: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection: 'column'
   },
   logo: {
     textAlign: 'center',
@@ -44,13 +49,17 @@ const Cart: NextFunctionComponent<Props> = props => {
   const emptyCartArray = cartProducts.length === 0;
   return (
     <>
-      <header>
+      <header >
         <Grid className={classes.line}></Grid>
-        <Link href="/mezczyzna">
-          <Typography component="h1" variant="h2" className={classes.logo}>
-            Vitalina
-          </Typography>
-        </Link>
+        <Grid className={classes.logoWrapper}>
+          <Link href="/mezczyzna">
+            <img
+              className={classes.logo}
+              src="https://live.staticflickr.com/65535/40737311553_701a81a888_b.jpg"
+              alt="Vitalina"
+            />
+          </Link>
+        </Grid>
       </header>
       <main>
         <Grid container className={classes.cartContainer}>

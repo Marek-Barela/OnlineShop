@@ -18,7 +18,8 @@ const styles = () => createStyles({
     textAlign: 'center',
     fontFamily: 'Tangerine, cursive',
     userSelect: 'none',
-    fontWeight: 700
+    fontWeight: 700,
+    maxWidth: 250
   },
   hero: {
     height: '84vh',
@@ -74,9 +75,11 @@ class Home extends Component<Props> {
     return (
       <>
         <header className={classes.root}>
-          <Typography component="h1" variant="h2" className={classes.logo}>
-            Vitalina
-          </Typography>
+          <img
+            className={classes.logo}
+            src="https://live.staticflickr.com/65535/40737311553_701a81a888_b.jpg"
+            alt="Vitalina"
+          />
         </header>
         <main className={classes.hero}>
           <FormControl className={classes.form}>
