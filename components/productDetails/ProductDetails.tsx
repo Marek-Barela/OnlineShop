@@ -103,6 +103,7 @@ class ProductDetails extends Component<Props> {
               return <ImageMiniature
                 key={index}
                 img={img}
+                defaultImg={defaultProductImage}
                 switchImage={this.switchImage}
               />
             })}

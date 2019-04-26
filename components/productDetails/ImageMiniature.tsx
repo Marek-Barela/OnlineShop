@@ -11,17 +11,24 @@ const styles = (theme: Theme) => createStyles({
       padding: '0 5px',
     },
   },
-  imageMiniature: {
+  imgMiniature: {
     maxWidth: '100%',
     height: 'auto',
     cursor: 'pointer',
+    opacity: 0.6,
+    border: '3px solid #ffffff',
     [theme.breakpoints.down('xs')]: {
       maxHeight: 300
     }
   },
+  imgMiniatureActive: {
+    opacity: 1,
+    border: '3px solid rgba(0,0,0, 0.54)'
+  }
 })
 interface ParentProps {
-  img: string,
+  img: string;
+  defaultImg: string;
   switchImage: (imgSrc: string) => void;
 }
 
@@ -29,17 +36,19 @@ type Props = ParentProps & WithStyles<typeof styles>
 
 const ImageMiniature: NextFunctionComponent<Props> = props => {
 
-  const { classes, img, switchImage } = props;
-
+  const { classes, img, defaultImg, switchImage } = props;
+  const { miniature, imgMiniature, imgMiniatureActive } = classes;
+  const imgClassName = (img !== defaultImg) ? imgMiniature : `${imgMiniature} ${imgMiniatureActive}`;
+  console.log(img, defaultImg)
   function handleSwitchImage(imgSrc: string) {
     switchImage(imgSrc)
   }
 
   return (
-    <Grid className={classes.miniature} xs={3} sm={2} md={12} item>
+    <Grid className={miniature} xs={3} sm={2} md={12} item>
       <Grid>
         <img
-          className={classes.imageMiniature}
+          className={imgClassName}
           src={img}
           alt="produkt"
           onClick={() => handleSwitchImage(img)}
