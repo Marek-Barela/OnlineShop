@@ -31,7 +31,7 @@ const styles = () => createStyles({
     padding: '15px 40px',
     textTransform: 'uppercase',
     fontSize: '14px',
-    color: '#777777'
+    color: '#333333'
   },
   hiddenList: {
     display: 'none'

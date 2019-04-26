@@ -59,7 +59,7 @@ class Product extends Component<Props> {
           <Grid className={classes.product}>
             <Link href={{ pathname: `/${genderType}/produkty/opis-produktu`, query: { _id } }}>
               <a className={classes.anchor}>
-                <img className={classes.productImg} src={images[0]} />
+                <img className={classes.productImg} src={images[0]} alt="produkt" />
                 <Typography
                   className={classes.description}
                   component="h5">

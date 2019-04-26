@@ -13,8 +13,8 @@ import { connect } from 'react-redux';
 
 const styles = (theme: Theme) => createStyles({
   text__default: {
-    color: theme.palette.secondary.main,
-    fontSize: '13px'
+    color: theme.palette.secondary.dark,
+    fontSize: '14px'
   },
   span__element: {
     margin: '0 15px',
