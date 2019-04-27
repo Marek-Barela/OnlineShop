@@ -107,7 +107,7 @@ class DesktopMenu extends Component<Props> {
           <NavigationListItem
             mouseInListItem={this.setNavigationContent.bind(this)}
             product={sport}
-            productActived={accesoriesActived}
+            productActived={sportActived}
             productCategory="sport"
             menuIsActive={menuIsActive}
             label="Sport"
@@ -115,7 +115,7 @@ class DesktopMenu extends Component<Props> {
           <NavigationListItem
             mouseInListItem={this.setNavigationContent.bind(this)}
             product={accesories}
-            productActived={sportActived}
+            productActived={accesoriesActived}
             productCategory="accesories"
             menuIsActive={menuIsActive}
             label="Akcesoria"
