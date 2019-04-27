@@ -71,12 +71,12 @@ const Dropdown: NextFunctionComponent<Props> = props => {
 	const currentDropdownClass = !navActive && !dropdownActive ? dropdownContainer : activeDropdownContainer;
 
 	return (
-		<List
+		<Grid
 			className={currentNavClass}
 			onMouseEnter={mouseInDropdown}
 			onMouseLeave={mouseOutDropdown}
 		>
-			<Grid className={currentDropdownClass}>
+			<List className={currentDropdownClass}>
 				{
 					list.map((item: any, index: number) => {
 						const { label, endpoint } = item;
@@ -94,8 +94,8 @@ const Dropdown: NextFunctionComponent<Props> = props => {
 						)
 					})
 				}
-			</Grid>
-		</List>
+			</List>
+		</Grid>
 	)
 }
 
