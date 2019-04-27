@@ -23,7 +23,7 @@ const styles = () => createStyles({
 		margin: 0,
 		listStyleType: 'none',
 		zIndex: 0,
-		transition: 'all 0.5s'
+		transition: 'all 0.4s'
 	},
 	navDropdownActive: {
 		height: 240
