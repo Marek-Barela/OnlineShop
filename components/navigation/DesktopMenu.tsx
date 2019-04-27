@@ -7,7 +7,8 @@ import { createStyles, withStyles, WithStyles } from '@material-ui/core/styles';
 
 const styles = () => createStyles({
   navigation: {
-    padding: 0
+    padding: 0,
+    borderBottom: '1px solid rgba(0,0,0,0.16)'
   },
   navList: {
     maxWidth: 580,
