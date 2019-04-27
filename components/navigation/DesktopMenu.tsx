@@ -1,16 +1,12 @@
 import React, { Component } from 'react';
+import NavigationListItem from './NavigationListItem';
 import Dropdown from './Dropdown';
 import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import Typography from '@material-ui/core/Typography';
 import { NavigationElement } from '../../features/utils/maleNavigation';
 import { createStyles, withStyles, WithStyles } from '@material-ui/core/styles';
 
 const styles = () => createStyles({
   navigation: {
-    padding: 0
-  },
-  listItem: {
     padding: 0
   },
   navList: {
@@ -21,22 +17,6 @@ const styles = () => createStyles({
     justifyContent: 'center',
     alignItems: 'center',
     zIndex: 100
-  },
-  defaultElement: {
-    cursor: 'pointer',
-    padding: '15px 40px',
-    textTransform: 'uppercase',
-    fontSize: '14px',
-    color: '#333333'
-  },
-  activeElement: {
-    cursor: 'pointer',
-    padding: '15px 40px',
-    textTransform: 'uppercase',
-    fontSize: '14px',
-    color: '#333333',
-    fontWeight: 'bold',
-    backgroundColor: 'rgba(0,0,0,0.05)'
   }
 })
 
@@ -94,7 +74,7 @@ class DesktopMenu extends Component<Props> {
 
   render() {
     const { nav, classes } = this.props;
-    const { navigation, listItem, navList, defaultElement, activeElement } = classes;
+    const { navigation, navList } = classes;
     const { clothes, boots, sport, accesories } = nav;
     const { currentProductCategory, activeProductCategoryName, navActive, dropdownActive } = this.state;
     const menuIsActive = navActive || dropdownActive;
@@ -108,42 +88,38 @@ class DesktopMenu extends Component<Props> {
           onMouseEnter={() => this.activeNavigation()}
           onMouseLeave={() => this.disactiveNavigation()}
         >
-          <ListItem
-            onMouseEnter={() => this.setNavigationContent(clothes, "clothes")}
-            className={listItem}
-          >
-            <Typography
-              className={clothesActived && menuIsActive ? activeElement : defaultElement}>
-              Odzież
-            </Typography>
-          </ListItem>
-          <ListItem
-            onMouseEnter={() => this.setNavigationContent(boots, "boots")}
-            className={listItem}
-          >
-            <Typography
-              className={bootsActived && menuIsActive ? activeElement : defaultElement}>
-              Buty
-            </Typography>
-          </ListItem>
-          <ListItem
-            onMouseEnter={() => this.setNavigationContent(sport, "sport")}
-            className={listItem}
-          >
-            <Typography
-              className={sportActived && menuIsActive ? activeElement : defaultElement}>
-              Sport
-            </Typography>
-          </ListItem>
-          <ListItem
-            onMouseEnter={() => this.setNavigationContent(accesories, "accesories")}
-            className={listItem}
-          >
-            <Typography
-              className={accesoriesActived && menuIsActive ? activeElement : defaultElement}>
-              Akcesoria
-            </Typography>
-          </ListItem>
+          <NavigationListItem
+            mouseInListItem={this.setNavigationContent.bind(this)}
+            product={clothes}
+            productActived={clothesActived}
+            productCategory="clothes"
+            menuIsActive={menuIsActive}
+            label="Odzież"
+          />
+          <NavigationListItem
+            mouseInListItem={this.setNavigationContent.bind(this)}
+            product={boots}
+            productActived={bootsActived}
+            productCategory="boots"
+            menuIsActive={menuIsActive}
+            label="Buty"
+          />
+          <NavigationListItem
+            mouseInListItem={this.setNavigationContent.bind(this)}
+            product={sport}
+            productActived={accesoriesActived}
+            productCategory="sport"
+            menuIsActive={menuIsActive}
+            label="Sport"
+          />
+          <NavigationListItem
+            mouseInListItem={this.setNavigationContent.bind(this)}
+            product={accesories}
+            productActived={sportActived}
+            productCategory="accesories"
+            menuIsActive={menuIsActive}
+            label="Akcesoria"
+          />
         </List>
         <Dropdown
           list={currentProductCategory}
@@ -156,5 +132,7 @@ class DesktopMenu extends Component<Props> {
     )
   }
 }
+
+
 
 export default withStyles(styles)(DesktopMenu);
