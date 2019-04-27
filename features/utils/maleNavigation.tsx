@@ -1,71 +1,76 @@
-export const clothes = [
+export interface NavigationElement {
+  label: string;
+  endpoint: string;
+}
+
+export const clothes: NavigationElement[] = [
   {
-    "label": "Koszule Męskie",
-    "endpoint": "koszule-meskie"
+    label: "Koszule Męskie",
+    endpoint: "koszule-meskie"
   },
   {
-    "label": "Jeansy Męskie",
-    "endpoint": "jeansy-meskie"
+    label: "Jeansy Męskie",
+    endpoint: "jeansy-meskie"
   },
   {
-    "label": "Kurtki Męskie",
-    "endpoint": "kurtki-meskie"
+    label: "Kurtki Męskie",
+    endpoint: "kurtki-meskie"
   },
   {
-    "label": "Spodnie Męskie",
-    "endpoint": "spodnie-meskie"
+    label: "Spodnie Męskie",
+    endpoint: "spodnie-meskie"
   },
   {
-    "label": "Swetry Męskie",
-    "endpoint": "swetry-meskie"
+    label: "Swetry Męskie",
+    endpoint: "swetry-meskie"
   }
 ];
 
-export const boots = [
+export const boots: NavigationElement[] = [
   {
-    "label": "Sztyblety Męskie",
-    "endpoint": "sztyblety-meskie"
+    label: "Sztyblety Męskie",
+    endpoint: "sztyblety-meskie"
   },
   {
-    "label": "Mokasyny Męskie",
-    "endpoint": "mokasyny-meskie"
+    label: "Mokasyny Męskie",
+    endpoint: "mokasyny-meskie"
   },
   {
-    "label": "Trzewiki Męskie",
-    "endpoint": "trzewiki-meskie"
+    label: "Trzewiki Męskie",
+    endpoint: "trzewiki-meskie"
   }
 ];
 
-export const sport = [
+export const sport: NavigationElement[] = [
   {
-    "label": "Dresy Męskie",
-    "endpoint": "dresy-meskie"
+    label: "Dresy Męskie",
+    endpoint: "dresy-meskie"
   },
   {
-    "label": "Koszulki Sportowe Męskie",
-    "endpoint": "koszulki-sportowe-meskie"
+    label: "Koszulki Sportowe Męskie",
+    endpoint: "koszulki-sportowe-meskie"
   },
   {
-    "label": "Kurtki Sportowe Męskie",
-    "endpoint": "kurtki-sportowe-meskie"
+    label: "Kurtki Sportowe Męskie",
+    endpoint: "kurtki-sportowe-meskie"
   }
 ];
 
-export const accesories = [
+export const accesories: NavigationElement[] = [
   {
-    "label": "Plecaki",
-    "endpoint": "plecaki"
+    label: "Plecaki",
+    endpoint: "plecaki"
   },
   {
-    "label": "Torby Męskie",
-    "endpoint": "torby-meskie"
+    label: "Torby Męskie",
+    endpoint: "torby-meskie"
   },
   {
-    "label": "Zegarki",
-    "endpoint": "zegarki"
+    label: "Zegarki",
+    endpoint: "zegarki"
   },
   {
-    "label": "Biżuteria",
-    "endpoint": "bizuteria"
+    label: "Biżuteria",
+    endpoint: "bizuteria"
   }
 ];
