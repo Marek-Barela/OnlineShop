@@ -4,10 +4,7 @@ import Link from 'next/link';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { createStyles, withStyles, WithStyles } from '@material-ui/core/styles';
-import { getGender } from '../../features/gender/selectors';
 import { NextFunctionComponent } from 'next';
-import { RootState } from '../../features/redux/root-reducer';
-import { connect } from 'react-redux';
 
 const styles = () => createStyles({
 	navDropdown: {
@@ -50,10 +47,6 @@ const styles = () => createStyles({
 	}
 })
 
-interface StateProps {
-	genderType: string;
-}
-
 interface ParentProps {
 	list: string[];
 	mouseInDropdown: MouseEventHandler;
@@ -62,10 +55,10 @@ interface ParentProps {
 	navActive: boolean;
 }
 
-type Props = StateProps & ParentProps & WithStyles<typeof styles>;;
+type Props = ParentProps & WithStyles<typeof styles>;;
 
 const Dropdown: NextFunctionComponent<Props> = props => {
-	const { list, mouseInDropdown, mouseOutDropdown, genderType, navActive, dropdownActive, classes } = props;
+	const { list, mouseInDropdown, mouseOutDropdown, navActive, dropdownActive, classes } = props;
 	const { navDropdown, navDropdownActive, dropdownContainer, activeDropdownContainer, listElement } = classes;
 	const currentNavClass = navActive || dropdownActive ? `${navDropdown} ${navDropdownActive}` : navDropdown;
 	const currentDropdownClass = !navActive && !dropdownActive ? dropdownContainer : activeDropdownContainer;
@@ -80,9 +73,8 @@ const Dropdown: NextFunctionComponent<Props> = props => {
 				{
 					list.map((item: any, index: number) => {
 						const { label, endpoint } = item;
-						const URL = `/${genderType}/produkty/${endpoint}`;
 						return (
-							<Link key={index} href={URL}>
+							<Link key={index} href={endpoint}>
 								<Typography
 									className={listElement}
 									component="li"
@@ -99,12 +91,5 @@ const Dropdown: NextFunctionComponent<Props> = props => {
 	)
 }
 
-const mapStateToProps = (state: RootState) => {
-	const genderType = getGender(state);
 
-	return {
-		genderType,
-	};
-};
-
-export default connect<StateProps, {}, {}, RootState>(mapStateToProps, {})(withStyles(styles)(Dropdown));
+export default withStyles(styles)(Dropdown);

@@ -6,71 +6,71 @@ export interface NavigationElement {
 export const clothes: NavigationElement[] = [
   {
     label: "Koszule Męskie",
-    endpoint: "koszule-meskie"
+    endpoint: "/mezczyzna/produkty/koszule-meskie"
   },
   {
     label: "Jeansy Męskie",
-    endpoint: "jeansy-meskie"
+    endpoint: "/mezczyzna/produkty/jeansy-meskie"
   },
   {
     label: "Kurtki Męskie",
-    endpoint: "kurtki-meskie"
+    endpoint: "/mezczyzna/produkty/kurtki-meskie"
   },
   {
     label: "Spodnie Męskie",
-    endpoint: "spodnie-meskie"
+    endpoint: "/mezczyzna/produkty/spodnie-meskie"
   },
   {
     label: "Swetry Męskie",
-    endpoint: "swetry-meskie"
+    endpoint: "/mezczyzna/produkty/swetry-meskie"
   }
 ];
 
 export const boots: NavigationElement[] = [
   {
     label: "Sztyblety Męskie",
-    endpoint: "sztyblety-meskie"
+    endpoint: "/mezczyzna/produkty/sztyblety-meskie"
   },
   {
     label: "Mokasyny Męskie",
-    endpoint: "mokasyny-meskie"
+    endpoint: "/mezczyzna/produkty/mokasyny-meskie"
   },
   {
     label: "Trzewiki Męskie",
-    endpoint: "trzewiki-meskie"
+    endpoint: "/mezczyzna/produkty/trzewiki-meskie"
   }
 ];
 
 export const sport: NavigationElement[] = [
   {
     label: "Dresy Męskie",
-    endpoint: "dresy-meskie"
+    endpoint: "/mezczyzna/produkty/dresy-meskie"
   },
   {
     label: "Koszulki Sportowe Męskie",
-    endpoint: "koszulki-sportowe-meskie"
+    endpoint: "/mezczyzna/produkty/koszulki-sportowe-meskie"
   },
   {
     label: "Kurtki Sportowe Męskie",
-    endpoint: "kurtki-sportowe-meskie"
+    endpoint: "/mezczyzna/produkty/kurtki-sportowe-meskie"
   }
 ];
 
 export const accesories: NavigationElement[] = [
   {
     label: "Plecaki",
-    endpoint: "plecaki"
+    endpoint: "/mezczyzna/produkty/plecaki"
   },
   {
     label: "Torby Męskie",
-    endpoint: "torby-meskie"
+    endpoint: "/mezczyzna/produkty/torby-meskie"
   },
   {
     label: "Zegarki",
-    endpoint: "zegarki"
+    endpoint: "/mezczyzna/produkty/zegarki"
   },
   {
     label: "Biżuteria",
-    endpoint: "bizuteria"
+    endpoint: "/mezczyzna/produkty/bizuteria"
   }
 ];
