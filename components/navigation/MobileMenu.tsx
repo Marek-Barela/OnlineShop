@@ -5,6 +5,7 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import ListItem from '@material-ui/core/ListItem';
 import Link from 'next/link';
+import MenuIcon from '@material-ui/icons/Menu'
 import { createStyles, withStyles, WithStyles } from '@material-ui/core/styles';
 
 const styles = () => createStyles({
@@ -14,6 +15,16 @@ const styles = () => createStyles({
     fontWeight: 'bold',
     letterSpacing: '2px',
     textTransform: 'uppercase'
+  },
+  hamburgerBtn: {
+    position: 'absolute',
+    top: 15,
+    left: 10,
+    zIndex: 100
+  },
+  hamburger: {
+    color: 'rgba(0,0,0,0.6)',
+    fontSize: '1.8em'
   }
 });
 
@@ -44,11 +55,13 @@ class MobileMenu extends Component<Props> {
 
   render() {
     const { classes, nav } = this.props;
+    const { elementText, hamburgerBtn, hamburger } = classes;
     const { clothes, boots, sport, accesories } = nav;
     return (
       <>
-        <Button onClick={() => this.toggleDrawer()}>Open Left</Button>
-
+        <Button onClick={() => this.toggleDrawer()} className={hamburgerBtn}>
+          <MenuIcon className={hamburger} />
+        </Button>
         <SwipeableDrawer
           open={this.state.drawerOpen}
           onClose={() => this.toggleDrawer()}
@@ -77,7 +90,7 @@ class MobileMenu extends Component<Props> {
             />
             <Link href="/koszyk">
               <ListItem button>
-                <Typography className={classes.elementText}>Koszyk</Typography>
+                <Typography className={elementText}>Koszyk</Typography>
               </ListItem>
             </Link>
           </div>
