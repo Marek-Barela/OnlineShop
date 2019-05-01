@@ -22,7 +22,7 @@ const styles = () => createStyles({
 		padding: 0,
 		margin: 0,
 		listStyleType: 'none',
-		zIndex: 0,
+		zIndex: 1,
 		transition: 'all 0.4s'
 	},
 	navDropdownActive: {

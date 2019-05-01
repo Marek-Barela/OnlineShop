@@ -49,7 +49,7 @@ const Cart: NextFunctionComponent<Props> = props => {
   const emptyCartArray = cartProducts.length === 0;
   return (
     <>
-      <header >
+      <header>
         <Grid className={classes.line}></Grid>
         <Grid className={classes.logoWrapper}>
           <Link href="/mezczyzna">
