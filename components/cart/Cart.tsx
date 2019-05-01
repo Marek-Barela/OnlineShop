@@ -28,7 +28,7 @@ const styles = () => createStyles({
     fontWeight: 700,
     padding: '30px 0',
     cursor: 'pointer',
-    maxWidth: 250,
+    maxWidth: 290,
     margin: '0 auto',
     userSelect: 'none'
   },
@@ -55,7 +55,7 @@ const Cart: NextFunctionComponent<Props> = props => {
           <Link href="/mezczyzna">
             <img
               className={classes.logo}
-              src="https://live.staticflickr.com/65535/47650887562_2727f95351_b.jpg"
+              src="https://live.staticflickr.com/65535/33872110278_0437f6c9b5.jpg"
               alt="Vitalina"
             />
           </Link>
