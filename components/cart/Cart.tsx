@@ -19,18 +19,12 @@ const styles = () => createStyles({
   logoWrapper: {
     display: 'flex',
     justifyContent: 'center',
-    alignItems: 'center',
-    flexDirection: 'column'
+    alignItems: 'center'
   },
   logo: {
-    textAlign: 'center',
-    fontFamily: 'Tangerine, cursive',
-    fontWeight: 700,
     padding: '30px 0',
     cursor: 'pointer',
     maxWidth: 290,
-    margin: '0 auto',
-    userSelect: 'none'
   },
   cartContainer: {
     maxWidth: 1200,
