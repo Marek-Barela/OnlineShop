@@ -8,6 +8,8 @@ import maleTrousers from '../maleProductsTrousers/saga';
 import maleElasticSides from '../maleProductsElasticSides/saga';
 import maleMoccasins from '../maleProductsMoccasins/saga';
 import maleShoes from '../maleProductsShoes/saga';
+import maleTracksuit from '../maleProductsTracksuit/saga';
+import maleTshirt from '../maleProductsTshirt/saga';
 import 'isomorphic-unfetch';
 import es6promise from 'es6-promise';
 es6promise.polyfill()
@@ -22,4 +24,6 @@ export default function* rootSaga() {
   yield fork(maleElasticSides);
   yield fork(maleMoccasins);
   yield fork(maleShoes);
+  yield fork(maleTracksuit);
+  yield fork(maleTshirt);
 }

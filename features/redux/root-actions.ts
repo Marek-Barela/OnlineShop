@@ -11,6 +11,8 @@ import * as maleTrousers from '../maleProductsTrousers/actions';
 import * as maleElasticSides from '../maleProductsElasticSides/actions';
 import * as maleMoccasins from '../maleProductsMoccasins/actions';
 import * as maleShoes from '../maleProductsShoes/actions';
+import * as maleTracksuit from '../maleProductsTracksuit/actions';
+import * as maleTshirt from '../maleProductsTshirt/actions';
 import * as setProductID from '../singleID/actions';
 
 export const actions = {
@@ -25,6 +27,8 @@ export const actions = {
   maleElasticSides,
   maleMoccasins,
   maleShoes,
+  maleTracksuit,
+  maleTshirt,
   setProductID
 };
 
