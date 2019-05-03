@@ -19,10 +19,6 @@ export const clothes: NavigationElement[] = [
   {
     label: "Spodnie Męskie",
     endpoint: "/mezczyzna/produkty/spodnie-meskie"
-  },
-  {
-    label: "Swetry Męskie",
-    endpoint: "/mezczyzna/produkty/swetry-meskie"
   }
 ];
 
