@@ -12,14 +12,21 @@ import { RootState } from '../../features/redux/root-reducer';
 import { connect } from 'react-redux';
 
 const styles = (theme: Theme) => createStyles({
-  text__default: {
+  textDefault: {
     color: theme.palette.secondary.dark,
     fontSize: '14px'
   },
-  span__element: {
+  spanElement: {
     margin: '0 15px',
     cursor: 'pointer',
     userSelect: 'none'
+  },
+  spanElementActive: {
+    margin: '0 15px',
+    cursor: 'pointer',
+    userSelect: 'none',
+    fontWeight: 'bold',
+    color: 'black'
   },
   anchor: {
     color: 'inherit',
@@ -49,17 +56,18 @@ class Gender extends Component<Props> {
   }
   render() {
     const { classes, genderType } = this.props;
-    const female = genderType === "kobieta" && "active-gender";
-    const male = genderType === "mezczyzna" && "active-gender";
+    const { textDefault, spanElement, spanElementActive, anchor } = classes;
+    const female = genderType === "kobieta" ? spanElementActive : spanElement;
+    const male = genderType === "mezczyzna" ? spanElementActive : spanElement;
     return (
       <Hidden smDown>
         <Grid item xs={4}>
-          <Typography className={classes.text__default} variant="caption">
+          <Typography className={textDefault} variant="caption">
             <Link href="/kobieta">
-              <a className={classes.anchor}>
+              <a className={anchor}>
                 <Grid
                   component="span"
-                  className={`${classes.span__element} ${female}`}
+                  className={female}
                 >
                   KOBIETA
               </Grid>
@@ -67,10 +75,10 @@ class Gender extends Component<Props> {
             </Link>
             |
             <Link href="/mezczyzna">
-              <a className={classes.anchor}>
+              <a className={anchor}>
                 <Grid
                   component="span"
-                  className={`${classes.span__element} ${male}`}
+                  className={male}
                 >
                   MĘŻCZYZNA
                 </Grid>

@@ -3,7 +3,6 @@ import Gender from './Gender';
 import Logo from './Logo';
 import ShoppingCart from '../headerShoppingCart/ShoppingCart';
 import Grid from '@material-ui/core/Grid';
-import '../header/header.css';
 import { Gender as GenderType } from '../../features/utils/gender';
 import { NextFunctionComponent } from 'next';
 import { createStyles, withStyles, WithStyles } from '@material-ui/core/styles';
