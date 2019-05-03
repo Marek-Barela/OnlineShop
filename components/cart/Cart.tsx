@@ -34,7 +34,8 @@ const styles = () => createStyles({
   },
   cartContainer: {
     maxWidth: 1200,
-    margin: '0 auto'
+    margin: '0 auto 40px auto',
+    padding: '0 15px'
   }
 });
 

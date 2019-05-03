@@ -5,7 +5,7 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import TableFooter from '@material-ui/core/TableFooter';
-import DeleteSharpIcon from '@material-ui/icons/DeleteSharp';
+import DeleteListElement from './DeleteListElement';
 import { ProductItem } from '../../features/cart/model';
 import { NextFunctionComponent } from 'next';
 import { createStyles, withStyles, WithStyles } from '@material-ui/core/styles';
@@ -95,7 +95,7 @@ const ListOfItemsDesktop: NextFunctionComponent<Props> = props => {
         </TableHead>
         <TableBody>
           {products.map((product, index) => {
-            const { images, name, color, price, quantity } = product;
+            const { _id, images, name, color, price, quantity } = product;
             const priceStringToNumber = Number(price) as any;
             const fullSingleItemPrice = (priceStringToNumber * quantity).toFixed(2);
             return (
@@ -117,7 +117,7 @@ const ListOfItemsDesktop: NextFunctionComponent<Props> = props => {
                   <Typography className={classes.textDescription}>{fullSingleItemPrice} ZŁ</Typography>
                 </TableCell>
                 <TableCell className={classes.deleteButton}>
-                  <DeleteSharpIcon />
+                  <DeleteListElement id={_id} />
                 </TableCell>
               </TableRow>
             )

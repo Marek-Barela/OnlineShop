@@ -16,8 +16,7 @@ const styles = () => createStyles({
     textAlign: 'center',
   },
   productsList: {
-    width: '100%',
-    margin: 15
+    width: '100%'
   }
 });
 
