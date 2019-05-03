@@ -14,6 +14,8 @@ import * as maleShoes from '../maleProductsShoes/actions';
 import * as maleTracksuit from '../maleProductsTracksuit/actions';
 import * as maleTshirt from '../maleProductsTshirt/actions';
 import * as maleBackpacks from '../maleProductsBackpacks/actions';
+import * as maleBags from '../maleProductsBags/actions';
+import * as maleWatches from '../maleProductsWatches/actions';
 import * as setProductID from '../singleID/actions';
 
 export const actions = {
@@ -31,6 +33,8 @@ export const actions = {
   maleTracksuit,
   maleTshirt,
   maleBackpacks,
+  maleBags,
+  maleWatches,
   setProductID
 };
 

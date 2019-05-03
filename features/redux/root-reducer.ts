@@ -14,6 +14,8 @@ import maleShoes from '../maleProductsShoes/reducer';
 import maleTracksuit from '../maleProductsTracksuit/reducer';
 import maleTshirt from '../maleProductsTshirt/reducer';
 import maleBackpacks from '../maleProductsBackpacks/reducer';
+import maleBags from '../maleProductsBags/reducer';
+import maleWatches from '../maleProductsWatches/reducer';
 import setSingleID from '../singleID/reducer';
 
 const reducerMap = {
@@ -31,6 +33,8 @@ const reducerMap = {
   maleTracksuit,
   maleTshirt,
   maleBackpacks,
+  maleBags,
+  maleWatches,
   setSingleID
 };
 
