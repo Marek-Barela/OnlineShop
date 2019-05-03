@@ -45,10 +45,6 @@ export const sport: NavigationElement[] = [
   {
     label: "Koszulki Sportowe Męskie",
     endpoint: "/mezczyzna/produkty/koszulki-sportowe-meskie"
-  },
-  {
-    label: "Kurtki Sportowe Męskie",
-    endpoint: "/mezczyzna/produkty/kurtki-sportowe-meskie"
   }
 ];
 
