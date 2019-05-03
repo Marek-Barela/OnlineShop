@@ -30,7 +30,7 @@
     "react-redux": "5.0.7",
     "redux": "4.0.1",
     "redux-saga": "1.0.1",
-    "typesafe-actions": "^3.2.1",
+    "typesafe-actions": "^3.4.0",
     "typescript": "^3.3.3333"
   },
   "devDependencies": {
