@@ -13,6 +13,7 @@ import * as maleMoccasins from '../maleProductsMoccasins/actions';
 import * as maleShoes from '../maleProductsShoes/actions';
 import * as maleTracksuit from '../maleProductsTracksuit/actions';
 import * as maleTshirt from '../maleProductsTshirt/actions';
+import * as maleBackpacks from '../maleProductsBackpacks/actions';
 import * as setProductID from '../singleID/actions';
 
 export const actions = {
@@ -29,6 +30,7 @@ export const actions = {
   maleShoes,
   maleTracksuit,
   maleTshirt,
+  maleBackpacks,
   setProductID
 };
 
