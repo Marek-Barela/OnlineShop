@@ -23,7 +23,7 @@ const styles = () => createStyles({
     zIndex: 100
   },
   hamburger: {
-    color: 'rgba(0,0,0,0.6)',
+    color: 'rgba(0,0,0,0.5)',
     fontSize: '1.8em'
   }
 });

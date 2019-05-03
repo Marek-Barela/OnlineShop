@@ -14,11 +14,11 @@ const styles = (theme: Theme) => createStyles({
       fontSize: '1.4em',
     }
   },
-  fabric: {
+  fabricText: {
     color: "#888888",
     fontWeight: 'bold'
   },
-  price: {
+  priceText: {
     fontSize: '1.7em',
     margin: '10px 0',
     [theme.breakpoints.down('xs')]: {
@@ -34,7 +34,7 @@ const styles = (theme: Theme) => createStyles({
       margin: '20px 0 10px 0',
     },
   },
-  description: {
+  descriptionText: {
     fontSize: '0.75em',
     letterSpacing: '2px',
     [theme.breakpoints.down('xs')]: {
@@ -65,34 +65,36 @@ type Props = ParentProps & WithStyles<typeof styles>;
 
 const ProductTextDescription: NextFunctionComponent<Props> = props => {
   const { classes, name, fabric, price, description } = props;
+  const { productName, fabricText, priceText, productDescription, descriptionText } = classes;
+  const fabricTextDescription = fabric.map(item => `${item} `)
   return (
     <>
       <Typography
-        className={classes.productName}
+        className={productName}
         component="h4"
         variant="h6"
       >{name}
       </Typography>
       <Typography
-        className={classes.fabric}
+        className={fabricText}
         component="span"
         variant="caption"
-      >{fabric}
+      >{fabricTextDescription}
       </Typography>
       <Typography
-        className={classes.price}
+        className={priceText}
         component="span"
         variant="subtitle1"
       >{price} ZŁ
       </Typography>
       <Typography
-        className={classes.productDescription}
+        className={productDescription}
         component="h6"
         variant="h6"
       >Opis Produktu:
       </Typography>
       <Typography
-        className={classes.description}
+        className={descriptionText}
         component="p"
         variant="subtitle1"
       >{description}
