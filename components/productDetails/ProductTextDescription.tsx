@@ -64,9 +64,9 @@ interface ParentProps {
 type Props = ParentProps & WithStyles<typeof styles>;
 
 const ProductTextDescription: NextFunctionComponent<Props> = props => {
-  const { classes, name, fabric, price, description } = props;
+  const { classes, name, fabric = [], price, description } = props;
   const { productName, fabricText, priceText, productDescription, descriptionText } = classes;
-  const fabricTextDescription = fabric.map(item => `${item} `)
+  const fabricTextDescription = fabric.join(" ");
   return (
     <>
       <Typography
