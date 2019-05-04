@@ -60,9 +60,5 @@ export const accesories: NavigationElement[] = [
   {
     label: "Zegarki",
     endpoint: "/mezczyzna/produkty/zegarki"
-  },
-  {
-    label: "Biżuteria",
-    endpoint: "/mezczyzna/produkty/bizuteria"
   }
 ];

@@ -4,68 +4,56 @@ export const clothes = [
     "endpoint": "/kobieta/produkty/sukienki"
   },
   {
-    "label": "Jeansy",
-    "endpoint": "jeansy-damskie"
+    "label": "Tuniki",
+    "endpoint": "/kobieta/produkty/tuniki"
   },
   {
-    "label": "Kurtki",
-    "endpoint": "kurtki-damskie"
+    "label": "Bluzki",
+    "endpoint": "/kobieta/produkty/bluzki"
   },
   {
-    "label": "Spodnie",
-    "endpoint": "spodnie-damskie"
-  },
-  {
-    "label": "Swetry",
-    "endpoint": "swetry-damskie"
+    "label": "Spódnice",
+    "endpoint": "/kobieta/produkty/spodnice"
   }
 ];
 
 export const boots = [
   {
-    "label": "Buty",
-    "endpoint": "buty-damskie"
+    "label": "Szpilki",
+    "endpoint": "/kobieta/produkty/szpilki"
   },
   {
-    "label": "Buty 2",
-    "endpoint": "buty-damskie"
+    "label": "Botki",
+    "endpoint": "/kobieta/produkty/botki"
   },
   {
-    "label": "Buty 3",
-    "endpoint": "buty-damskie"
+    "label": "Baleriny",
+    "endpoint": "/kobieta/produkty/baleriny"
   }
 ];
 
 export const sport = [
   {
     "label": "Dresy",
-    "endpoint": "dresy-damskie"
+    "endpoint": "/kobieta/produkty/dresy-damskie"
   },
   {
     "label": "Koszulki",
-    "endpoint": "koszulki-sportowe-damskie"
-  },
-  {
-    "label": "Kurtki",
-    "endpoint": "kurtki-sportowe-damskie"
+    "endpoint": "/kobieta/produkty/koszulki"
   }
 ];
 
 export const accesories = [
   {
-    "label": "Plecaki",
-    "endpoint": "plecaki"
-  },
-  {
     "label": "Torby",
-    "endpoint": "torby-damskie"
+    "endpoint": "/kobieta/produkty/torby-damskie"
   },
   {
     "label": "Zegarki",
-    "endpoint": "zegarki"
+    "endpoint": "/kobieta/produkty/zegarki"
   },
   {
     "label": "Biżuteria",
-    "endpoint": "bizuteria"
+    "endpoint": "/kobieta/produkty/bizuteria"
   }
 ];
