@@ -5,10 +5,11 @@ import { getType } from 'typesafe-actions';
 export function* handleFetchProduct() {
   const state = yield select();
   const getProductID = state.setSingleID.id;
+  const getProductGender = state.setSingleID.gender;
   try {
     yield put(fetchSingleProductRequest.request());
     const DatabaseResponse: any = yield call(() => {
-      return fetch(`https://vitalina-database.herokuapp.com/api/male/products/${getProductID}`)
+      return fetch(`https://vitalina-database.herokuapp.com/api/${getProductGender}/products/${getProductID}`)
         .then(res => {
           if (!res.ok) {
             throw new Error("Error getting the stuff");

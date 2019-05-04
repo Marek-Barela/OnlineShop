@@ -1,7 +1,7 @@
 export const clothes = [
   {
     "label": "Sukienki",
-    "endpoint": "sukienki-damskie"
+    "endpoint": "/kobieta/produkty/sukienki"
   },
   {
     "label": "Jeansy",

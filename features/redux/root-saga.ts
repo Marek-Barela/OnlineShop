@@ -1,6 +1,7 @@
 import { fork } from 'redux-saga/effects';
 import maleProducts from '../maleProducts/saga';
-import singleMaleProduct from '../singleMaleProduct/saga';
+import femaleProducts from '../femaleProducts/saga';
+import singleProduct from '../singleProduct/saga';
 import maleShirts from '../maleProductsShirts/saga';
 import maleJeans from '../maleProductsJeans/saga';
 import maleJacket from '../maleProductsJacket/saga';
@@ -20,7 +21,8 @@ es6promise.polyfill();
 
 export default function* rootSaga() {
   yield fork(maleProducts);
-  yield fork(singleMaleProduct);
+  yield fork(femaleProducts);
+  yield fork(singleProduct);
   yield fork(maleShirts);
   yield fork(maleJeans);
   yield fork(maleJacket);

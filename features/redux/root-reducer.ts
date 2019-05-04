@@ -2,8 +2,9 @@ import { combineReducers } from 'redux';
 import { RootAction } from './root-actions';
 import gender from '../gender/reducer';
 import maleProducts from '../maleProducts/reducer';
+import femaleProducts from '../femaleProducts/reducer';
 import cart from '../cart/reducer';
-import singleMaleProduct from '../singleMaleProduct/reducer';
+import singleProduct from '../singleProduct/reducer';
 import maleShirts from '../maleProductsShirts/reducer';
 import maleJeans from '../maleProductsJeans/reducer';
 import maleJacket from '../maleProductsJacket/reducer';
@@ -22,8 +23,9 @@ import setSingleID from '../singleID/reducer';
 const reducerMap = {
   gender,
   maleProducts,
+  femaleProducts,
   cart,
-  singleMaleProduct,
+  singleProduct,
   maleShirts,
   maleJeans,
   maleJacket,

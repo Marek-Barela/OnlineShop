@@ -1,21 +1,28 @@
 import { RootAction } from '../redux/root-actions';
-import { setSingleId } from './actions';
+import { setSingleId, setSingleGender } from './actions';
 import { getType } from 'typesafe-actions';
 
-export type IDState = {
+export type State = {
   id: string;
+  gender: string;
 };
 
-export const initialState: IDState = {
-  id: ""
+export const initialState: State = {
+  id: "",
+  gender: ""
 }
 
-export default function (state: IDState = initialState, action: RootAction): IDState {
+export default function (state: State = initialState, action: RootAction): State {
   switch (action.type) {
     case (getType(setSingleId)):
       return {
         ...state,
         id: action.payload
+      }
+    case (getType(setSingleGender)):
+      return {
+        ...state,
+        gender: action.payload
       }
     default:
       return state

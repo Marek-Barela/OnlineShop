@@ -1,5 +1,5 @@
 import React from 'react';
-import ProductDescription from '../../../components/productDescriptionMale/ProductDescription';
+import ProductDescription from '../../../components/productDescriptionFemale/ProductDescription';
 import { fetchSingleProduct } from '../../../features/singleProduct/actions';
 import { setSingleId, setSingleGender } from '../../../features/singleID/actions';
 import getStore from '../../../features/redux/selectors';
@@ -19,7 +19,7 @@ const ProductDescriptionPage: NextFunctionComponent<{}, {}, Store<RootState, Roo
 ProductDescriptionPage.getInitialProps = async (store: any) => {
   const action = getStore(store);
   const { _id } = store.query;
-  action.dispatch(setSingleGender("male"));
+  action.dispatch(setSingleGender("female"));
   action.dispatch(setSingleId(_id));
   action.dispatch(fetchSingleProduct());
   return {};

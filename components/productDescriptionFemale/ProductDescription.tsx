@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import Layout from '../layout/Layout';
 import ProductDetails from '../productDetails/ProductDetails';
 import Grid from '@material-ui/core/Grid';
-import { clothes, boots, sport, accesories } from '../../features/utils/maleNavigation';
+import { clothes, boots, sport, accesories } from '../../features/utils/femaleNavigation';
 import { getSingleProduct } from '../../features/singleProduct/selectors';
 import { Theme } from '@material-ui/core/styles/createMuiTheme';
-import { genderManDefault } from '../../features/utils/gender';
-import { ProductItem } from '../../features/maleProducts/model';
+import { genderWomanDefault } from '../../features/utils/gender';
+import { ProductItem } from '../../features/femaleProducts/model';
 import { connect } from 'react-redux';
 import { RootState } from '../../features/redux/root-reducer';
 import { createStyles, withStyles, WithStyles } from '@material-ui/core/styles';
@@ -31,11 +31,11 @@ type Props = StateProps & WithStyles<typeof styles>;
 class ProductDescription extends Component<Props> {
   render() {
     const { classes, product } = this.props;
-    const maleNavMenu = { clothes, boots, sport, accesories };
+    const femaleNavMenu = { clothes, boots, sport, accesories };
     return (
       <Layout
-        URL={genderManDefault}
-        nav={maleNavMenu}
+        URL={genderWomanDefault}
+        nav={femaleNavMenu}
       >
         <Grid className={classes.container} container>
           <ProductDetails product={product} />

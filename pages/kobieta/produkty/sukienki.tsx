@@ -1,6 +1,6 @@
 import React from 'react';
-import Shirt from '../../../components/woman/Shirt';
-import { fetchProducts } from '../../../features/maleProducts/actions';
+import Dress from '../../../components/woman/Dress';
+import { fetchProducts } from '../../../features/femaleProducts/actions';
 import getStore from '../../../features/redux/selectors';
 import { RootAction } from '../../../features/redux/root-actions';
 import { RootState } from '../../../features/redux/root-reducer';
@@ -10,7 +10,7 @@ import { Store } from 'redux';
 const ProductsPage: NextFunctionComponent<{}, {}, Store<RootState, RootAction>> = () => {
   return (
     <div>
-      <Shirt />
+      <Dress />
     </div>
   );
 };

@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import Layout from '../layout/Layout';
+import Products from '../products/Products';
 import { clothes, boots, sport, accesories } from '../../features/utils/femaleNavigation';
-import { getProducts } from '../../features/maleProducts/selectors';
+import { getProducts } from '../../features/femaleProducts/selectors';
 import { genderWomanDefault } from '../../features/utils/gender';
-import { ProductItem } from '../../features/maleProducts/model';
+import { ProductItem } from '../../features/femaleProducts/model';
 import { connect } from 'react-redux';
 import { RootState } from '../../features/redux/root-reducer';
 
@@ -15,14 +16,17 @@ type Props = StateProps;
 
 class Shirt extends Component<Props> {
   render() {
-    const { } = this.props;
+    const { products } = this.props;
     const femaleNavMenu = { clothes, boots, sport, accesories };
     return (
       <Layout
         URL={genderWomanDefault}
         nav={femaleNavMenu}
       >
-
+        <Products
+          products={products}
+          label="Sukienki"
+        />
       </Layout>
     )
   }

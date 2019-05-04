@@ -1,6 +1,6 @@
 import React from 'react';
 import Woman from '../components/woman/Woman';
-import { fetchProducts } from '../features/maleProducts/actions';
+import { fetchProducts } from '../features/femaleProducts/actions';
 import getStore from '../features/redux/selectors';
 import { RootAction } from '../features/redux/root-actions';
 import { RootState } from '../features/redux/root-reducer';
