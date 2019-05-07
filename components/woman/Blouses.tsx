@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Layout from '../layout/Layout';
 import Products from '../products/Products';
 import { clothes, boots, sport, accesories } from '../../features/utils/femaleNavigation';
-import { getProducts } from '../../features/femaleProductsDress/selectors';
+import { getProducts } from '../../features/femaleProductsBlouses/selectors';
 import { genderWomanDefault } from '../../features/utils/gender';
 import { ProductItem } from '../../features/femaleProducts/model';
 import { connect } from 'react-redux';
@@ -14,7 +14,7 @@ interface StateProps {
 
 type Props = StateProps;
 
-class Dress extends Component<Props> {
+class Blouses extends Component<Props> {
   render() {
     const { products } = this.props;
     const femaleNavMenu = { clothes, boots, sport, accesories };
@@ -25,7 +25,7 @@ class Dress extends Component<Props> {
       >
         <Products
           products={products}
-          label="Sukienki"
+          label="Bluzki"
         />
       </Layout>
     )
@@ -40,4 +40,4 @@ const mapStateToProps = (state: RootState) => {
   };
 };
 
-export default connect<StateProps, {}, {}, RootState>(mapStateToProps, {})(Dress);
+export default connect<StateProps, {}, {}, RootState>(mapStateToProps, {})(Blouses);

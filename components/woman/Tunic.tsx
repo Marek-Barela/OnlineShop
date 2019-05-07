@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Layout from '../layout/Layout';
 import Products from '../products/Products';
 import { clothes, boots, sport, accesories } from '../../features/utils/femaleNavigation';
-import { getProducts } from '../../features/femaleProductsDress/selectors';
+import { getProducts } from '../../features/femaleProductsTunic/selectors';
 import { genderWomanDefault } from '../../features/utils/gender';
 import { ProductItem } from '../../features/femaleProducts/model';
 import { connect } from 'react-redux';
@@ -25,7 +25,7 @@ class Dress extends Component<Props> {
       >
         <Products
           products={products}
-          label="Sukienki"
+          label="Tuniki"
         />
       </Layout>
     )

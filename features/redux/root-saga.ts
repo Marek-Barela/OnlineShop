@@ -15,6 +15,10 @@ import maleBackpacks from '../maleProductsBackpacks/saga';
 import maleBags from '../maleProductsBags/saga';
 import maleWatches from '../maleProductsWatches/saga';
 import maleJewelry from '../maleProductsJewelry/saga';
+import femaleDress from '../femaleProductsDress/saga';
+import femaleTunic from '../femaleProductsTunic/saga';
+import femaleBlouses from '../femaleProductsBlouses/saga';
+import femaleSkirt from '../femaleProductsSkirt/saga';
 import 'isomorphic-unfetch';
 import es6promise from 'es6-promise';
 es6promise.polyfill();
@@ -36,4 +40,8 @@ export default function* rootSaga() {
   yield fork(maleBags);
   yield fork(maleWatches);
   yield fork(maleJewelry);
+  yield fork(femaleDress);
+  yield fork(femaleTunic);
+  yield fork(femaleBlouses);
+  yield fork(femaleSkirt);
 }
