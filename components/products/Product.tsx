@@ -23,6 +23,7 @@ const styles = () => createStyles({
   },
   productImg: {
     width: '100%',
+    minHeight: 390,
     cursor: 'pointer'
   },
   description: {

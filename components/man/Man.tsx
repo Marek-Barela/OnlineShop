@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Layout from '../layout/Layout';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
+import Products from '../products/Products';
 import { clothes, boots, sport, accesories } from '../../features/utils/maleNavigation';
 import { getProducts } from '../../features/maleProducts/selectors';
 import { genderManDefault } from '../../features/utils/gender';
@@ -37,8 +38,8 @@ type Props = StateProps & WithStyles<typeof styles>;
 
 class Man extends Component<Props> {
   render() {
-    const { classes } = this.props;
-    const maleNavMenu = { clothes, boots, sport, accesories }
+    const { classes, products } = this.props;
+    const maleNavMenu = { clothes, boots, sport, accesories };
     return (
       <Layout
         URL={genderManDefault}
@@ -49,6 +50,10 @@ class Man extends Component<Props> {
             Już wkrótce najnowsze trendy...
           </Typography>
         </Grid>
+        <Products
+          products={products}
+          label="Produkty"
+        />
       </Layout>
     )
   }
