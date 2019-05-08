@@ -22,6 +22,7 @@ import femaleSkirt from '../femaleProductsSkirt/saga';
 import femalePins from '../femaleProductsPins/saga';
 import femaleBooties from '../femaleProductsBooties/saga';
 import femaleBallerina from '../femaleProductsBallerina/saga';
+import femaleTracksuit from '../femaleProductsTracksuit/saga';
 import 'isomorphic-unfetch';
 import es6promise from 'es6-promise';
 es6promise.polyfill();
@@ -50,4 +51,5 @@ export default function* rootSaga() {
   yield fork(femalePins);
   yield fork(femaleBooties);
   yield fork(femaleBallerina);
+  yield fork(femaleTracksuit);
 }
