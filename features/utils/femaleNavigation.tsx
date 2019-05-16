@@ -35,7 +35,7 @@ export const boots = [
 export const sport = [
   {
     "label": "Dresy",
-    "endpoint": "/kobieta/produkty/dresy-damskie"
+    "endpoint": "/kobieta/produkty/dresy"
   },
   {
     "label": "Koszulki",
@@ -46,7 +46,7 @@ export const sport = [
 export const accesories = [
   {
     "label": "Torby",
-    "endpoint": "/kobieta/produkty/torby-damskie"
+    "endpoint": "/kobieta/produkty/torby"
   },
   {
     "label": "Zegarki",
