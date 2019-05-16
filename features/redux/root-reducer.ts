@@ -29,6 +29,7 @@ import femaleTracksuit from '../femaleProductsTracksuit/reducer';
 import femaleTshirt from '../femaleProductsTshirt/reducer';
 import femaleBags from '../femaleProductsBags/reducer';
 import femaleWatches from '../femaleProductsWatches/reducer';
+import femaleJewelry from '../femaleProductsJewelry/reducer';
 import setSingleID from '../singleID/reducer';
 
 const reducerMap = {
@@ -61,6 +62,7 @@ const reducerMap = {
   femaleTshirt,
   femaleBags,
   femaleWatches,
+  femaleJewelry,
   setSingleID
 };
 

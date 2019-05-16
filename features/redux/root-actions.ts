@@ -29,6 +29,7 @@ import * as femaleTracksuit from '../femaleProductsTracksuit/actions';
 import * as femaleTshirt from '../femaleProductsTshirt/actions';
 import * as femaleBags from '../femaleProductsBags/actions';
 import * as femaleWatches from '../femaleProductsWatches/actions';
+import * as femaleJewelry from '../femaleProductsJewelry/actions';
 import * as setProductID from '../singleID/actions';
 
 export const actions = {
@@ -61,6 +62,7 @@ export const actions = {
   femaleTshirt,
   femaleBags,
   femaleWatches,
+  femaleJewelry,
   setProductID
 };
 
